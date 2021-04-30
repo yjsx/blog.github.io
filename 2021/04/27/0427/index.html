@@ -20,18 +20,28 @@
     var CONFIG = {"hostname":"yjsx.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="USTC CS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YJSX">
-<meta property="og:url" content="https://yjsx.github.io/archives/index.html">
+  <meta name="description" content="*作者:Siyan Dong *, Qingnan Fan , He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas发表:CVPR 2021 Abstract本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments">
+<meta property="og:url" content="https://yjsx.github.io/2021/04/27/0427/index.html">
 <meta property="og:site_name" content="YJSX">
-<meta property="og:description" content="USTC CS">
+<meta property="og:description" content="*作者:Siyan Dong *, Qingnan Fan , He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas发表:CVPR 2021 Abstract本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十">
 <meta property="og:locale">
+<meta property="og:image" content="https://yjsx.github.io/2021/04/27/0427/1.png">
+<meta property="og:image" content="https://yjsx.github.io/2021/04/27/0427/2.png">
+<meta property="og:image" content="https://yjsx.github.io/2021/04/27/0427/3.png">
+<meta property="article:published_time" content="2021-04-26T18:25:16.000Z">
+<meta property="article:modified_time" content="2021-04-30T18:54:32.757Z">
 <meta property="article:author" content="Duan Yifan">
-<meta property="article:tag" content="SLAM">
+<meta property="article:tag" content="每日论文分享">
+<meta property="article:tag" content="recognition">
+<meta property="article:tag" content="visual">
+<meta property="article:tag" content="dynamic">
+<meta property="article:tag" content="learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yjsx.github.io/2021/04/27/0427/1.png">
 
-<link rel="canonical" href="https://yjsx.github.io/archives/">
+<link rel="canonical" href="https://yjsx.github.io/2021/04/27/0427/">
 
 
 <script id="page-configurations">
@@ -39,12 +49,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Archive | YJSX</title>
+  <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments | YJSX</title>
   
 
 
@@ -153,210 +163,102 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 9 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.github.io/2021/04/27/0427/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Duan Yifan">
+      <meta itemprop="description" content="USTC CS">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YJSX">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-27 02:25:16" itemprop="dateCreated datePublished" datetime="2021-04-27T02:25:16+08:00">2021-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-01 02:54:32" itemprop="dateModified" datetime="2021-05-01T02:54:32+08:00">2021-05-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <p>*作者:Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表:CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十分敏感。为了解决这个问题，我们提出了一种新的可以识别outlier的神经树（neural tree），综合了深度学习和决策树两种方法。该方法由三个部分组成：</p>
+<ol>
+<li>一个按照 分层次划分室内空间 方法构建的决策树；</li>
+<li>一个nerual routing function（不知道咋翻译。。。），使用一个目标识别网络实现，以更好得理解场景；（大概思想是将输入沿着neural tree，一直找到相应的叶子节点，这个过程被称作route）</li>
+<li>一个离群点拒绝模块，用来过滤动态物体。<br>所提出的算法在RIO-10数据集上得到了验证，比SOTA算法效果好了约30%。</li>
+</ol>
+<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2012.04746.pdf">https://arxiv.org/pdf/2012.04746.pdf</a></strong></p>
+<img src="/2021/04/27/0427/1.png" class>
+<img src="/2021/04/27/0427/2.png" class>
+<img src="/2021/04/27/0427/3.png" class>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-30T02:25:25+08:00"
-              content="2021-04-30">
-          04-30
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" rel="tag"># 每日论文分享</a>
+              <a href="/tags/recognition/" rel="tag"># recognition</a>
+              <a href="/tags/visual/" rel="tag"># visual</a>
+              <a href="/tags/dynamic/" rel="tag"># dynamic</a>
+              <a href="/tags/learning/" rel="tag"># learning</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/30/0430/" itemprop="url">
-            <span itemprop="name">0430 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-30T02:25:22+08:00"
-              content="2021-04-30">
-          04-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/30/0429/" itemprop="url">
-            <span itemprop="name">0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-28T02:25:19+08:00"
-              content="2021-04-28">
-          04-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/28/0428/" itemprop="url">
-            <span itemprop="name">0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-27T02:25:16+08:00"
-              content="2021-04-27">
-          04-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/27/0427/" itemprop="url">
-            <span itemprop="name">0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-26T02:25:14+08:00"
-              content="2021-04-26">
-          04-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/26/0426/" itemprop="url">
-            <span itemprop="name">0426 Efficient LiDAR Odometry for Autonomous Driving</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-25T02:25:11+08:00"
-              content="2021-04-25">
-          04-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/25/0425/" itemprop="url">
-            <span itemprop="name">0425 Robust Place Recognition using an Imaging Lidar</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-24T02:25:09+08:00"
-              content="2021-04-24">
-          04-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/24/0424/" itemprop="url">
-            <span itemprop="name">0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-23T02:24:40+08:00"
-              content="2021-04-23">
-          04-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/23/0423/" itemprop="url">
-            <span itemprop="name">0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-22T03:28:11+08:00"
-              content="2021-04-22">
-          04-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/22/0422-LVI-SAM/" itemprop="url">
-            <span itemprop="name">0422 LVI-SAM:Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/26/0426/" rel="prev" title="0426 Efficient LiDAR Odometry for Autonomous Driving">
+      <i class="fa fa-chevron-left"></i> 0426 Efficient LiDAR Odometry for Autonomous Driving
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/28/0428/" rel="next" title="0428 Online Camera-LiDAR Calibration with Sensor Semantic Information">
+      0428 Online Camera-LiDAR Calibration with Sensor Semantic Information <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
