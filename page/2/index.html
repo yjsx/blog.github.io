@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yjsx.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yjsx.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="USTC CS">
@@ -127,6 +127,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
@@ -155,6 +160,88 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.github.io/2021/04/26/0426/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Duan Yifan">
+      <meta itemprop="description" content="USTC CS">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YJSX">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/26/0426/" class="post-title-link" itemprop="url">0426 Efficient LiDAR Odometry for Autonomous Driving</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-26 02:25:14" itemprop="dateCreated datePublished" datetime="2021-04-26T02:25:14+08:00">2021-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-03 18:30:17" itemprop="dateModified" datetime="2021-05-03T18:30:17+08:00">2021-05-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
+<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/26/0426/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -190,8 +277,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-01 03:08:52" itemprop="dateModified" datetime="2021-05-01T03:08:52+08:00">2021-05-01</time>
+                <time title="Modified: 2021-05-03 18:30:18" itemprop="dateModified" datetime="2021-05-03T18:30:18+08:00">2021-05-03</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                </span>
+            </span>
 
           
 
@@ -206,16 +302,14 @@
       
           <p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
 <p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
-<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
-</ol>
-<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a></strong><br><strong>开源代码：<a target="_blank" rel="noopener" href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></strong></p>
-<img src="/2021/04/25/0425/1.png" class>
-<img src="/2021/04/25/0425/2.png" class>
-<img src="/2021/04/25/0425/3.png" class>
-<img src="/2021/04/25/0425/4.png" class>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/25/0425/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -265,8 +359,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-01 03:08:56" itemprop="dateModified" datetime="2021-05-01T03:08:56+08:00">2021-05-01</time>
+                <time title="Modified: 2021-05-03 18:30:19" itemprop="dateModified" datetime="2021-05-03T18:30:19+08:00">2021-05-03</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                </span>
+            </span>
 
           
 
@@ -281,29 +384,14 @@
       
           <p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
 <p><strong>Abstract</strong><br>3D场景理解的监督学习算法的基础是大规模的标注数据。但是，由于数据收集和标注的成本很高，所以公开数据集往往规模都比较小，或者标注的类别不够丰富。这限制了对3D点云细粒度语义理解的发展。在这篇论文中，我们发布了一个城市规模的点云数据集，包含了接近30亿的包含语义信息的点。点云数量是已有数据集的三倍。数据集包含了英国的三个城市（伯明翰，剑桥，约克），约7.6平方千米的覆盖面积。数据被标注成了13个在城市中常见的种类。除此之外，我们对SOTA的算法进行了测试，并且进行分析。最后，文章提出了城市场景语义理解的几个挑战。</p>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>13个标记的种类如下：地面，植被，建筑，墙，桥梁，停车场，铁轨，交通路，街道设施（长凳，电线杆，路灯等），车，人行道，自行车，水。</li>
-<li>数据集使用无人机进行录制，飞行路径和区域等见图二。数据集中的点云也包含RGB信息。</li>
-<li>对已有SOTA算法的测试结果见图四。</li>
-<li>文章末尾提出的点云语义理解的4项挑战：<ol>
-<li>对大规模点云的预处理（即如何下采样以塞进内存里）</li>
-<li>几何信息与颜色信息对分割算法的影响</li>
-<li>类别不平衡</li>
-<li>跨城市的泛化能力</li>
-</ol>
-</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>一个城市规模的3D语义数据集。 </li>
-<li>对现有算法的深入分析研究。</li>
-</ol>
-<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a></strong><br><strong>项目首页：<a target="_blank" rel="noopener" href="https://github.com/QingyongHu/SensatUrban">https://github.com/QingyongHu/SensatUrban</a></strong><br><strong>数据集地址：<a target="_blank" rel="noopener" href="https://forms.gle/m4HJiqZxnq8rmjc8A">https://forms.gle/m4HJiqZxnq8rmjc8A</a></strong></p>
-<img src="/2021/04/24/0424/1.png" class>
-<img src="/2021/04/24/0424/2.png" class>
-<img src="/2021/04/24/0424/3.png" class>
-<img src="/2021/04/24/0424/4.png" class>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/24/0424/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -353,8 +441,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-01 03:08:59" itemprop="dateModified" datetime="2021-05-01T03:08:59+08:00">2021-05-01</time>
+                <time title="Modified: 2021-05-03 18:30:20" itemprop="dateModified" datetime="2021-05-03T18:30:20+08:00">2021-05-03</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                </span>
+            </span>
 
           
 
@@ -369,22 +466,14 @@
       
           <p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
 <p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
-<p><strong>一些信息：</strong></p>
-<ul>
-<li>固态雷达SLAM具体的难点：<ul>
-<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
-<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
-<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
-</ul>
-</li>
-<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
-<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
-</ul>
-<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
-<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a></strong><br><strong>开源代码：<a target="_blank" rel="noopener" href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></strong></p>
-<img src="/2021/04/23/0423/1.png" class>
-<img src="/2021/04/23/0423/2.png" class>
-<img src="/2021/04/23/0423/3.png" class>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/23/0423/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -434,8 +523,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-01 03:00:19" itemprop="dateModified" datetime="2021-05-01T03:00:19+08:00">2021-05-01</time>
+                <time title="Modified: 2021-05-03 18:29:12" itemprop="dateModified" datetime="2021-05-03T18:29:12+08:00">2021-05-03</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                </span>
+            </span>
 
           
 
@@ -457,19 +555,14 @@
 <li>闭环首先由VIS进行识别，再由LIS进行完善</li>
 <li>当任意一个系统发生故障时，LVI-SAM仍然可以稳定运行，提高了在缺乏纹理信息和特征区域的鲁棒性。<br>其中VIS以Vins-Mono为基础，LIS以LIO-SAM为基础。整个系统以IMU的速率输出位姿估计的结果。</li>
 </ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>实现了一个紧耦合的激光-视觉-惯导系统，通过因子图同时完成了多传感器融合和全局优化（包含回环检测）两项任务。</li>
-<li>通过故障检测机制，绕过出现问题的子系统，提高了整个系统的鲁棒性。</li>
-</ol>
-<p><strong>论文地址：</strong><a target="_blank" rel="noopener" href="https://github.com/TixiaoShan/LVI-SAM/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/LVI-SAM/blob/master/doc/paper.pdf</a><br><strong>开源代码：</strong><a target="_blank" rel="noopener" href="https://github.com/TixiaoShan/LVI-SAM">https://github.com/TixiaoShan/LVI-SAM</a></p>
-<img src="/2021/04/22/0422-LVI-SAM/1.png" class>
-<img src="/2021/04/22/0422-LVI-SAM/2.png" class>
-<img src="/2021/04/22/0422-LVI-SAM/3.png" class>
-<img src="/2021/04/22/0422-LVI-SAM/4.png" class>
-<img src="/2021/04/22/0422-LVI-SAM/5.png" class>
-<img src="/2021/04/22/0422-LVI-SAM/6.png" class>
-<img src="/2021/04/22/0422-LVI-SAM/7.png" class>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/22/0422-LVI-SAM/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -555,9 +648,15 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
