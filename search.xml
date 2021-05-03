@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>0422 LVI-SAM:Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping</title>
+    <url>/2021/04/22/0422-LVI-SAM/</url>
+    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们通过SAM(smoothing and mapping)的方式，提出了一个 雷达-视觉-惯导的紧耦合的SLAM框架-LVI-SAM。该框架可以实时进行状态估计和高精度地图的构建。LVI-SAM分为两个部分：视觉惯性系统VIS 和 雷达惯性系统 LIS。这两个子系统均以紧耦合的方式进行设计。两个系统并行的作用如下：</p>
+<ol>
+<li>VIS利用LIS的估计进行初始化。</li>
+<li>通过使用激光雷达的测量结果来优化VIS中视觉特征的深度信息，可以提高VIS的准确性。</li>
+<li>LIS也可以利用VIS对位姿的估计，作为点云配准的初始值。</li>
+<li>闭环首先由VIS进行识别，再由LIS进行完善</li>
+<li>当任意一个系统发生故障时，LVI-SAM仍然可以稳定运行，提高了在缺乏纹理信息和特征区域的鲁棒性。<br>其中VIS以Vins-Mono为基础，LIS以LIO-SAM为基础。整个系统以IMU的速率输出位姿估计的结果。</li>
+</ol>
+<span id="more"></span>
+
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>实现了一个紧耦合的激光-视觉-惯导系统，通过因子图同时完成了多传感器融合和全局优化（包含回环检测）两项任务。</li>
+<li>通过故障检测机制，绕过出现问题的子系统，提高了整个系统的鲁棒性。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/LVI-SAM/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/LVI-SAM/blob/master/doc/paper.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/LVI-SAM">https://github.com/TixiaoShan/LVI-SAM</a></p>
+<img src="/2021/04/22/0422-LVI-SAM/1.png" class>
+<img src="/2021/04/22/0422-LVI-SAM/2.png" class>
+<img src="/2021/04/22/0422-LVI-SAM/3.png" class>
+<img src="/2021/04/22/0422-LVI-SAM/4.png" class>
+<img src="/2021/04/22/0422-LVI-SAM/5.png" class>
+<img src="/2021/04/22/0422-LVI-SAM/6.png" class>
+<img src="/2021/04/22/0422-LVI-SAM/7.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>fusion-slam</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
+    <url>/2021/04/23/0423/</url>
+    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ul>
+<li>固态雷达SLAM具体的难点：<ul>
+<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
+<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
+<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
+</ul>
+</li>
+<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
+<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
+</ul>
+<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
+<img src="/2021/04/23/0423/1.png" class>
+<img src="/2021/04/23/0423/2.png" class>
+<img src="/2021/04/23/0423/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>Solid-State</tag>
+        <tag>system</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</title>
+    <url>/2021/04/24/0424/</url>
+    <content><![CDATA[<p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>3D场景理解的监督学习算法的基础是大规模的标注数据。但是，由于数据收集和标注的成本很高，所以公开数据集往往规模都比较小，或者标注的类别不够丰富。这限制了对3D点云细粒度语义理解的发展。在这篇论文中，我们发布了一个城市规模的点云数据集，包含了接近30亿的包含语义信息的点。点云数量是已有数据集的三倍。数据集包含了英国的三个城市（伯明翰，剑桥，约克），约7.6平方千米的覆盖面积。数据被标注成了13个在城市中常见的种类。除此之外，我们对SOTA的算法进行了测试，并且进行分析。最后，文章提出了城市场景语义理解的几个挑战。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>13个标记的种类如下：地面，植被，建筑，墙，桥梁，停车场，铁轨，交通路，街道设施（长凳，电线杆，路灯等），车，人行道，自行车，水。</li>
+<li>数据集使用无人机进行录制，飞行路径和区域等见图二。数据集中的点云也包含RGB信息。</li>
+<li>对已有SOTA算法的测试结果见图四。</li>
+<li>文章末尾提出的点云语义理解的4项挑战：<ol>
+<li>对大规模点云的预处理（即如何下采样以塞进内存里）</li>
+<li>几何信息与颜色信息对分割算法的影响</li>
+<li>类别不平衡</li>
+<li>跨城市的泛化能力</li>
+</ol>
+</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>一个城市规模的3D语义数据集。 </li>
+<li>对现有算法的深入分析研究。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>项目首页：</strong><a href="https://github.com/QingyongHu/SensatUrban">https://github.com/QingyongHu/SensatUrban</a><br><strong>数据集地址：</strong><a href="https://forms.gle/m4HJiqZxnq8rmjc8A">https://forms.gle/m4HJiqZxnq8rmjc8A</a></p>
+<img src="/2021/04/24/0424/1.png" class>
+<img src="/2021/04/24/0424/2.png" class>
+<img src="/2021/04/24/0424/3.png" class>
+<img src="/2021/04/24/0424/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>dataset</tag>
+        <tag>semantic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0425 Robust Place Recognition using an Imaging Lidar</title>
+    <url>/2021/04/25/0425/</url>
+    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
+<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></p>
+<img src="/2021/04/25/0425/1.png" class>
+<img src="/2021/04/25/0425/2.png" class>
+<img src="/2021/04/25/0425/3.png" class>
+<img src="/2021/04/25/0425/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>recognition</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0426 Efficient LiDAR Odometry for Autonomous Driving</title>
+    <url>/2021/04/26/0426/</url>
+    <content><![CDATA[<p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
+<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
+<span id="more"></span>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>利用非地面球面深度图像与地面点云鸟瞰图的雷达里程计</li>
+<li>自适应法向量估计方法</li>
+<li>高效的模型更新方法（指局部地图的更新）</li>
+<li>在kitti上取得了不错的成绩，且整体的运行速度在笔记本电脑上可以达到恐怖的169Hz</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.10879.pdf">https://arxiv.org/pdf/2104.10879.pdf</a></p>
+<img src="/2021/04/26/0426/1.png" class>
+<img src="/2021/04/26/0426/2.png" class>
+<img src="/2021/04/26/0426/3.png" class>
+<img src="/2021/04/26/0426/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>Odometry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</title>
+    <url>/2021/04/27/0427/</url>
+    <content><![CDATA[<p>*作者: Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表: CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十分敏感。为了解决这个问题，我们提出了一种新的可以识别outlier的神经树（neural tree），综合了深度学习和决策树两种方法。该方法由三个部分组成：</p>
+<ol>
+<li>一个按照 分层次划分室内空间 方法构建的决策树；</li>
+<li>一个nerual routing function（不知道咋翻译。。。），使用一个目标识别网络实现，以更好得理解场景；（大概思想是将输入沿着neural tree，一直找到相应的叶子节点，这个过程被称作route）</li>
+<li>一个离群点拒绝模块，用来过滤动态物体。<br>所提出的算法在RIO-10数据集上得到了验证，比SOTA算法效果好了约30%。<span id="more"></span></li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2012.04746.pdf">https://arxiv.org/pdf/2012.04746.pdf</a></p>
+<img src="/2021/04/27/0427/1.png" class>
+<img src="/2021/04/27/0427/2.png" class>
+<img src="/2021/04/27/0427/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>recognition</tag>
+        <tag>visual</tag>
+        <tag>dynamic</tag>
+        <tag>learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
+    <url>/2021/04/28/0428/</url>
+    <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
+<p><strong>Abstract</strong><br>作为数据融合的关键步骤，传感器标定在计算机视觉任务中扮演着重要角色。现有的技术通常需要大量的人力工作和复杂的设置，或者并不鲁棒易于产生次优解。在本文中，我们主要关注相机和激光雷达这两种在室外常用的传感器。我们提出了一种实时在线的标定，可以寻找二者之间最优的刚性位姿变化，而且不需要特殊的环境设置（指放置棋盘格等）。使用一个基于语义特征的新的标定度量标准，我们将标定任务表示为一个最优化问题，成功地将同步的一对数据进行实时对齐。效果达到了SOTA水平。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>使用PSPNet对图像进行语义分割（提取出来汽车的轮廓）。</li>
+<li>将图片按照一定的步骤形成height map（如图二）。</li>
+<li>通过计算过滤掉地面的点云与height map的重叠部分，来定义标定的qulity metric。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9196627">https://ieeexplore.ieee.org/document/9196627</a></p>
+<img src="/2021/04/28/0428/1.png" class>
+<img src="/2021/04/28/0428/2.png" class>
+<img src="/2021/04/28/0428/3.png" class>
+<img src="/2021/04/28/0428/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>semantic</tag>
+        <tag>visual</tag>
+        <tag>calibration</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</title>
+    <url>/2021/04/30/0429/</url>
+    <content><![CDATA[<p><em>作者: Julian Nubert, Shehryar Khattak and Marco Hutter</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本文提出了一种通用的自监督雷达里程计的估计方法，保证实时性的同时可以充分利用所有可以使用的点云。该方法在训练阶段使用从输入数据中提取的几何损失。除此之外，该方法不需要标注或者ground truth，所以可以方便的在没有ground truth的场景使用。这种网络结构在各种机器人以及室内/外环境的多种数据集上得到了验证，不需要更改损失函数或者网络结构，具有通用性。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong><br>使用了两种损失函数，分别为点到平面的距离和平面到平面的距离，如图1所示。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2011.05418.pdf">https://arxiv.org/pdf/2011.05418.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/leggedrobotics/DeLORA">https://github.com/leggedrobotics/DeLORA</a></p>
+<img src="/2021/04/30/0429/1.png" class>
+<img src="/2021/04/30/0429/2.png" class>
+<img src="/2021/04/30/0429/3.png" class>
+<img src="/2021/04/30/0429/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0501 Pixel-level Extrinsic Self Calibration of High Resolution LiDAR and Camera in Targetless Environment</title>
+    <url>/2021/05/01/0501/</url>
+    <content><![CDATA[<p><em>作者: Chongjian Yuan, Xiyuan Liu, Xiaoping Hong, Fu Zhang</em><br><em>机构: hku</em><br><em>发表: arxiv</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一种高分辨率雷达和相机之间外参自动标定的方法。我们的方法不需要标定板，而且可以通过对齐两种传感器中的边特征以达到像素级准确度。在理论层面，我们分析了边特征带来的约束，以及标定准确度对环境中边特征分布的敏感度。在实现层面，我们研究了雷达测距的规律，提出了一个基于体素化以及平面拟合的高效准确的提取雷达边特征的方法。由于在自然环境中，边特征十分丰富，所以我们在室内外均进行实验，得到了鲁棒性强，准确性高的实验结果。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>由于相机和雷达位置不一样导致视野有少许差异，文章提出了因为障碍物的存在导致的两种投影问题，zero-valued和multi-valued。前者为相机看见但雷达看不见的区域，导致部分图像上没有点云数据，如图2的A区域；后者为雷达看见而相机看不见的区域，导致本该属于背景物体的点云投影到了前景物体上，如图二的B区域。</li>
+<li>为了避免上述问题，提出将线特征分为两类，深度连续和深度不连续，如图3所示。深度不连续的边特征往往不那么可靠。</li>
+<li>深度连续边特征的提取方法如图5所示。<ol>
+<li>将点云划分为小voxel</li>
+<li>对每个voxel内的点，使用RANSEC拟合若干平面，对每一对平面寻找其交线</li>
+</ol>
+</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.01627.pdf">https://arxiv.org/pdf/2103.01627.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/hku-mars/livox_camera_calib">https://github.com/hku-mars/livox_camera_calib</a></p>
+<img src="/2021/05/01/0501/1.png" class>
+<img src="/2021/05/01/0501/2.png" class>
+<img src="/2021/05/01/0501/3.png" class>
+<img src="/2021/05/01/0501/4.png" class>
+<img src="/2021/05/01/0501/5.png" class>
+<img src="/2021/05/01/0501/6.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>visual</tag>
+        <tag>calibration</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0430 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</title>
+    <url>/2021/04/30/0430/</url>
+    <content><![CDATA[<p><em>作者: Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</em><br><em>机构: NTU+CMU</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>现有的VSLAM框架大多依赖静态环境，在动态环境中很容易失效。一些最近的工作使用深度学习得到语义信息来避免动态物体的影响，但是这些方法一般有着很高的计算开销，并且不能处理没有见过的物体。在本篇文章中，我们提出了一个实时的语义RGBD SLAM，可以处理见过或没见过的动态物体。为了减少计算开销，我们只对关键帧进行语义分割以剔除已知动态物体，并维护一个静态地图。除此之外，我们提出了一个高效的几何模块来检测未知的动态物体，具体方法为将深度图像聚类并通过重投影误差来识别动态区域。提出的方法在数据集以及真实场景进行测试。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>整个系统基于ORB-SLAM2，本文工作的目的是剔除属于动态物体的特征点。</li>
+<li>语义分割部分使用轻量级网络SegNet。</li>
+<li>不需要先验信息的几何模块，使用K-Means算法进行聚类（聚类数量N = 24），随后进行重投影误差的计算，误差大的则视为动态物体。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.01316v1.pdf">https://arxiv.org/pdf/2104.01316v1.pdf</a></p>
+<img src="/2021/04/30/0430/1.png" class>
+<img src="/2021/04/30/0430/2.png" class>
+<img src="/2021/04/30/0430/3.png" class>
+<img src="/2021/04/30/0430/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>semantic</tag>
+        <tag>dynamic</tag>
+        <tag>RGBD</tag>
+      </tags>
+  </entry>
+</search>
