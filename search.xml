@@ -37,39 +37,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
-    <url>/2021/04/23/0423/</url>
-    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ul>
-<li>固态雷达SLAM具体的难点：<ul>
-<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
-<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
-<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
-</ul>
-</li>
-<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
-<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
-</ul>
-<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
-<img src="/2021/04/23/0423/1.png" class>
-<img src="/2021/04/23/0423/2.png" class>
-<img src="/2021/04/23/0423/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>Solid-State</tag>
-        <tag>system</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</title>
     <url>/2021/04/24/0424/</url>
     <content><![CDATA[<p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
@@ -105,6 +72,39 @@
         <tag>每日论文分享</tag>
         <tag>dataset</tag>
         <tag>semantic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
+    <url>/2021/04/23/0423/</url>
+    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ul>
+<li>固态雷达SLAM具体的难点：<ul>
+<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
+<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
+<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
+</ul>
+</li>
+<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
+<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
+</ul>
+<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
+<img src="/2021/04/23/0423/1.png" class>
+<img src="/2021/04/23/0423/2.png" class>
+<img src="/2021/04/23/0423/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>Solid-State</tag>
+        <tag>system</tag>
       </tags>
   </entry>
   <entry>
@@ -207,8 +207,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>semantic</tag>
+        <tag>LiDAR</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
       </tags>
@@ -298,7 +298,7 @@
   </entry>
   <entry>
     <title>0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</title>
-    <url>/2021/05/04/0502/</url>
+    <url>/2021/05/02/0502/</url>
     <content><![CDATA[<p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
 <p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
 <span id="more"></span>
@@ -308,9 +308,9 @@
 <li>匹配算法如图二所示。</li>
 </ol>
 <p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14805.pdf">https://arxiv.org/pdf/2103.14805.pdf</a><br><strong>开源代码：</strong><a href="https://gitlab.com/warplab/ros/sunshine">https://gitlab.com/warplab/ros/sunshine</a></p>
-<img src="/2021/05/04/0502/1.png" class>
-<img src="/2021/05/04/0502/2.png" class>
-<img src="/2021/05/04/0502/3.png" class>]]></content>
+<img src="/2021/05/02/0502/1.png" class>
+<img src="/2021/05/02/0502/2.png" class>
+<img src="/2021/05/02/0502/3.png" class>]]></content>
       <tags>
         <tag>每日论文分享</tag>
       </tags>
@@ -344,6 +344,63 @@
         <tag>LiDAR</tag>
         <tag>IMU</tag>
         <tag>solid</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving</title>
+    <url>/2021/05/05/0504/</url>
+    <content><![CDATA[<p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br>*机构:*HKUST<br>*发表:*IROS 2020</p>
+<p>注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。</p>
+<p><strong>Abstract</strong><br>在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误差等）总会存在（如图1）。在本篇文章中，我们关注了这种外参的不确定因素在多激光雷达3D目标检测任务中的影响。我们首先分析了外参扰动对两个简单几何任务的影响。为了最小化有害的影响，我们将不确定因素传播给了每一个输入的点云，然后使用这个信息来改进3D几何任务的方法。随后我们扩展了我们的发现，提出了一个3D目标检测的网络——MLOD。MLOD是一个两阶段的网络，在第一个阶段融合多个雷达的信息，并在第二个极端处理外参的扰动。最后我们进行了真实的实验。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>文章尝试了三种融合方案：分别在输入，特征，输出阶段，执行LiDAR的融合；</li>
+<li>文章对外参的不确定性与模型的测量误差一起进行建模；</li>
+<li>使用SECOND来生成3D proposals。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>分析了外参扰动对多雷达几何任务的影响，并证明了输入不确定性的先验可以提高对这种影响的鲁棒性；</li>
+<li>我们提出了一种两阶段的3D目标检测方法；</li>
+<li>进行了实际实验。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.11702.pdf">https://arxiv.org/pdf/2010.11702.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/mlod">https://ram-lab.com/file/site/mlod</a></p>
+<img src="/2021/05/05/0504/1.png" class>
+<img src="/2021/05/05/0504/2.png" class>
+<img src="/2021/05/05/0504/3.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>505</title>
+    <url>/2021/05/05/0505/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
       </tags>
   </entry>
 </search>
