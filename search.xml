@@ -186,28 +186,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</title>
-    <url>/2021/04/30/0429/</url>
-    <content><![CDATA[<p><em>作者: Julian Nubert, Shehryar Khattak and Marco Hutter</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>本文提出了一种通用的自监督雷达里程计的估计方法，保证实时性的同时可以充分利用所有可以使用的点云。该方法在训练阶段使用从输入数据中提取的几何损失。除此之外，该方法不需要标注或者ground truth，所以可以方便的在没有ground truth的场景使用。这种网络结构在各种机器人以及室内/外环境的多种数据集上得到了验证，不需要更改损失函数或者网络结构，具有通用性。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong><br>使用了两种损失函数，分别为点到平面的距离和平面到平面的距离，如图1所示。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2011.05418.pdf">https://arxiv.org/pdf/2011.05418.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/leggedrobotics/DeLORA">https://github.com/leggedrobotics/DeLORA</a></p>
-<img src="/2021/04/30/0429/1.png" class>
-<img src="/2021/04/30/0429/2.png" class>
-<img src="/2021/04/30/0429/3.png" class>
-<img src="/2021/04/30/0429/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
     <url>/2021/04/28/0428/</url>
     <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
@@ -233,6 +211,28 @@
         <tag>semantic</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</title>
+    <url>/2021/04/30/0429/</url>
+    <content><![CDATA[<p><em>作者: Julian Nubert, Shehryar Khattak and Marco Hutter</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本文提出了一种通用的自监督雷达里程计的估计方法，保证实时性的同时可以充分利用所有可以使用的点云。该方法在训练阶段使用从输入数据中提取的几何损失。除此之外，该方法不需要标注或者ground truth，所以可以方便的在没有ground truth的场景使用。这种网络结构在各种机器人以及室内/外环境的多种数据集上得到了验证，不需要更改损失函数或者网络结构，具有通用性。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong><br>使用了两种损失函数，分别为点到平面的距离和平面到平面的距离，如图1所示。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2011.05418.pdf">https://arxiv.org/pdf/2011.05418.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/leggedrobotics/DeLORA">https://github.com/leggedrobotics/DeLORA</a></p>
+<img src="/2021/04/30/0429/1.png" class>
+<img src="/2021/04/30/0429/2.png" class>
+<img src="/2021/04/30/0429/3.png" class>
+<img src="/2021/04/30/0429/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>learning</tag>
       </tags>
   </entry>
   <entry>
@@ -416,7 +416,7 @@
   </entry>
   <entry>
     <title>0506 Robust Odometry and Mapping for Multi-LiDAR Systems with Online Extrinsic Calibration</title>
-    <url>/2021/05/07/0506/</url>
+    <url>/2021/05/06/0506/</url>
     <content><![CDATA[<p><em>作者:Jianhao Jiao, Haoyang Ye, Yilong Zhu, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:T-RO 2021</em></p>
 <p><strong>Abstract</strong><br>结合多个激光雷达可以使机器人最大化它对环境的感知能力。本篇文章提出了一个系统实现了鲁棒且实时的多激光雷达的外参标定，里程计和建图。我们的方法包含以下步骤：</p>
 <ol>
@@ -453,11 +453,11 @@
 <li>一个两阶段的构建地图方法，可以将地图中不确定性高的噪点去除。</li>
 </ol>
 <p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.14294.pdf">https://arxiv.org/pdf/2010.14294.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/m-loam">https://ram-lab.com/file/site/m-loam</a></p>
-<img src="/2021/05/07/0506/1.png" class>
-<img src="/2021/05/07/0506/2.png" class>
-<img src="/2021/05/07/0506/3.png" class>
-<img src="/2021/05/07/0506/4.png" class>
-<img src="/2021/05/07/0506/5.png" class>
+<img src="/2021/05/06/0506/1.png" class>
+<img src="/2021/05/06/0506/2.png" class>
+<img src="/2021/05/06/0506/3.png" class>
+<img src="/2021/05/06/0506/4.png" class>
+<img src="/2021/05/06/0506/5.png" class>
 ]]></content>
       <categories>
         <category>每日论文分享</category>
@@ -471,17 +471,17 @@
   </entry>
   <entry>
     <title>0507 3D Surfel Map-Aided Visual Relocalization with Learned Descriptors</title>
-    <url>/2021/05/08/0507/</url>
+    <url>/2021/05/07/0507/</url>
     <content><![CDATA[<p><em>作者:Haoyang Ye, Huaiyang Huang, Marco Hutter, Timothy Sandy, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
 <p><strong>Abstract</strong><br>在本篇文章中，我们介绍了一种视觉重定位的方法，使用3Dsurfel地图的几何信息。首先我们对3D surfel地图进行全局索引，以构建一个数据库来将图像点和surfel地图相对应。利用Surfel重投影约束来优化数据库中的关键帧位姿和地图点。 然后，分层次的相机重新定位算法利用数据库来估计6自由度的相机位姿。 学习得到的descriptor（指super point）可进一步用来提高在具有挑战性的场景下的性能。 最后，进行了实际实验。</p>
 <span id="more"></span>
 
 <p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/ye2021icra.pdf">https://www.ram-lab.com/papers/2021/ye2021icra.pdf</a></p>
-<img src="/2021/05/08/0507/1.png" class>
-<img src="/2021/05/08/0507/2.png" class>
-<img src="/2021/05/08/0507/3.png" class>
-<img src="/2021/05/08/0507/4.png" class>
-<img src="/2021/05/08/0507/5.png" class>
+<img src="/2021/05/07/0507/1.png" class>
+<img src="/2021/05/07/0507/2.png" class>
+<img src="/2021/05/07/0507/3.png" class>
+<img src="/2021/05/07/0507/4.png" class>
+<img src="/2021/05/07/0507/5.png" class>
 ]]></content>
       <categories>
         <category>每日论文分享</category>
