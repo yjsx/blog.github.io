@@ -37,6 +37,39 @@
       </tags>
   </entry>
   <entry>
+    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
+    <url>/2021/04/23/0423/</url>
+    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ul>
+<li>固态雷达SLAM具体的难点：<ul>
+<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
+<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
+<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
+</ul>
+</li>
+<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
+<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
+</ul>
+<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
+<img src="/2021/04/23/0423/1.png" class>
+<img src="/2021/04/23/0423/2.png" class>
+<img src="/2021/04/23/0423/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>Solid-State</tag>
+        <tag>system</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</title>
     <url>/2021/04/24/0424/</url>
     <content><![CDATA[<p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
@@ -72,39 +105,6 @@
         <tag>每日论文分享</tag>
         <tag>dataset</tag>
         <tag>semantic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
-    <url>/2021/04/23/0423/</url>
-    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ul>
-<li>固态雷达SLAM具体的难点：<ul>
-<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
-<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
-<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
-</ul>
-</li>
-<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
-<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
-</ul>
-<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
-<img src="/2021/04/23/0423/1.png" class>
-<img src="/2021/04/23/0423/2.png" class>
-<img src="/2021/04/23/0423/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>Solid-State</tag>
-        <tag>system</tag>
       </tags>
   </entry>
   <entry>
@@ -186,6 +186,28 @@
       </tags>
   </entry>
   <entry>
+    <title>0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</title>
+    <url>/2021/04/30/0429/</url>
+    <content><![CDATA[<p><em>作者: Julian Nubert, Shehryar Khattak and Marco Hutter</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本文提出了一种通用的自监督雷达里程计的估计方法，保证实时性的同时可以充分利用所有可以使用的点云。该方法在训练阶段使用从输入数据中提取的几何损失。除此之外，该方法不需要标注或者ground truth，所以可以方便的在没有ground truth的场景使用。这种网络结构在各种机器人以及室内/外环境的多种数据集上得到了验证，不需要更改损失函数或者网络结构，具有通用性。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong><br>使用了两种损失函数，分别为点到平面的距离和平面到平面的距离，如图1所示。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2011.05418.pdf">https://arxiv.org/pdf/2011.05418.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/leggedrobotics/DeLORA">https://github.com/leggedrobotics/DeLORA</a></p>
+<img src="/2021/04/30/0429/1.png" class>
+<img src="/2021/04/30/0429/2.png" class>
+<img src="/2021/04/30/0429/3.png" class>
+<img src="/2021/04/30/0429/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
     <url>/2021/04/28/0428/</url>
     <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
@@ -207,32 +229,10 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>semantic</tag>
         <tag>LiDAR</tag>
+        <tag>semantic</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</title>
-    <url>/2021/04/30/0429/</url>
-    <content><![CDATA[<p><em>作者: Julian Nubert, Shehryar Khattak and Marco Hutter</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>本文提出了一种通用的自监督雷达里程计的估计方法，保证实时性的同时可以充分利用所有可以使用的点云。该方法在训练阶段使用从输入数据中提取的几何损失。除此之外，该方法不需要标注或者ground truth，所以可以方便的在没有ground truth的场景使用。这种网络结构在各种机器人以及室内/外环境的多种数据集上得到了验证，不需要更改损失函数或者网络结构，具有通用性。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong><br>使用了两种损失函数，分别为点到平面的距离和平面到平面的距离，如图1所示。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2011.05418.pdf">https://arxiv.org/pdf/2011.05418.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/leggedrobotics/DeLORA">https://github.com/leggedrobotics/DeLORA</a></p>
-<img src="/2021/04/30/0429/1.png" class>
-<img src="/2021/04/30/0429/2.png" class>
-<img src="/2021/04/30/0429/3.png" class>
-<img src="/2021/04/30/0429/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>learning</tag>
       </tags>
   </entry>
   <entry>
@@ -349,7 +349,7 @@
   <entry>
     <title>0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving</title>
     <url>/2021/05/05/0504/</url>
-    <content><![CDATA[<p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br>*机构:*HKUST<br>*发表:*IROS 2020</p>
+    <content><![CDATA[<p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:IROS 2020</em></p>
 <p>注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。</p>
 <p><strong>Abstract</strong><br>在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误差等）总会存在（如图1）。在本篇文章中，我们关注了这种外参的不确定因素在多激光雷达3D目标检测任务中的影响。我们首先分析了外参扰动对两个简单几何任务的影响。为了最小化有害的影响，我们将不确定因素传播给了每一个输入的点云，然后使用这个信息来改进3D几何任务的方法。随后我们扩展了我们的发现，提出了一个3D目标检测的网络——MLOD。MLOD是一个两阶段的网络，在第一个阶段融合多个雷达的信息，并在第二个极端处理外参的扰动。最后我们进行了真实的实验。</p>
 <span id="more"></span>
@@ -380,27 +380,117 @@
       </tags>
   </entry>
   <entry>
-    <title>505</title>
+    <title>0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM</title>
     <url>/2021/05/05/0505/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
+    <content><![CDATA[<p><em>作者:Jianhao Jiao, Yilong Zhu, Haoyang Ye, Huaiyang Huang, Peng Yun, Linxin Jiang, Lujia Wang, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
+<p>注：多激光雷达（2/3），本篇关注激光SLAM中提取到特征点的选择问题。</p>
+<p><strong>Abstract</strong><br>激光SLAM在大规模真实场景下，虽然可以达到很好的结果，但是一般都会有很高的延迟（因为点云配准和非线性优化）。本文证明了选择特征的一个子集对激光SLAM系统准确性和延迟都有积极的作用。我们将特征选择（feature selection，不是feature extraction）表示为一个组合优化问题，在数量约束的前提下保持信息矩阵的spectral属性。使用随机贪婪算法来实时估计最优解。为了避免坏估计，我们还提出了一个评价环境是否退化的策略，来实时修改特征的数量。提出的方法还被用到了多激光雷达SLAM系统（M-LOAM-gf）。最后进行了真实的实验.</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
+<ol>
+<li>文章关注如何选择“good feature”，这种特征定义为：对位姿估计最有用的特征。具体算法见图1；</li>
+<li>使用lamda来评价环境，lamda定义见图2；</li>
+</ol>
 <p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
-
-
-
-
-
-
-
+<ol>
+<li>我们将好特征选择的问题转化为保持信息矩阵谱属性的问题，谱属性定义为矩阵的特征值；</li>
+<li>将提出的算法与多激光SLAM系统相融合，并提出了如何评价环境退化的方法和自适应调整特征数量的方法；</li>
+<li>进行了实际实验。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf">https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/m-loam">https://ram-lab.com/file/site/m-loam</a></p>
+<img src="/2021/05/05/0505/1.png" class>
+<img src="/2021/05/05/0505/2.png" class>
+<img src="/2021/05/05/0505/3.png" class>
+<img src="/2021/05/05/0505/4.png" class>
+<img src="/2021/05/05/0505/5.png" class>
 ]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0506 Robust Odometry and Mapping for Multi-LiDAR Systems with Online Extrinsic Calibration</title>
+    <url>/2021/05/07/0506/</url>
+    <content><![CDATA[<p><em>作者:Jianhao Jiao, Haoyang Ye, Yilong Zhu, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:T-RO 2021</em></p>
+<p><strong>Abstract</strong><br>结合多个激光雷达可以使机器人最大化它对环境的感知能力。本篇文章提出了一个系统实现了鲁棒且实时的多激光雷达的外参标定，里程计和建图。我们的方法包含以下步骤：</p>
+<ol>
+<li>从原数据提取边特征面特征（数据预处理）；</li>
+<li>运动估计和外参标定的初始化，随后一个基于滑动窗口的多雷达里程计，伴随着实时外参标定和收敛性判断。</li>
+<li>我们开发了一个建图算法来构建全局地图，并且使用scan-to-map的方式优化位姿并减少不确定性。<br>我们在10个序列上评估了标定和SLAM的结果，并和SOTA做对比。<span id="more"></span></li>
+</ol>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>整个流程如图1所示，分为如下几个模块:数据预处理，初始化，雷达里程计，建图</li>
+<li>数据预处理所做的事情：点云分割（聚类），提取边特征面特征（与LOAM一样）；</li>
+<li>初始化所做的事情：<ol>
+<li>雷达里程计（scan-to-scan，与LOAM的不同为:对边特征的处理,LOAM中计算边特征的残差为点到边的距离，这里修改为点到相交出这条线的两个面的距离的一个向量，这样的好处是1.提供了更多的约束；2.是向量，可以乘协方差矩阵）</li>
+<li>外参标定：通过对齐其两个雷达的运动序列来获得初始值</li>
+</ol>
+</li>
+<li>基于滑动窗口的雷达里程计所做的事情：<ol>
+<li>将点云地图分为三部分，如图3：base-LiDAR产生的前X1-Xp，Xp+1到XN+1,其他雷达生成的；</li>
+<li>对第一部分视作不动的，第二部分在优化中还要继续优化，第三部分根据标定的收敛性判断如何使用；</li>
+<li>边缘化方法来更新滑动窗口</li>
+</ol>
+</li>
+<li>可抛弃不确定性高的点的建图模块：<ol>
+<li>不确定性有以下几种情况：退化的位姿估计，外参扰动</li>
+<li>这一部分看起来与前天介绍的第一篇有些类似，对不确定性进行建模。</li>
+</ol>
+</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>自动初始化，计算外参以及计算位姿变化。</li>
+<li>完全不需要外部介入的标定方法；</li>
+<li>基于滑动窗口的里程计方法；</li>
+<li>一个两阶段的构建地图方法，可以将地图中不确定性高的噪点去除。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.14294.pdf">https://arxiv.org/pdf/2010.14294.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/m-loam">https://ram-lab.com/file/site/m-loam</a></p>
+<img src="/2021/05/07/0506/1.png" class>
+<img src="/2021/05/07/0506/2.png" class>
+<img src="/2021/05/07/0506/3.png" class>
+<img src="/2021/05/07/0506/4.png" class>
+<img src="/2021/05/07/0506/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>calibration</tag>
+        <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0507 3D Surfel Map-Aided Visual Relocalization with Learned Descriptors</title>
+    <url>/2021/05/08/0507/</url>
+    <content><![CDATA[<p><em>作者:Haoyang Ye, Huaiyang Huang, Marco Hutter, Timothy Sandy, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>在本篇文章中，我们介绍了一种视觉重定位的方法，使用3Dsurfel地图的几何信息。首先我们对3D surfel地图进行全局索引，以构建一个数据库来将图像点和surfel地图相对应。利用Surfel重投影约束来优化数据库中的关键帧位姿和地图点。 然后，分层次的相机重新定位算法利用数据库来估计6自由度的相机位姿。 学习得到的descriptor（指super point）可进一步用来提高在具有挑战性的场景下的性能。 最后，进行了实际实验。</p>
+<span id="more"></span>
+
+<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/ye2021icra.pdf">https://www.ram-lab.com/papers/2021/ye2021icra.pdf</a></p>
+<img src="/2021/05/08/0507/1.png" class>
+<img src="/2021/05/08/0507/2.png" class>
+<img src="/2021/05/08/0507/3.png" class>
+<img src="/2021/05/08/0507/4.png" class>
+<img src="/2021/05/08/0507/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>visual</tag>
+        <tag>relocalization</tag>
+        <tag>surfel</tag>
       </tags>
   </entry>
 </search>

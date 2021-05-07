@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yjsx.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu*机构:*HKUST*发表:*IROS 2020 注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。 Abstract在多传感器系统中，外参的扰动（比如震动，温度导致的漂移">
+  <meta name="description" content="作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu机构:HKUST发表:IROS 2020 注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。 Abstract在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving">
 <meta property="og:url" content="https://yjsx.top/2021/05/05/0504/index.html">
 <meta property="og:site_name" content="YJSX">
-<meta property="og:description" content="作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu*机构:*HKUST*发表:*IROS 2020 注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。 Abstract在多传感器系统中，外参的扰动（比如震动，温度导致的漂移">
+<meta property="og:description" content="作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu机构:HKUST发表:IROS 2020 注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。 Abstract在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误">
 <meta property="og:locale">
 <meta property="og:image" content="https://yjsx.top/2021/05/05/0504/1.png">
 <meta property="og:image" content="https://yjsx.top/2021/05/05/0504/2.png">
 <meta property="og:image" content="https://yjsx.top/2021/05/05/0504/3.png">
 <meta property="article:published_time" content="2021-05-04T17:34:35.000Z">
-<meta property="article:modified_time" content="2021-05-05T13:09:17.220Z">
+<meta property="article:modified_time" content="2021-05-05T13:42:08.003Z">
 <meta property="article:author" content="Duan Yifan">
 <meta property="article:tag" content="每日论文分享">
 <meta property="article:tag" content="LiDAR">
@@ -225,7 +225,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-05 01:34:35 / Modified: 21:09:17" itemprop="dateCreated datePublished" datetime="2021-05-05T01:34:35+08:00">2021-05-05</time>
+              <time title="Created: 2021-05-05 01:34:35 / Modified: 21:42:08" itemprop="dateCreated datePublished" datetime="2021-05-05T01:34:35+08:00">2021-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,7 +255,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br>*机构:*HKUST<br>*发表:*IROS 2020</p>
+        <p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:IROS 2020</em></p>
 <p>注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。</p>
 <p><strong>Abstract</strong><br>在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误差等）总会存在（如图1）。在本篇文章中，我们关注了这种外参的不确定因素在多激光雷达3D目标检测任务中的影响。我们首先分析了外参扰动对两个简单几何任务的影响。为了最小化有害的影响，我们将不确定因素传播给了每一个输入的点云，然后使用这个信息来改进3D几何任务的方法。随后我们扩展了我们的发现，提出了一个3D目标检测的网络——MLOD。MLOD是一个两阶段的网络，在第一个阶段融合多个雷达的信息，并在第二个极端处理外参的扰动。最后我们进行了真实的实验。</p>
 <span id="more"></span>
@@ -316,8 +316,8 @@
       <i class="fa fa-chevron-left"></i> 0503 Towards High-Performance Solid-State-LiDAR-Inertial Odometry and Mapping
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/05/05/0505/" rel="next" title="505">
-      505 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/05/05/0505/" rel="next" title="0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM">
+      0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -392,7 +392,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -405,7 +405,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
