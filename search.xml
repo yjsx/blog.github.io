@@ -422,8 +422,10 @@
 <ol>
 <li>从原数据提取边特征面特征（数据预处理）；</li>
 <li>运动估计和外参标定的初始化，随后一个基于滑动窗口的多雷达里程计，伴随着实时外参标定和收敛性判断。</li>
-<li>我们开发了一个建图算法来构建全局地图，并且使用scan-to-map的方式优化位姿并减少不确定性。<br>我们在10个序列上评估了标定和SLAM的结果，并和SOTA做对比。<span id="more"></span></li>
+<li>我们开发了一个建图算法来构建全局地图，并且使用scan-to-map的方式优化位姿并减少不确定性。</li>
 </ol>
+<p>我们在10个序列上评估了标定和SLAM的结果，并和SOTA做对比。</p>
+<span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <ol>
 <li>整个流程如图1所示，分为如下几个模块:数据预处理，初始化，雷达里程计，建图</li>
@@ -491,6 +493,54 @@
         <tag>visual</tag>
         <tag>relocalization</tag>
         <tag>surfel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0508 Dynamic SLAM:The Need For Speed</title>
+    <url>/2021/05/08/0508/</url>
+    <content><![CDATA[<p><em>作者:Mina Henein, Jun Zhang, Robert Mahony and Viorela Ila</em><br><em>机构:Australian National University（ANU）</em><br><em>发表:ICRA 2020</em></p>
+<p><strong>Abstract</strong><br>SLAM问题通常假设环境是静止的，但实际情况却是动态的环境，这要求识别动态物体并估计他们的速度。现有的大多数解决此问题的SLAM方法通常依赖3D物体的模型数据库，或施加明显的运动约束。在这篇文章中，我们提出了一个基于特征的，使用语义分割的，不需要运动物体模型的，可以识别并估计动态物体运动的SLAM系统。该算法可以生成一个既包含动态物体又包含静态物体的地图，并且可以获得动态物体的速度。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong><br>文章主要使用了因子图的方法，对动态物体也进行约束，如图2和图3所示；图3的第一行第二行和第三行分别对应图二中的黄色因子，蓝色因子，橙色因子，分别描述对特征点观测的约束，自身位姿变化的约束，和动态物体移动的约束。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2002.08584.pdf">https://arxiv.org/pdf/2002.08584.pdf</a></p>
+<img src="/2021/05/08/0508/1.png" class>
+<img src="/2021/05/08/0508/2.png" class>
+<img src="/2021/05/08/0508/3.png" class>
+<img src="/2021/05/08/0508/4.png" class>
+<img src="/2021/05/08/0508/5.png" class>
+<img src="/2021/05/08/0508/6.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>dynamic</tag>
+        <tag>vslam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>509</title>
+    <url>/2021/05/09/0509/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
       </tags>
   </entry>
 </search>
