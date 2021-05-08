@@ -236,6 +236,25 @@
       </tags>
   </entry>
   <entry>
+    <title>0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</title>
+    <url>/2021/05/02/0502/</url>
+    <content><![CDATA[<p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
+<p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>本文主要关注海底场景。该场景的特点是：大型未知场景（所以需要多机器人）；容易出现新物种或者新的地质现象；</li>
+<li>匹配算法如图二所示。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14805.pdf">https://arxiv.org/pdf/2103.14805.pdf</a><br><strong>开源代码：</strong><a href="https://gitlab.com/warplab/ros/sunshine">https://gitlab.com/warplab/ros/sunshine</a></p>
+<img src="/2021/05/02/0502/1.png" class>
+<img src="/2021/05/02/0502/2.png" class>
+<img src="/2021/05/02/0502/3.png" class>]]></content>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0430 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</title>
     <url>/2021/04/30/0430/</url>
     <content><![CDATA[<p><em>作者: Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</em><br><em>机构: NTU+CMU</em><br><em>发表: ICRA 2021</em></p>
@@ -294,25 +313,6 @@
         <tag>LiDAR</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</title>
-    <url>/2021/05/02/0502/</url>
-    <content><![CDATA[<p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
-<p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>本文主要关注海底场景。该场景的特点是：大型未知场景（所以需要多机器人）；容易出现新物种或者新的地质现象；</li>
-<li>匹配算法如图二所示。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14805.pdf">https://arxiv.org/pdf/2103.14805.pdf</a><br><strong>开源代码：</strong><a href="https://gitlab.com/warplab/ros/sunshine">https://gitlab.com/warplab/ros/sunshine</a></p>
-<img src="/2021/05/02/0502/1.png" class>
-<img src="/2021/05/02/0502/2.png" class>
-<img src="/2021/05/02/0502/3.png" class>]]></content>
-      <tags>
-        <tag>每日论文分享</tag>
       </tags>
   </entry>
   <entry>
@@ -380,41 +380,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM</title>
-    <url>/2021/05/05/0505/</url>
-    <content><![CDATA[<p><em>作者:Jianhao Jiao, Yilong Zhu, Haoyang Ye, Huaiyang Huang, Peng Yun, Linxin Jiang, Lujia Wang, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
-<p>注：多激光雷达（2/3），本篇关注激光SLAM中提取到特征点的选择问题。</p>
-<p><strong>Abstract</strong><br>激光SLAM在大规模真实场景下，虽然可以达到很好的结果，但是一般都会有很高的延迟（因为点云配准和非线性优化）。本文证明了选择特征的一个子集对激光SLAM系统准确性和延迟都有积极的作用。我们将特征选择（feature selection，不是feature extraction）表示为一个组合优化问题，在数量约束的前提下保持信息矩阵的spectral属性。使用随机贪婪算法来实时估计最优解。为了避免坏估计，我们还提出了一个评价环境是否退化的策略，来实时修改特征的数量。提出的方法还被用到了多激光雷达SLAM系统（M-LOAM-gf）。最后进行了真实的实验.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>文章关注如何选择“good feature”，这种特征定义为：对位姿估计最有用的特征。具体算法见图1；</li>
-<li>使用lamda来评价环境，lamda定义见图2；</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>我们将好特征选择的问题转化为保持信息矩阵谱属性的问题，谱属性定义为矩阵的特征值；</li>
-<li>将提出的算法与多激光SLAM系统相融合，并提出了如何评价环境退化的方法和自适应调整特征数量的方法；</li>
-<li>进行了实际实验。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf">https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/m-loam">https://ram-lab.com/file/site/m-loam</a></p>
-<img src="/2021/05/05/0505/1.png" class>
-<img src="/2021/05/05/0505/2.png" class>
-<img src="/2021/05/05/0505/3.png" class>
-<img src="/2021/05/05/0505/4.png" class>
-<img src="/2021/05/05/0505/5.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>multi</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0506 Robust Odometry and Mapping for Multi-LiDAR Systems with Online Extrinsic Calibration</title>
     <url>/2021/05/06/0506/</url>
     <content><![CDATA[<p><em>作者:Jianhao Jiao, Haoyang Ye, Yilong Zhu, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:T-RO 2021</em></p>
@@ -472,27 +437,38 @@
       </tags>
   </entry>
   <entry>
-    <title>0507 3D Surfel Map-Aided Visual Relocalization with Learned Descriptors</title>
-    <url>/2021/05/07/0507/</url>
-    <content><![CDATA[<p><em>作者:Haoyang Ye, Huaiyang Huang, Marco Hutter, Timothy Sandy, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>在本篇文章中，我们介绍了一种视觉重定位的方法，使用3Dsurfel地图的几何信息。首先我们对3D surfel地图进行全局索引，以构建一个数据库来将图像点和surfel地图相对应。利用Surfel重投影约束来优化数据库中的关键帧位姿和地图点。 然后，分层次的相机重新定位算法利用数据库来估计6自由度的相机位姿。 学习得到的descriptor（指super point）可进一步用来提高在具有挑战性的场景下的性能。 最后，进行了实际实验。</p>
+    <title>0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM</title>
+    <url>/2021/05/05/0505/</url>
+    <content><![CDATA[<p><em>作者:Jianhao Jiao, Yilong Zhu, Haoyang Ye, Huaiyang Huang, Peng Yun, Linxin Jiang, Lujia Wang, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
+<p>注：多激光雷达（2/3），本篇关注激光SLAM中提取到特征点的选择问题。</p>
+<p><strong>Abstract</strong><br>激光SLAM在大规模真实场景下，虽然可以达到很好的结果，但是一般都会有很高的延迟（因为点云配准和非线性优化）。本文证明了选择特征的一个子集对激光SLAM系统准确性和延迟都有积极的作用。我们将特征选择（feature selection，不是feature extraction）表示为一个组合优化问题，在数量约束的前提下保持信息矩阵的spectral属性。使用随机贪婪算法来实时估计最优解。为了避免坏估计，我们还提出了一个评价环境是否退化的策略，来实时修改特征的数量。提出的方法还被用到了多激光雷达SLAM系统（M-LOAM-gf）。最后进行了真实的实验.</p>
 <span id="more"></span>
-
-<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/ye2021icra.pdf">https://www.ram-lab.com/papers/2021/ye2021icra.pdf</a></p>
-<img src="/2021/05/07/0507/1.png" class>
-<img src="/2021/05/07/0507/2.png" class>
-<img src="/2021/05/07/0507/3.png" class>
-<img src="/2021/05/07/0507/4.png" class>
-<img src="/2021/05/07/0507/5.png" class>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>文章关注如何选择“good feature”，这种特征定义为：对位姿估计最有用的特征。具体算法见图1；</li>
+<li>使用lamda来评价环境，lamda定义见图2；</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>我们将好特征选择的问题转化为保持信息矩阵谱属性的问题，谱属性定义为矩阵的特征值；</li>
+<li>将提出的算法与多激光SLAM系统相融合，并提出了如何评价环境退化的方法和自适应调整特征数量的方法；</li>
+<li>进行了实际实验。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf">https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/m-loam">https://ram-lab.com/file/site/m-loam</a></p>
+<img src="/2021/05/05/0505/1.png" class>
+<img src="/2021/05/05/0505/2.png" class>
+<img src="/2021/05/05/0505/3.png" class>
+<img src="/2021/05/05/0505/4.png" class>
+<img src="/2021/05/05/0505/5.png" class>
 ]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>visual</tag>
-        <tag>relocalization</tag>
-        <tag>surfel</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>multi</tag>
       </tags>
   </entry>
   <entry>
@@ -517,6 +493,30 @@
         <tag>每日论文分享</tag>
         <tag>dynamic</tag>
         <tag>vslam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0507 3D Surfel Map-Aided Visual Relocalization with Learned Descriptors</title>
+    <url>/2021/05/07/0507/</url>
+    <content><![CDATA[<p><em>作者:Haoyang Ye, Huaiyang Huang, Marco Hutter, Timothy Sandy, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>在本篇文章中，我们介绍了一种视觉重定位的方法，使用3Dsurfel地图的几何信息。首先我们对3D surfel地图进行全局索引，以构建一个数据库来将图像点和surfel地图相对应。利用Surfel重投影约束来优化数据库中的关键帧位姿和地图点。 然后，分层次的相机重新定位算法利用数据库来估计6自由度的相机位姿。 学习得到的descriptor（指super point）可进一步用来提高在具有挑战性的场景下的性能。 最后，进行了实际实验。</p>
+<span id="more"></span>
+
+<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/ye2021icra.pdf">https://www.ram-lab.com/papers/2021/ye2021icra.pdf</a></p>
+<img src="/2021/05/07/0507/1.png" class>
+<img src="/2021/05/07/0507/2.png" class>
+<img src="/2021/05/07/0507/3.png" class>
+<img src="/2021/05/07/0507/4.png" class>
+<img src="/2021/05/07/0507/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>visual</tag>
+        <tag>relocalization</tag>
+        <tag>surfel</tag>
       </tags>
   </entry>
   <entry>
