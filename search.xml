@@ -70,6 +70,32 @@
       </tags>
   </entry>
   <entry>
+    <title>0425 Robust Place Recognition using an Imaging Lidar</title>
+    <url>/2021/04/25/0425/</url>
+    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
+<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></p>
+<img src="/2021/04/25/0425/1.png" class>
+<img src="/2021/04/25/0425/2.png" class>
+<img src="/2021/04/25/0425/3.png" class>
+<img src="/2021/04/25/0425/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>recognition</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</title>
     <url>/2021/04/24/0424/</url>
     <content><![CDATA[<p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
@@ -108,59 +134,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0425 Robust Place Recognition using an Imaging Lidar</title>
-    <url>/2021/04/25/0425/</url>
-    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
-<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></p>
-<img src="/2021/04/25/0425/1.png" class>
-<img src="/2021/04/25/0425/2.png" class>
-<img src="/2021/04/25/0425/3.png" class>
-<img src="/2021/04/25/0425/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>recognition</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0426 Efficient LiDAR Odometry for Autonomous Driving</title>
-    <url>/2021/04/26/0426/</url>
-    <content><![CDATA[<p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
-<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
-<span id="more"></span>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>利用非地面球面深度图像与地面点云鸟瞰图的雷达里程计</li>
-<li>自适应法向量估计方法</li>
-<li>高效的模型更新方法（指局部地图的更新）</li>
-<li>在kitti上取得了不错的成绩，且整体的运行速度在笔记本电脑上可以达到恐怖的169Hz</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.10879.pdf">https://arxiv.org/pdf/2104.10879.pdf</a></p>
-<img src="/2021/04/26/0426/1.png" class>
-<img src="/2021/04/26/0426/2.png" class>
-<img src="/2021/04/26/0426/3.png" class>
-<img src="/2021/04/26/0426/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>Odometry</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</title>
     <url>/2021/04/27/0427/</url>
     <content><![CDATA[<p>*作者: Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表: CVPR 2021</em></p>
@@ -183,34 +156,6 @@
         <tag>visual</tag>
         <tag>dynamic</tag>
         <tag>learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
-    <url>/2021/04/28/0428/</url>
-    <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
-<p><strong>Abstract</strong><br>作为数据融合的关键步骤，传感器标定在计算机视觉任务中扮演着重要角色。现有的技术通常需要大量的人力工作和复杂的设置，或者并不鲁棒易于产生次优解。在本文中，我们主要关注相机和激光雷达这两种在室外常用的传感器。我们提出了一种实时在线的标定，可以寻找二者之间最优的刚性位姿变化，而且不需要特殊的环境设置（指放置棋盘格等）。使用一个基于语义特征的新的标定度量标准，我们将标定任务表示为一个最优化问题，成功地将同步的一对数据进行实时对齐。效果达到了SOTA水平。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>使用PSPNet对图像进行语义分割（提取出来汽车的轮廓）。</li>
-<li>将图片按照一定的步骤形成height map（如图二）。</li>
-<li>通过计算过滤掉地面的点云与height map的重叠部分，来定义标定的qulity metric。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9196627">https://ieeexplore.ieee.org/document/9196627</a></p>
-<img src="/2021/04/28/0428/1.png" class>
-<img src="/2021/04/28/0428/2.png" class>
-<img src="/2021/04/28/0428/3.png" class>
-<img src="/2021/04/28/0428/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>semantic</tag>
-        <tag>visual</tag>
-        <tag>calibration</tag>
       </tags>
   </entry>
   <entry>
@@ -347,6 +292,61 @@
       </tags>
   </entry>
   <entry>
+    <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
+    <url>/2021/04/28/0428/</url>
+    <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
+<p><strong>Abstract</strong><br>作为数据融合的关键步骤，传感器标定在计算机视觉任务中扮演着重要角色。现有的技术通常需要大量的人力工作和复杂的设置，或者并不鲁棒易于产生次优解。在本文中，我们主要关注相机和激光雷达这两种在室外常用的传感器。我们提出了一种实时在线的标定，可以寻找二者之间最优的刚性位姿变化，而且不需要特殊的环境设置（指放置棋盘格等）。使用一个基于语义特征的新的标定度量标准，我们将标定任务表示为一个最优化问题，成功地将同步的一对数据进行实时对齐。效果达到了SOTA水平。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>使用PSPNet对图像进行语义分割（提取出来汽车的轮廓）。</li>
+<li>将图片按照一定的步骤形成height map（如图二）。</li>
+<li>通过计算过滤掉地面的点云与height map的重叠部分，来定义标定的qulity metric。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9196627">https://ieeexplore.ieee.org/document/9196627</a></p>
+<img src="/2021/04/28/0428/1.png" class>
+<img src="/2021/04/28/0428/2.png" class>
+<img src="/2021/04/28/0428/3.png" class>
+<img src="/2021/04/28/0428/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>semantic</tag>
+        <tag>visual</tag>
+        <tag>calibration</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0426 Efficient LiDAR Odometry for Autonomous Driving</title>
+    <url>/2021/04/26/0426/</url>
+    <content><![CDATA[<p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
+<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
+<span id="more"></span>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>利用非地面球面深度图像与地面点云鸟瞰图的雷达里程计</li>
+<li>自适应法向量估计方法</li>
+<li>高效的模型更新方法（指局部地图的更新）</li>
+<li>在kitti上取得了不错的成绩，且整体的运行速度在笔记本电脑上可以达到恐怖的169Hz</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.10879.pdf">https://arxiv.org/pdf/2104.10879.pdf</a></p>
+<img src="/2021/04/26/0426/1.png" class>
+<img src="/2021/04/26/0426/2.png" class>
+<img src="/2021/04/26/0426/3.png" class>
+<img src="/2021/04/26/0426/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>Odometry</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving</title>
     <url>/2021/05/05/0504/</url>
     <content><![CDATA[<p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:IROS 2020</em></p>
@@ -415,30 +415,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0507 3D Surfel Map-Aided Visual Relocalization with Learned Descriptors</title>
-    <url>/2021/05/07/0507/</url>
-    <content><![CDATA[<p><em>作者:Haoyang Ye, Huaiyang Huang, Marco Hutter, Timothy Sandy, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>在本篇文章中，我们介绍了一种视觉重定位的方法，使用3Dsurfel地图的几何信息。首先我们对3D surfel地图进行全局索引，以构建一个数据库来将图像点和surfel地图相对应。利用Surfel重投影约束来优化数据库中的关键帧位姿和地图点。 然后，分层次的相机重新定位算法利用数据库来估计6自由度的相机位姿。 学习得到的descriptor（指super point）可进一步用来提高在具有挑战性的场景下的性能。 最后，进行了实际实验。</p>
-<span id="more"></span>
-
-<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/ye2021icra.pdf">https://www.ram-lab.com/papers/2021/ye2021icra.pdf</a></p>
-<img src="/2021/05/07/0507/1.png" class>
-<img src="/2021/05/07/0507/2.png" class>
-<img src="/2021/05/07/0507/3.png" class>
-<img src="/2021/05/07/0507/4.png" class>
-<img src="/2021/05/07/0507/5.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>visual</tag>
-        <tag>relocalization</tag>
-        <tag>surfel</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0506 Robust Odometry and Mapping for Multi-LiDAR Systems with Online Extrinsic Calibration</title>
     <url>/2021/05/06/0506/</url>
     <content><![CDATA[<p><em>作者:Jianhao Jiao, Haoyang Ye, Yilong Zhu, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:T-RO 2021</em></p>
@@ -493,6 +469,30 @@
         <tag>LiDAR</tag>
         <tag>calibration</tag>
         <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0507 3D Surfel Map-Aided Visual Relocalization with Learned Descriptors</title>
+    <url>/2021/05/07/0507/</url>
+    <content><![CDATA[<p><em>作者:Haoyang Ye, Huaiyang Huang, Marco Hutter, Timothy Sandy, and Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>在本篇文章中，我们介绍了一种视觉重定位的方法，使用3Dsurfel地图的几何信息。首先我们对3D surfel地图进行全局索引，以构建一个数据库来将图像点和surfel地图相对应。利用Surfel重投影约束来优化数据库中的关键帧位姿和地图点。 然后，分层次的相机重新定位算法利用数据库来估计6自由度的相机位姿。 学习得到的descriptor（指super point）可进一步用来提高在具有挑战性的场景下的性能。 最后，进行了实际实验。</p>
+<span id="more"></span>
+
+<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/ye2021icra.pdf">https://www.ram-lab.com/papers/2021/ye2021icra.pdf</a></p>
+<img src="/2021/05/07/0507/1.png" class>
+<img src="/2021/05/07/0507/2.png" class>
+<img src="/2021/05/07/0507/3.png" class>
+<img src="/2021/05/07/0507/4.png" class>
+<img src="/2021/05/07/0507/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>visual</tag>
+        <tag>relocalization</tag>
+        <tag>surfel</tag>
       </tags>
   </entry>
   <entry>
