@@ -20,30 +20,30 @@
     var CONFIG = {"hostname":"yjsx.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge机构:Facebook Reality Labs Research发表:ICRA 2021 Abstract一些设备无法负担运行一个完整的SLAM系统所需要的计算和存储的开销。我们提出了一个client-server结构的SLAM优化框架，可以在低性能的设备（cl">
+  <meta name="description" content="作者:Huai Yu1, Weikun Zhen, Wen Yang, Ji Zhang and Sebastian Scherer机构:武大+CMU发表:IROS 2020 Abstract使用相机在已有地图中进行定位是基于视觉导航的基础。目前，VO和VIO在状态估计方面已经发展地很好了，但是在闭环检测时会发生不可避免的位姿跳变（由于累计误差）（这对导航来说有副作用）。为了避免这个问题，我们利用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources">
-<meta property="og:url" content="https://yjsx.top/2021/05/11/0510/index.html">
+<meta property="og:title" content="0522 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences">
+<meta property="og:url" content="https://yjsx.top/2021/05/22/0522/index.html">
 <meta property="og:site_name" content="YJSX">
-<meta property="og:description" content="作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge机构:Facebook Reality Labs Research发表:ICRA 2021 Abstract一些设备无法负担运行一个完整的SLAM系统所需要的计算和存储的开销。我们提出了一个client-server结构的SLAM优化框架，可以在低性能的设备（cl">
+<meta property="og:description" content="作者:Huai Yu1, Weikun Zhen, Wen Yang, Ji Zhang and Sebastian Scherer机构:武大+CMU发表:IROS 2020 Abstract使用相机在已有地图中进行定位是基于视觉导航的基础。目前，VO和VIO在状态估计方面已经发展地很好了，但是在闭环检测时会发生不可避免的位姿跳变（由于累计误差）（这对导航来说有副作用）。为了避免这个问题，我们利用">
 <meta property="og:locale">
-<meta property="og:image" content="https://yjsx.top/2021/05/11/0510/1.png">
-<meta property="og:image" content="https://yjsx.top/2021/05/11/0510/2.png">
-<meta property="og:image" content="https://yjsx.top/2021/05/11/0510/3.png">
-<meta property="og:image" content="https://yjsx.top/2021/05/11/0510/4.png">
-<meta property="og:image" content="https://yjsx.top/2021/05/11/0510/5.png">
-<meta property="og:image" content="https://yjsx.top/2021/05/11/0510/6.png">
-<meta property="og:image" content="https://yjsx.top/2021/05/11/0510/7.png">
-<meta property="article:published_time" content="2021-05-10T19:58:05.000Z">
-<meta property="article:modified_time" content="2021-05-10T20:04:14.306Z">
+<meta property="og:image" content="https://yjsx.top/2021/05/22/0522/1.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/22/0522/2.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/22/0522/3.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/22/0522/4.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/22/0522/5.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/22/0522/6.png">
+<meta property="article:published_time" content="2021-05-22T06:08:47.000Z">
+<meta property="article:modified_time" content="2021-05-27T18:14:46.597Z">
 <meta property="article:author" content="Duan Yifan">
 <meta property="article:tag" content="每日论文分享">
-<meta property="article:tag" content="distribute">
-<meta property="article:tag" content="graph">
+<meta property="article:tag" content="LiDAR">
+<meta property="article:tag" content="visual">
+<meta property="article:tag" content="localization">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yjsx.top/2021/05/11/0510/1.png">
+<meta name="twitter:image" content="https://yjsx.top/2021/05/22/0522/1.png">
 
-<link rel="canonical" href="https://yjsx.top/2021/05/11/0510/">
+<link rel="canonical" href="https://yjsx.top/2021/05/22/0522/">
 
 
 <script id="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources | YJSX</title>
+  <title>0522 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences | YJSX</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/11/0510/">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/22/0522/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -218,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources
+          0522 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences
         </h1>
 
         <div class="post-meta">
@@ -227,10 +227,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-05-11 03:58:05 / Modified: 04:04:14" itemprop="dateCreated datePublished" datetime="2021-05-11T03:58:05+08:00">2021-05-11</time>
+              <time title="Created: 2021-05-22 14:08:47" itemprop="dateCreated datePublished" datetime="2021-05-22T14:08:47+08:00">2021-05-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-28 02:14:46" itemprop="dateModified" datetime="2021-05-28T02:14:46+08:00">2021-05-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -259,28 +265,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><em>作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge</em><br><em>机构:Facebook Reality Labs Research</em><br><em>发表:ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>一些设备无法负担运行一个完整的SLAM系统所需要的计算和存储的开销。我们提出了一个client-server结构的SLAM优化框架，可以在低性能的设备（client）上进行实时的状态估计。client只在一小部分地图上进行工作，地图的其他部分由server进行处理。通过发送总结好的剩余部分的地图信息给client，状态估计将会更加精准。更进一步提高精度的方法是“早闭环检测（early loop closure）”，可以使client从server读取有用的信息。实验证明了在计算力和存储受限的设备上，可以达到准确的估计。</p>
+        <p><em>作者:Huai Yu1, Weikun Zhen, Wen Yang, Ji Zhang and Sebastian Scherer</em><br><em>机构:武大+CMU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>使用相机在已有地图中进行定位是基于视觉导航的基础。目前，VO和VIO在状态估计方面已经发展地很好了，但是在闭环检测时会发生不可避免的位姿跳变（由于累计误差）（这对导航来说有副作用）。为了避免这个问题，我们利用2D-3D中线特征的对应关系，提出了一种在LiDAR地图中使用单目摄像头进行重定位的方法。为了处理激光点云和图像之间的差异，我们offline地从LiDAR地图中提取3D线条，并online地从图像序列中提取2D线条。有了VIO输出的对位姿的预测，我们可以高效地，获得2D-3D中线的粗糙的对应关系。随后，相机的位姿和对应关系可以通过最小化投影误差来迭代优化。最后，我们在EurocMav数据集上进行了实验，证明了提出的方法可以使估计相机位姿时，没有累计误差，并且没有位姿跳变。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <ol>
-<li>ORB-SLAM需要200MB内存，但一些嵌入式设备只有1MB RAM；</li>
-<li>解决的两个问题<ol>
-<li>估计状态的上限取决于client已知的local graph信息；</li>
-<li>server给出全局优化需要时间，这导致client不能实时地利用到这个信息。</li>
+<li>具体流程图见图2.使用PnP来初始化，使用VINS-Mono来做位姿估计；</li>
+<li>2D线特征提取，见图3。</li>
 </ol>
-</li>
-<li>算法流程：server定期将总结好的历史信息发送给client；server将与新变量相关的历史变量发到client上，这样可以实现“早闭环”；第一步中汇总的信息进行稀疏化，来减小通信开销</li>
-</ol>
-<p><strong>论文地址：</strong><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2103.14303.pdf">https://arxiv.org/pdf/2103.14303.pdf</a></p>
-<img src="/2021/05/11/0510/1.png" class>
-<img src="/2021/05/11/0510/2.png" class>
-<img src="/2021/05/11/0510/3.png" class>
-<img src="/2021/05/11/0510/4.png" class>
-<img src="/2021/05/11/0510/5.png" class>
-<img src="/2021/05/11/0510/6.png" class>
-<img src="/2021/05/11/0510/7.png" class>
-
+<p><strong>论文地址：</strong><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2004.00740.pdf">https://arxiv.org/pdf/2004.00740.pdf</a></p>
+<img src="/2021/05/22/0522/1.png" class>
+<img src="/2021/05/22/0522/2.png" class>
+<img src="/2021/05/22/0522/3.png" class>
+<img src="/2021/05/22/0522/4.png" class>
+<img src="/2021/05/22/0522/5.png" class>
+<img src="/2021/05/22/0522/6.png" class>
     </div>
 
     
@@ -295,7 +294,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://yjsx.top/2021/05/11/0510/" title="0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources">https://yjsx.top/2021/05/11/0510/</a>
+    <a href="https://yjsx.top/2021/05/22/0522/" title="0522 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences">https://yjsx.top/2021/05/22/0522/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -307,8 +306,9 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" rel="tag"># 每日论文分享</a>
-              <a href="/tags/distribute/" rel="tag"># distribute</a>
-              <a href="/tags/graph/" rel="tag"># graph</a>
+              <a href="/tags/LiDAR/" rel="tag"># LiDAR</a>
+              <a href="/tags/visual/" rel="tag"># visual</a>
+              <a href="/tags/localization/" rel="tag"># localization</a>
           </div>
 
         
@@ -317,10 +317,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/09/0509/" rel="prev" title="0509 ERASOR:Egocentric Ratio of Pseudo Occupancy-based Dynamic Object Removal for Static 3D Point Cloud Map Building">
-      <i class="fa fa-chevron-left"></i> 0509 ERASOR:Egocentric Ratio of Pseudo Occupancy-based Dynamic Object Removal for Static 3D Point Cloud Map Building
+    <a href="/2021/05/19/0519/" rel="prev" title="0519 BALM:Bundle Adjustment for Lidar Mapping">
+      <i class="fa fa-chevron-left"></i> 0519 BALM:Bundle Adjustment for Lidar Mapping
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/23/0523/" rel="next" title="0523 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences">
+      0523 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -394,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -407,7 +410,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

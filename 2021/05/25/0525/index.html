@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/b_favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/b_favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/b_favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yjsx.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="作者:Yongjian Chen， Lei Tai， Kai Sun， Mingyang Li机构:Alibaba发表:CVPR 2020注：本篇介绍的原因是，这是一篇在detection领域使用图优化（g2o）的论文。Abstract单目3D目标检测是自动驾驶的一个重要组成部分，也是一个极具挑战性的问题，特别是对于那些被遮挡只有部分可见的目标。大多数检测器将每个3D目标视为独立的训练对象，不可避">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0525 MonoPair:Monocular 3D Object Detection Using Pairwise Spatial Relationships">
+<meta property="og:url" content="https://yjsx.top/2021/05/25/0525/index.html">
+<meta property="og:site_name" content="YJSX">
+<meta property="og:description" content="作者:Yongjian Chen， Lei Tai， Kai Sun， Mingyang Li机构:Alibaba发表:CVPR 2020注：本篇介绍的原因是，这是一篇在detection领域使用图优化（g2o）的论文。Abstract单目3D目标检测是自动驾驶的一个重要组成部分，也是一个极具挑战性的问题，特别是对于那些被遮挡只有部分可见的目标。大多数检测器将每个3D目标视为独立的训练对象，不可避">
+<meta property="og:locale">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/1.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/2.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/3.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/4.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/5.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/6.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/7.png">
+<meta property="og:image" content="https://yjsx.top/2021/05/25/0525/8.png">
+<meta property="article:published_time" content="2021-05-24T20:22:03.000Z">
+<meta property="article:modified_time" content="2021-05-27T18:19:23.444Z">
+<meta property="article:author" content="Duan Yifan">
+<meta property="article:tag" content="每日论文分享">
+<meta property="article:tag" content="visual">
+<meta property="article:tag" content="detection">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yjsx.top/2021/05/25/0525/1.png">
+
+<link rel="canonical" href="https://yjsx.top/2021/05/25/0525/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>0525 MonoPair:Monocular 3D Object Detection Using Pairwise Spatial Relationships | YJSX</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YJSX</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">如何过一天就是如何过一生</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/25/0525/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Duan Yifan">
+      <meta itemprop="description" content="USTC CS">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YJSX">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          0525 MonoPair:Monocular 3D Object Detection Using Pairwise Spatial Relationships
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-25 04:22:03" itemprop="dateCreated datePublished" datetime="2021-05-25T04:22:03+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-28 02:19:23" itemprop="dateModified" datetime="2021-05-28T02:19:23+08:00">2021-05-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><em>作者:Yongjian Chen， Lei Tai， Kai Sun， Mingyang Li</em><br><em>机构:Alibaba</em><br><em>发表:CVPR 2020</em><br>注：本篇介绍的原因是，这是一篇在detection领域使用图优化（g2o）的论文。<br><strong>Abstract</strong><br>单目3D目标检测是自动驾驶的一个重要组成部分，也是一个极具挑战性的问题，特别是对于那些被遮挡只有部分可见的目标。大多数检测器将每个3D目标视为独立的训练对象，不可避免地导致了遮挡物体缺乏有用的信息。为了解决这个问题，我们提出了一种新的方法，通过考虑成对样本之间的关系来改进单目3D目标检测。这样，我们可以对部分遮挡目标与其相邻的目标之间的空间约束进行编码。具体的，提出的检测器进行目标位置和距相邻目标的3D距离的不确定感知预测，随后通过非线性最小二乘进行联合优化。最后，为了保证运行效率，将一阶段不确定性感知预测结构与后优化模块进行了专门的集成。实验表明，我们的方法在KITTI 3D目标检测的排行榜上，特别是对于难样本，获得了最好的性能，超过了SOTA。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>预测阶段分别给出两种预测框，2D的和3D的，网络图如图1所示；预测结果说明如图2所示；</li>
+<li>一对物体之间如何建立约束详见图3，4，5；</li>
+<li>本篇文章主要用图优化来综合优化一对物体之间的距离，和每个物体的位置；</li>
+<li>图的定义：图的顶点为物体，边为两成对物体之间的距离。每一个顶点有三个属性（u, v ,z）(如图2中所示），u v 为3D边框中心投影在2D平面上的坐标，z为深度。更多的图优化的信息，详见图6，7；</li>
+<li>信息矩阵由不确定度构成。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>通过利用成对物体之间的空间关系，设计了一个新的检测器，极大地提高了被遮挡物体的精度；</li>
+<li>提出了一种三维目标检测的不确定性感知预测模块，和物体距物体的距离一起进行联合优化。</li>
+</ol>
+<p><strong>论文地址：</strong><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2003.00504.pdf">https://arxiv.org/pdf/2003.00504.pdf</a></p>
+<img src="/2021/05/25/0525/1.png" class>
+<img src="/2021/05/25/0525/2.png" class>
+<img src="/2021/05/25/0525/3.png" class>
+<img src="/2021/05/25/0525/4.png" class>
+<img src="/2021/05/25/0525/5.png" class>
+<img src="/2021/05/25/0525/6.png" class>
+<img src="/2021/05/25/0525/7.png" class>
+<img src="/2021/05/25/0525/8.png" class>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Duan Yifan
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://yjsx.top/2021/05/25/0525/" title="0525 MonoPair:Monocular 3D Object Detection Using Pairwise Spatial Relationships">https://yjsx.top/2021/05/25/0525/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" rel="tag"># 每日论文分享</a>
+              <a href="/tags/visual/" rel="tag"># visual</a>
+              <a href="/tags/detection/" rel="tag"># detection</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/24/0524/" rel="prev" title="0524 Extrinsic Calibration of Multiple LiDARs of Small FoV in Targetless Environments">
+      <i class="fa fa-chevron-left"></i> 0524 Extrinsic Calibration of Multiple LiDARs of Small FoV in Targetless Environments
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Duan Yifan"
+      src="/images/head.png">
+  <p class="site-author-name" itemprop="name">Duan Yifan</p>
+  <div class="site-description" itemprop="description">USTC CS</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yjsx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yjsx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dyf0202@mail.ustc.edu.cn" title="E-Mail → mailto:dyf0202@mail.ustc.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Duan Yifan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

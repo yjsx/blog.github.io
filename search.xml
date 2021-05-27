@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
+    <url>/2021/04/23/0423/</url>
+    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ul>
+<li>固态雷达SLAM具体的难点：<ul>
+<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
+<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
+<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
+</ul>
+</li>
+<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
+<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
+</ul>
+<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
+<img src="/2021/04/23/0423/1.png" class>
+<img src="/2021/04/23/0423/2.png" class>
+<img src="/2021/04/23/0423/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>Solid-State</tag>
+        <tag>system</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0422 LVI-SAM:Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping</title>
     <url>/2021/04/22/0422-LVI-SAM/</url>
     <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
@@ -32,67 +65,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>code</tag>
         <tag>fusion-slam</tag>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
-    <url>/2021/04/23/0423/</url>
-    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ul>
-<li>固态雷达SLAM具体的难点：<ul>
-<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
-<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
-<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
-</ul>
-</li>
-<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
-<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
-</ul>
-<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
-<img src="/2021/04/23/0423/1.png" class>
-<img src="/2021/04/23/0423/2.png" class>
-<img src="/2021/04/23/0423/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>Solid-State</tag>
-        <tag>system</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0425 Robust Place Recognition using an Imaging Lidar</title>
-    <url>/2021/04/25/0425/</url>
-    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
-<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></p>
-<img src="/2021/04/25/0425/1.png" class>
-<img src="/2021/04/25/0425/2.png" class>
-<img src="/2021/04/25/0425/3.png" class>
-<img src="/2021/04/25/0425/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>recognition</tag>
       </tags>
   </entry>
   <entry>
@@ -134,6 +108,59 @@
       </tags>
   </entry>
   <entry>
+    <title>0425 Robust Place Recognition using an Imaging Lidar</title>
+    <url>/2021/04/25/0425/</url>
+    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
+<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></p>
+<img src="/2021/04/25/0425/1.png" class>
+<img src="/2021/04/25/0425/2.png" class>
+<img src="/2021/04/25/0425/3.png" class>
+<img src="/2021/04/25/0425/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>code</tag>
+        <tag>recognition</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0426 Efficient LiDAR Odometry for Autonomous Driving</title>
+    <url>/2021/04/26/0426/</url>
+    <content><![CDATA[<p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
+<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
+<span id="more"></span>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>利用非地面球面深度图像与地面点云鸟瞰图的雷达里程计</li>
+<li>自适应法向量估计方法</li>
+<li>高效的模型更新方法（指局部地图的更新）</li>
+<li>在kitti上取得了不错的成绩，且整体的运行速度在笔记本电脑上可以达到恐怖的169Hz</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.10879.pdf">https://arxiv.org/pdf/2104.10879.pdf</a></p>
+<img src="/2021/04/26/0426/1.png" class>
+<img src="/2021/04/26/0426/2.png" class>
+<img src="/2021/04/26/0426/3.png" class>
+<img src="/2021/04/26/0426/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>Odometry</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</title>
     <url>/2021/04/27/0427/</url>
     <content><![CDATA[<p>*作者: Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表: CVPR 2021</em></p>
@@ -159,6 +186,34 @@
       </tags>
   </entry>
   <entry>
+    <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
+    <url>/2021/04/28/0428/</url>
+    <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
+<p><strong>Abstract</strong><br>作为数据融合的关键步骤，传感器标定在计算机视觉任务中扮演着重要角色。现有的技术通常需要大量的人力工作和复杂的设置，或者并不鲁棒易于产生次优解。在本文中，我们主要关注相机和激光雷达这两种在室外常用的传感器。我们提出了一种实时在线的标定，可以寻找二者之间最优的刚性位姿变化，而且不需要特殊的环境设置（指放置棋盘格等）。使用一个基于语义特征的新的标定度量标准，我们将标定任务表示为一个最优化问题，成功地将同步的一对数据进行实时对齐。效果达到了SOTA水平。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>使用PSPNet对图像进行语义分割（提取出来汽车的轮廓）。</li>
+<li>将图片按照一定的步骤形成height map（如图二）。</li>
+<li>通过计算过滤掉地面的点云与height map的重叠部分，来定义标定的qulity metric。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9196627">https://ieeexplore.ieee.org/document/9196627</a></p>
+<img src="/2021/04/28/0428/1.png" class>
+<img src="/2021/04/28/0428/2.png" class>
+<img src="/2021/04/28/0428/3.png" class>
+<img src="/2021/04/28/0428/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>semantic</tag>
+        <tag>visual</tag>
+        <tag>calibration</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</title>
     <url>/2021/04/30/0429/</url>
     <content><![CDATA[<p><em>作者: Julian Nubert, Shehryar Khattak and Marco Hutter</em><br><em>发表: ICRA 2021</em></p>
@@ -175,8 +230,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
+        <tag>code</tag>
         <tag>learning</tag>
       </tags>
   </entry>
@@ -235,8 +290,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
+        <tag>code</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
       </tags>
@@ -258,6 +313,41 @@
 <img src="/2021/05/02/0502/3.png" class>]]></content>
       <tags>
         <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM</title>
+    <url>/2021/05/05/0505/</url>
+    <content><![CDATA[<p><em>作者:Jianhao Jiao, Yilong Zhu, Haoyang Ye, Huaiyang Huang, Peng Yun, Linxin Jiang, Lujia Wang, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
+<p>注：多激光雷达（2/3），本篇关注激光SLAM中提取到特征点的选择问题。</p>
+<p><strong>Abstract</strong><br>激光SLAM在大规模真实场景下，虽然可以达到很好的结果，但是一般都会有很高的延迟（因为点云配准和非线性优化）。本文证明了选择特征的一个子集对激光SLAM系统准确性和延迟都有积极的作用。我们将特征选择（feature selection，不是feature extraction）表示为一个组合优化问题，在数量约束的前提下保持信息矩阵的spectral属性。使用随机贪婪算法来实时估计最优解。为了避免坏估计，我们还提出了一个评价环境是否退化的策略，来实时修改特征的数量。提出的方法还被用到了多激光雷达SLAM系统（M-LOAM-gf）。最后进行了真实的实验.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>文章关注如何选择“good feature”，这种特征定义为：对位姿估计最有用的特征。具体算法见图1；</li>
+<li>使用lamda来评价环境，lamda定义见图2；</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>我们将好特征选择的问题转化为保持信息矩阵谱属性的问题，谱属性定义为矩阵的特征值；</li>
+<li>将提出的算法与多激光SLAM系统相融合，并提出了如何评价环境退化的方法和自适应调整特征数量的方法；</li>
+<li>进行了实际实验。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf">https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/m-loam">https://ram-lab.com/file/site/m-loam</a></p>
+<img src="/2021/05/05/0505/1.png" class>
+<img src="/2021/05/05/0505/2.png" class>
+<img src="/2021/05/05/0505/3.png" class>
+<img src="/2021/05/05/0505/4.png" class>
+<img src="/2021/05/05/0505/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>code</tag>
+        <tag>multi</tag>
       </tags>
   </entry>
   <entry>
@@ -292,61 +382,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
-    <url>/2021/04/28/0428/</url>
-    <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
-<p><strong>Abstract</strong><br>作为数据融合的关键步骤，传感器标定在计算机视觉任务中扮演着重要角色。现有的技术通常需要大量的人力工作和复杂的设置，或者并不鲁棒易于产生次优解。在本文中，我们主要关注相机和激光雷达这两种在室外常用的传感器。我们提出了一种实时在线的标定，可以寻找二者之间最优的刚性位姿变化，而且不需要特殊的环境设置（指放置棋盘格等）。使用一个基于语义特征的新的标定度量标准，我们将标定任务表示为一个最优化问题，成功地将同步的一对数据进行实时对齐。效果达到了SOTA水平。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>使用PSPNet对图像进行语义分割（提取出来汽车的轮廓）。</li>
-<li>将图片按照一定的步骤形成height map（如图二）。</li>
-<li>通过计算过滤掉地面的点云与height map的重叠部分，来定义标定的qulity metric。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9196627">https://ieeexplore.ieee.org/document/9196627</a></p>
-<img src="/2021/04/28/0428/1.png" class>
-<img src="/2021/04/28/0428/2.png" class>
-<img src="/2021/04/28/0428/3.png" class>
-<img src="/2021/04/28/0428/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>semantic</tag>
-        <tag>visual</tag>
-        <tag>calibration</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0426 Efficient LiDAR Odometry for Autonomous Driving</title>
-    <url>/2021/04/26/0426/</url>
-    <content><![CDATA[<p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
-<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
-<span id="more"></span>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>利用非地面球面深度图像与地面点云鸟瞰图的雷达里程计</li>
-<li>自适应法向量估计方法</li>
-<li>高效的模型更新方法（指局部地图的更新）</li>
-<li>在kitti上取得了不错的成绩，且整体的运行速度在笔记本电脑上可以达到恐怖的169Hz</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.10879.pdf">https://arxiv.org/pdf/2104.10879.pdf</a></p>
-<img src="/2021/04/26/0426/1.png" class>
-<img src="/2021/04/26/0426/2.png" class>
-<img src="/2021/04/26/0426/3.png" class>
-<img src="/2021/04/26/0426/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>Odometry</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving</title>
     <url>/2021/05/05/0504/</url>
     <content><![CDATA[<p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:IROS 2020</em></p>
@@ -375,41 +410,6 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>multi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM</title>
-    <url>/2021/05/05/0505/</url>
-    <content><![CDATA[<p><em>作者:Jianhao Jiao, Yilong Zhu, Haoyang Ye, Huaiyang Huang, Peng Yun, Linxin Jiang, Lujia Wang, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
-<p>注：多激光雷达（2/3），本篇关注激光SLAM中提取到特征点的选择问题。</p>
-<p><strong>Abstract</strong><br>激光SLAM在大规模真实场景下，虽然可以达到很好的结果，但是一般都会有很高的延迟（因为点云配准和非线性优化）。本文证明了选择特征的一个子集对激光SLAM系统准确性和延迟都有积极的作用。我们将特征选择（feature selection，不是feature extraction）表示为一个组合优化问题，在数量约束的前提下保持信息矩阵的spectral属性。使用随机贪婪算法来实时估计最优解。为了避免坏估计，我们还提出了一个评价环境是否退化的策略，来实时修改特征的数量。提出的方法还被用到了多激光雷达SLAM系统（M-LOAM-gf）。最后进行了真实的实验.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>文章关注如何选择“good feature”，这种特征定义为：对位姿估计最有用的特征。具体算法见图1；</li>
-<li>使用lamda来评价环境，lamda定义见图2；</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>我们将好特征选择的问题转化为保持信息矩阵谱属性的问题，谱属性定义为矩阵的特征值；</li>
-<li>将提出的算法与多激光SLAM系统相融合，并提出了如何评价环境退化的方法和自适应调整特征数量的方法；</li>
-<li>进行了实际实验。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf">https://www.ram-lab.com/papers/2021/jiao2021greedy.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/m-loam">https://ram-lab.com/file/site/m-loam</a></p>
-<img src="/2021/05/05/0505/1.png" class>
-<img src="/2021/05/05/0505/2.png" class>
-<img src="/2021/05/05/0505/3.png" class>
-<img src="/2021/05/05/0505/4.png" class>
-<img src="/2021/05/05/0505/5.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
         <tag>multi</tag>
       </tags>
@@ -554,7 +554,7 @@
   </entry>
   <entry>
     <title>0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources</title>
-    <url>/2021/05/11/0510/</url>
+    <url>/2021/05/10/0510/</url>
     <content><![CDATA[<p><em>作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge</em><br><em>机构:Facebook Reality Labs Research</em><br><em>发表:ICRA 2021</em></p>
 <p><strong>Abstract</strong><br>一些设备无法负担运行一个完整的SLAM系统所需要的计算和存储的开销。我们提出了一个client-server结构的SLAM优化框架，可以在低性能的设备（client）上进行实时的状态估计。client只在一小部分地图上进行工作，地图的其他部分由server进行处理。通过发送总结好的剩余部分的地图信息给client，状态估计将会更加精准。更进一步提高精度的方法是“早闭环检测（early loop closure）”，可以使client从server读取有用的信息。实验证明了在计算力和存储受限的设备上，可以达到准确的估计。</p>
 <span id="more"></span>
@@ -569,13 +569,13 @@
 <li>算法流程：server定期将总结好的历史信息发送给client；server将与新变量相关的历史变量发到client上，这样可以实现“早闭环”；第一步中汇总的信息进行稀疏化，来减小通信开销</li>
 </ol>
 <p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14303.pdf">https://arxiv.org/pdf/2103.14303.pdf</a></p>
-<img src="/2021/05/11/0510/1.png" class>
-<img src="/2021/05/11/0510/2.png" class>
-<img src="/2021/05/11/0510/3.png" class>
-<img src="/2021/05/11/0510/4.png" class>
-<img src="/2021/05/11/0510/5.png" class>
-<img src="/2021/05/11/0510/6.png" class>
-<img src="/2021/05/11/0510/7.png" class>
+<img src="/2021/05/10/0510/1.png" class>
+<img src="/2021/05/10/0510/2.png" class>
+<img src="/2021/05/10/0510/3.png" class>
+<img src="/2021/05/10/0510/4.png" class>
+<img src="/2021/05/10/0510/5.png" class>
+<img src="/2021/05/10/0510/6.png" class>
+<img src="/2021/05/10/0510/7.png" class>
 ]]></content>
       <categories>
         <category>每日论文分享</category>
@@ -584,6 +584,323 @@
         <tag>每日论文分享</tag>
         <tag>distribute</tag>
         <tag>graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</title>
+    <url>/2021/05/11/0511/</url>
+    <content><![CDATA[<p><em>作者:Yachen Zhu, Yanyang Ma, Long Chen, Cong Liu, Maosheng Ye, and Lingxi Li</em><br><em>机构:SYSU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>针对闭环检测任务，point-level的方法一般不是很稳定。本文提出了一种semantic-level的方法：GOSMatch，来提供更可靠的重定位。我们利用一种新的从语义对象的空间关系中生成的描述子，来描述数据并进行数据匹配。我们还提出了一种由粗到细的策略，来高效的搜索闭环。除此之外，在检测到闭环之后GOSMatch可以输出一个准确的6自由度的初始位姿估计。最后，在KITTI上进行了实验。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>语义分割使用rangenet++；</li>
+<li>题目中graph of semantic的含义为，将物体作为节点，分为三类（树，车辆，电线杆）；边分为六类（车车，树树，杆杆，车树，树杆，杆车）；（见图1）</li>
+<li>全局描述子（graph descriptor）为上述六种边组成的直方图。比如A类边，长度范围是[l_min,l_max],将其分为b个区间，每个区间长度为（l_max - l_min）/b, 统计落在这个区间的边的个数。（见图1）</li>
+<li>局部描述子（vertex descriptors）也是直方图，不过是对一个点所连的边进行描述。（见图1）</li>
+</ol>
+<p><strong>主要贡献：</strong><br>1.一个物体级的方法来进行重定位；<br>2.一种基于物体空间位置的全局描述子和局部描述子，可以进行两步分层搜索.</p>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9341299/">https://ieeexplore.ieee.org/document/9341299/</a><br><strong>开源代码：</strong><a href="https://github.com/zhuyachen/GOSMatch%EF%BC%88matlab%E5%AE%9E%E7%8E%B0%EF%BC%89">https://github.com/zhuyachen/GOSMatch（matlab实现）</a></p>
+<img src="/2021/05/11/0511/1.png" class>
+<img src="/2021/05/11/0511/2.png" class>
+<img src="/2021/05/11/0511/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>semantics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0514 HD Map Update for Autonomous Driving With Crowdsourced Data</title>
+    <url>/2021/05/14/0514/</url>
+    <content><![CDATA[<p><em>作者:Kitae Kim , Soohyun Cho, and Woojin Chung</em><br><em>机构:Korea University</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>自动驾驶汽车使用高精度地图(HD map)可以进行准确的定位，并且生成不碰撞的轨迹。因此,保持高精度地图的准确性很重要。通常，HD map的构建要使用昂贵的地图构建系统，而且要进行很多人工的修改。传统的HD map因为太过昂贵，而不能时常进行构建。在本文中，我们使用了低成本众包传感器收集的道路数据，这些传感器被安装在反复移动的车（比如公交）上。我们提出了一种维护HD map的方法，关注数据中的landmark信息，选择不确定度低的数据来更新地图。并考虑离散和连续地标（交通灯交通标志，车道线）的差异，设计一个观察学习算法。通过所提出的更新模式选择策略，可以调整地图更新的触发条件。本文所提出的地图更新方案已通过从真实道路环境中收集的众包数据进行了实验验证.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>传感器使用的是摄像头和GNSS；</li>
+<li>文章主要提出了一种车道线检测的方法；并且针对离散的地标如交通灯，和连续的地标如车道线，分别给出了更新HD map的策略。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9357917">https://ieeexplore.ieee.org/document/9357917</a></p>
+<img src="/2021/05/14/0514/1.png" class>
+<img src="/2021/05/14/0514/2.png" class>
+<img src="/2021/05/14/0514/3.png" class>
+<img src="/2021/05/14/0514/4.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>map</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0517 LAMP:Large-Scale Autonomous Mapping and Positioning for Exploration of Perceptually-Degraded Subterranean Environments</title>
+    <url>/2021/05/17/0515/</url>
+    <content><![CDATA[<p><em>作者:Kamak Ebadi, Yun Chang, Matteo Palieri, Alex Stephens, Alex Hatteland, Eric Heiden, Abhishek Thakur, Benjamin Morrell, Sally Wood, Luca Carlone, Ali-akbar Agha-mohammadi</em><br><em>机构:CIT+MIT</em><br><em>发表:ICRA 2020</em></p>
+<p><strong>Abstract</strong><br>在未知复杂的地下环境（例如矿洞）中进行SLAM是一件困难的任务。困难如下：</p>
+<ol>
+<li>传感器必须在非标称的环境（光照差，充满灰尘水坑等环境）下工作；</li>
+<li>地面不平坦并且湿滑，使车轮里程计不准；</li>
+<li>没有明显的特征的长廊容易导致漂移；</li>
+<li>例如隧道和矿石等具有重复外观的环境，容易导致错误的闭环检测，从而使整个地图严重变形。<br>本文描述了一个在DARPA地下挑战赛中的，基于激光雷达的SLAM系统。提出了一个更适合地下场景的多机器人SLAM架构，包含一个精准的前端，以及可拒绝虚假闭环的鲁棒后端。<span id="more"></span></li>
+</ol>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>机器人与基站之间传输的信息包含：位姿图，机器人位姿，点云（如图1所示）；</li>
+<li>文章提出的拒绝虚假闭环的方法称为ICM（增量一致测量集最大化算法）。分三步进行：检验沿着路径的位姿变化与闭环检测到的位姿变化的差距（如图2,x1-&gt;x2-&gt;..x6 与LC；成对一致性检验，检验两个闭环之间是否一致；为一致的闭环构建邻接矩阵，寻找其中的最大团，其余的闭环将被拒绝。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>描述了一个多机器人的系统架构；</li>
+<li>对现有slam算法进行改进：<ol>
+<li>基于scan-to-scan和scan-to-submap的前端；</li>
+<li>可以融合多个传感器数据和操作员输入的后端；</li>
+<li>使用增量一致性测量设置最大值的方法来拒绝错误的闭环检测。</li>
+</ol>
+</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2003.01744v2.pdf">https://arxiv.org/pdf/2003.01744v2.pdf</a></p>
+<img src="/2021/05/17/0515/1.png" class>
+<img src="/2021/05/17/0515/2.png" class>
+<img src="/2021/05/17/0515/3.png" class>
+<img src="/2021/05/17/0515/4.png" class>
+<img src="/2021/05/17/0515/5.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
+    <url>/2021/05/17/0516/</url>
+    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
+<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
+<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
+<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
+<li>一个利用上述描述子进行重定位的框架。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
+<img src="/2021/05/17/0516/1.png" class>
+<img src="/2021/05/17/0516/2.png" class>
+<img src="/2021/05/17/0516/3.png" class>
+<img src="/2021/05/17/0516/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>localization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0518 RadarLoc:Learning to Relocalize in FMCW Radar</title>
+    <url>/2021/05/18/0518/</url>
+    <content><![CDATA[<p><em>作者:Wei Wang, Pedro P. B. de Gusmão, Bo Yang, Andrew Markham, and Niki Trigoni</em><br><em>机构:Oxford</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>学习的方法还没有被应用在毫米波雷达的数据上。在本文中，我们研究了如何使用深度学习的方法来预测毫米波雷达的全局位姿。特别的我们提出了一个端到端的包含self-attention的神经网络来预测6DOF位姿。我们也提出了通过几何约束来提高定位精度的方法。我们在 Oxford Radar RobotCar数据集上进行了实验，证明了我们的方法比基于毫米波雷达的方法和基于深度相机的方法更有效。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>整个网络分为3个模块：self-attention模块，encoder模块，和deep pose regressor模块；</li>
+<li>毫米波雷达的原始数据首先被转化为笛卡尔坐标系下的鸟瞰图；</li>
+<li>self-attention用来减少自身噪音和动态物体的影响；</li>
+<li>encoder模块使用DenseNet来提取特征；</li>
+<li>deep pose regressor使用带有两个分支的MLP，分别产生平移和旋转的参数。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>证明了毫米波雷达也能以端到端的形式来估计位姿；</li>
+<li>使用几何约束来优化位姿估计的效果。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.11562.pdf">https://arxiv.org/pdf/2103.11562.pdf</a></p>
+<img src="/2021/05/18/0518/1.png" class>
+<img src="/2021/05/18/0518/2.png" class>
+<img src="/2021/05/18/0518/3.png" class>
+<img src="/2021/05/18/0518/4.png" class>
+<img src="/2021/05/18/0518/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>localization</tag>
+        <tag>radar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0519 BALM:Bundle Adjustment for Lidar Mapping</title>
+    <url>/2021/05/19/0519/</url>
+    <content><![CDATA[<p><em>作者:Zheng Liu and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>在关键帧的滑动窗口上进行BA在视觉SLAM里面十分流行，并且可以有效降低漂移误差。但是在激光SLAM中，BA几乎没有被使用过，这是因为点云的特征十分稀疏，不是很好找到其对应关系。在本文中，我们将激光BA问题定义为最小化点到其对应边或面的距离。不像视觉SLAM中，BA问题得同时求解位姿和特征点的位置，在激光SLAM中可以将求解特征点的位置从BA问题中去除，这减小了优化的搜索空间。为了提高优化速度，我们以闭式解的方式求得边特征与面特征，并将cost function进行2阶求导。除此之外，我们还提出了一种新的自适应体素方法来更高效的寻找特征对应关系。提出的方法被融合进了LOAM，被实验证明有效。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>BA问题的数学表达式如图6所示</li>
+<li>自适应划分的好处如下：与八叉树的数据结构很契合；当平面或边缘较大时，这种方式会比对所有特征点建KD-Tree更有效；可以减小搜索匹配的时间。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.08215.pdf">https://arxiv.org/pdf/2010.08215.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/hku-mars/BALM">https://github.com/hku-mars/BALM</a></p>
+<img src="/2021/05/19/0519/1.png" class>
+<img src="/2021/05/19/0519/2.png" class>
+<img src="/2021/05/19/0519/3.png" class>
+<img src="/2021/05/19/0519/4.png" class>
+<img src="/2021/05/19/0519/5.png" class>
+<img src="/2021/05/19/0519/6.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0522 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences</title>
+    <url>/2021/05/22/0522/</url>
+    <content><![CDATA[<p><em>作者:Huai Yu1, Weikun Zhen, Wen Yang, Ji Zhang and Sebastian Scherer</em><br><em>机构:武大+CMU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>使用相机在已有地图中进行定位是基于视觉导航的基础。目前，VO和VIO在状态估计方面已经发展地很好了，但是在闭环检测时会发生不可避免的位姿跳变（由于累计误差）（这对导航来说有副作用）。为了避免这个问题，我们利用2D-3D中线特征的对应关系，提出了一种在LiDAR地图中使用单目摄像头进行重定位的方法。为了处理激光点云和图像之间的差异，我们offline地从LiDAR地图中提取3D线条，并online地从图像序列中提取2D线条。有了VIO输出的对位姿的预测，我们可以高效地，获得2D-3D中线的粗糙的对应关系。随后，相机的位姿和对应关系可以通过最小化投影误差来迭代优化。最后，我们在EurocMav数据集上进行了实验，证明了提出的方法可以使估计相机位姿时，没有累计误差，并且没有位姿跳变。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>具体流程图见图2.使用PnP来初始化，使用VINS-Mono来做位姿估计；</li>
+<li>2D线特征提取，见图3。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2004.00740.pdf">https://arxiv.org/pdf/2004.00740.pdf</a></p>
+<img src="/2021/05/22/0522/1.png" class>
+<img src="/2021/05/22/0522/2.png" class>
+<img src="/2021/05/22/0522/3.png" class>
+<img src="/2021/05/22/0522/4.png" class>
+<img src="/2021/05/22/0522/5.png" class>
+<img src="/2021/05/22/0522/6.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>visual</tag>
+        <tag>localization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0523 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences</title>
+    <url>/2021/05/23/0523/</url>
+    <content><![CDATA[<p><em>作者:Huai Yu1, Weikun Zhen, Wen Yang, Ji Zhang and Sebastian Scherer</em><br><em>机构:武大+CMU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>使用相机在已有地图中进行定位是基于视觉导航的基础。目前，VO和VIO在状态估计方面已经发展地很好了，但是在闭环检测时会发生不可避免的位姿跳变（由于累计误差）（这对导航来说有副作用）。为了避免这个问题，我们利用2D-3D中线特征的对应关系，提出了一种在LiDAR地图中使用单目摄像头进行重定位的方法。为了处理激光点云和图像之间的差异，我们offline地从LiDAR地图中提取3D线条，并online地从图像序列中提取2D线条。有了VIO输出的对位姿的预测，我们可以高效地，获得2D-3D中线的粗糙的对应关系。随后，相机的位姿和对应关系可以通过最小化投影误差来迭代优化。最后，我们在EurocMav数据集上进行了实验，证明了提出的方法可以使估计相机位姿时，没有累计误差，并且没有位姿跳变。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>具体流程图见图2.使用PnP来初始化，使用VINS-Mono来做位姿估计；</li>
+<li>2D线特征提取，见图3。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2004.00740.pdf">https://arxiv.org/pdf/2004.00740.pdf</a></p>
+<img src="/2021/05/23/0523/1.png" class>
+<img src="/2021/05/23/0523/2.png" class>
+<img src="/2021/05/23/0523/3.png" class>
+<img src="/2021/05/23/0523/4.png" class>
+<img src="/2021/05/23/0523/5.png" class>
+<img src="/2021/05/23/0523/6.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>visual</tag>
+        <tag>localization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0524 Extrinsic Calibration of Multiple LiDARs of Small FoV in Targetless Environments</title>
+    <url>/2021/05/24/0524/</url>
+    <content><![CDATA[<p><em>作者:Xiyuan Liu and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:RA-L 2021 ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>使用多个小视场（FoV）的固态激光雷达拼接在一起可以实现类似机械式旋转雷达的效果。但是由于视场都很小，我们或者需要额外的传感器进行校准，或者使它们的FoV产生重叠，来进行雷达之间外参的标定。为了克服这些限制，我们研发了一种不需要标定板的标定方法，通过移动来实现FoV的重叠，并构造因子图来解决雷达位姿和外参之间的约束。通过求解这个图优化问题，我们提出的方法可以标定FoV很少重叠，甚至不重叠的雷达。与此同时，生成了一个全局一致的点云地图。在不同硬件配置上的实验，证明了该方法的准确性和鲁棒性。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>使用的特征仍然为主流的边特征和面特征，使用GICP来进行约束。使用同一特征，对不同时间，不同雷达产生约束，如图3所示。</li>
+<li>对框图（图4）的说明：<ol>
+<li>stage 1：计算位姿变化，为每个雷达开了一个LOAM。输出为位姿以及特征。</li>
+<li>stage 2：首先优化base雷达的位姿，然后使用其产生的特征点构建一个地图；再将每个雷达与地图对其，从而得到外参。</li>
+<li>stage3：迭代优化，保持位姿不变优化外参，保持外参不变优化位姿</li>
+</ol>
+</li>
+</ol>
+<p><strong>主要贡献：</strong><br>1.一个完整的多激光雷达标定的系统：数据收集，图构建，图优化。在数据采集过程中，人为地制造视野重叠。将运动引入整个系统：将系统（小车）在多个静止位姿摆放，以产生对位姿估计和激光雷达外参的约束。使用KDtree进行对应特征的搜索，并基于这种对应关系构建因子图。最后提出了一个多阶段图优化方法，可以同时估计外参和机器人位姿；<br>2.提出了一种评价外参标定结果的方法。</p>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9361153">https://ieeexplore.ieee.org/document/9361153</a></p>
+<img src="/2021/05/24/0524/1.png" class>
+<img src="/2021/05/24/0524/2.png" class>
+<img src="/2021/05/24/0524/3.png" class>
+<img src="/2021/05/24/0524/4.png" class>
+<img src="/2021/05/24/0524/5.png" class>
+<img src="/2021/05/24/0524/6.png" class>
+<img src="/2021/05/24/0524/7.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>calibration</tag>
+        <tag>solid-state</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0525 MonoPair:Monocular 3D Object Detection Using Pairwise Spatial Relationships</title>
+    <url>/2021/05/25/0525/</url>
+    <content><![CDATA[<p><em>作者:Yongjian Chen， Lei Tai， Kai Sun， Mingyang Li</em><br><em>机构:Alibaba</em><br><em>发表:CVPR 2020</em><br>注：本篇介绍的原因是，这是一篇在detection领域使用图优化（g2o）的论文。<br><strong>Abstract</strong><br>单目3D目标检测是自动驾驶的一个重要组成部分，也是一个极具挑战性的问题，特别是对于那些被遮挡只有部分可见的目标。大多数检测器将每个3D目标视为独立的训练对象，不可避免地导致了遮挡物体缺乏有用的信息。为了解决这个问题，我们提出了一种新的方法，通过考虑成对样本之间的关系来改进单目3D目标检测。这样，我们可以对部分遮挡目标与其相邻的目标之间的空间约束进行编码。具体的，提出的检测器进行目标位置和距相邻目标的3D距离的不确定感知预测，随后通过非线性最小二乘进行联合优化。最后，为了保证运行效率，将一阶段不确定性感知预测结构与后优化模块进行了专门的集成。实验表明，我们的方法在KITTI 3D目标检测的排行榜上，特别是对于难样本，获得了最好的性能，超过了SOTA。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>预测阶段分别给出两种预测框，2D的和3D的，网络图如图1所示；预测结果说明如图2所示；</li>
+<li>一对物体之间如何建立约束详见图3，4，5；</li>
+<li>本篇文章主要用图优化来综合优化一对物体之间的距离，和每个物体的位置；</li>
+<li>图的定义：图的顶点为物体，边为两成对物体之间的距离。每一个顶点有三个属性（u, v ,z）(如图2中所示），u v 为3D边框中心投影在2D平面上的坐标，z为深度。更多的图优化的信息，详见图6，7；</li>
+<li>信息矩阵由不确定度构成。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>通过利用成对物体之间的空间关系，设计了一个新的检测器，极大地提高了被遮挡物体的精度；</li>
+<li>提出了一种三维目标检测的不确定性感知预测模块，和物体距物体的距离一起进行联合优化。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2003.00504.pdf">https://arxiv.org/pdf/2003.00504.pdf</a></p>
+<img src="/2021/05/25/0525/1.png" class>
+<img src="/2021/05/25/0525/2.png" class>
+<img src="/2021/05/25/0525/3.png" class>
+<img src="/2021/05/25/0525/4.png" class>
+<img src="/2021/05/25/0525/5.png" class>
+<img src="/2021/05/25/0525/6.png" class>
+<img src="/2021/05/25/0525/7.png" class>
+<img src="/2021/05/25/0525/8.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>visual</tag>
+        <tag>detection</tag>
       </tags>
   </entry>
 </search>

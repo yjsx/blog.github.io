@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/04/25/0425/">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/05/0505/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/25/0425/" class="post-title-link" itemprop="url">0425 Robust Place Recognition using an Imaging Lidar</a>
+            <a href="/2021/05/05/0505/" class="post-title-link" itemprop="url">0505 Greedy-Based Feature Selection for Efficient LiDAR SLAM</a>
         </h2>
 
         <div class="post-meta">
@@ -216,14 +216,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-04-25 02:25:11" itemprop="dateCreated datePublished" datetime="2021-04-25T02:25:11+08:00">2021-04-25</time>
+              <time title="Created: 2021-05-05 21:05:02" itemprop="dateCreated datePublished" datetime="2021-05-05T21:05:02+08:00">2021-05-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-03 18:30:18" itemprop="dateModified" datetime="2021-05-03T18:30:18+08:00">2021-05-03</time>
+                <time title="Modified: 2021-05-08 04:48:23" itemprop="dateModified" datetime="2021-05-08T04:48:23+08:00">2021-05-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,11 +246,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
+          <p><em>作者:Jianhao Jiao, Yilong Zhu, Haoyang Ye, Huaiyang Huang, Peng Yun, Linxin Jiang, Lujia Wang, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:ICRA 2021</em></p>
+<p>注：多激光雷达（2/3），本篇关注激光SLAM中提取到特征点的选择问题。</p>
+<p><strong>Abstract</strong><br>激光SLAM在大规模真实场景下，虽然可以达到很好的结果，但是一般都会有很高的延迟（因为点云配准和非线性优化）。本文证明了选择特征的一个子集对激光SLAM系统准确性和延迟都有积极的作用。我们将特征选择（feature selection，不是feature extraction）表示为一个组合优化问题，在数量约束的前提下保持信息矩阵的spectral属性。使用随机贪婪算法来实时估计最优解。为了避免坏估计，我们还提出了一个评价环境是否退化的策略，来实时修改特征的数量。提出的方法还被用到了多激光雷达SLAM系统（M-LOAM-gf）。最后进行了真实的实验.</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/04/25/0425/#more" rel="contents">
+              <a class="btn" href="/2021/05/05/0505/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -274,7 +275,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/04/24/0424/">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/05/0504/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -288,7 +289,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/24/0424/" class="post-title-link" itemprop="url">0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</a>
+            <a href="/2021/05/05/0504/" class="post-title-link" itemprop="url">0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving</a>
         </h2>
 
         <div class="post-meta">
@@ -297,16 +298,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-04-24 02:25:09" itemprop="dateCreated datePublished" datetime="2021-04-24T02:25:09+08:00">2021-04-24</time>
+              <time title="Created: 2021-05-05 01:34:35 / Modified: 21:42:08" itemprop="dateCreated datePublished" datetime="2021-05-05T01:34:35+08:00">2021-05-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-03 18:30:19" itemprop="dateModified" datetime="2021-05-03T18:30:19+08:00">2021-05-03</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -328,11 +323,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
-<p><strong>Abstract</strong><br>3D场景理解的监督学习算法的基础是大规模的标注数据。但是，由于数据收集和标注的成本很高，所以公开数据集往往规模都比较小，或者标注的类别不够丰富。这限制了对3D点云细粒度语义理解的发展。在这篇论文中，我们发布了一个城市规模的点云数据集，包含了接近30亿的包含语义信息的点。点云数量是已有数据集的三倍。数据集包含了英国的三个城市（伯明翰，剑桥，约克），约7.6平方千米的覆盖面积。数据被标注成了13个在城市中常见的种类。除此之外，我们对SOTA的算法进行了测试，并且进行分析。最后，文章提出了城市场景语义理解的几个挑战。</p>
+          <p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:IROS 2020</em></p>
+<p>注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。</p>
+<p><strong>Abstract</strong><br>在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误差等）总会存在（如图1）。在本篇文章中，我们关注了这种外参的不确定因素在多激光雷达3D目标检测任务中的影响。我们首先分析了外参扰动对两个简单几何任务的影响。为了最小化有害的影响，我们将不确定因素传播给了每一个输入的点云，然后使用这个信息来改进3D几何任务的方法。随后我们扩展了我们的发现，提出了一个3D目标检测的网络——MLOD。MLOD是一个两阶段的网络，在第一个阶段融合多个雷达的信息，并在第二个极端处理外参的扰动。最后我们进行了真实的实验。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/04/24/0424/#more" rel="contents">
+              <a class="btn" href="/2021/05/05/0504/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -356,7 +352,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/04/23/0423/">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/03/0503/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -370,7 +366,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/23/0423/" class="post-title-link" itemprop="url">0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</a>
+            <a href="/2021/05/03/0503/" class="post-title-link" itemprop="url">0503 Towards High-Performance Solid-State-LiDAR-Inertial Odometry and Mapping</a>
         </h2>
 
         <div class="post-meta">
@@ -380,14 +376,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-04-23 02:24:40" itemprop="dateCreated datePublished" datetime="2021-04-23T02:24:40+08:00">2021-04-23</time>
+              <time title="Created: 2021-05-03 03:37:45" itemprop="dateCreated datePublished" datetime="2021-05-03T03:37:45+08:00">2021-05-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-03 18:30:20" itemprop="dateModified" datetime="2021-05-03T18:30:20+08:00">2021-05-03</time>
+                <time title="Modified: 2021-05-04 03:42:47" itemprop="dateModified" datetime="2021-05-04T03:42:47+08:00">2021-05-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -410,11 +406,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+          <p><em>作者:Kailai Li, Meng Li, and Uwe D. Hanebeck</em><br><em>机构:KIT</em><br><em>发表:RA-L</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种新的紧耦合的，对固态激光雷达和机械式雷达都适用的雷达惯导SLAM框架。前端包含一个轻量级的雷达里程计进行快速的关键帧之间的运动估计；后端是一个使用边缘化方法与滑动窗口，基于关键帧的，分层优化，来融合IMU和雷达的数据。对于Livox-Horizon（一款固态激光雷达），提出了一种新的特征点提取的方法来应对预处理时的不规律扫描。LiLi-OM是一个实时可以达到超过SOTA精度的系统。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/04/23/0423/#more" rel="contents">
+              <a class="btn" href="/2021/05/03/0503/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -438,7 +434,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/04/22/0422-LVI-SAM/">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/02/0502/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -452,7 +448,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/04/22/0422-LVI-SAM/" class="post-title-link" itemprop="url">0422 LVI-SAM:Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping</a>
+            <a href="/2021/05/02/0502/" class="post-title-link" itemprop="url">0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</a>
         </h2>
 
         <div class="post-meta">
@@ -462,14 +458,87 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-04-22 03:28:11" itemprop="dateCreated datePublished" datetime="2021-04-22T03:28:11+08:00">2021-04-22</time>
+              <time title="Created: 2021-05-02 03:36:45" itemprop="dateCreated datePublished" datetime="2021-05-02T03:36:45+08:00">2021-05-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-03 18:29:12" itemprop="dateModified" datetime="2021-05-03T18:29:12+08:00">2021-05-03</time>
+                <time title="Modified: 2021-05-05 01:34:57" itemprop="dateModified" datetime="2021-05-05T01:34:57+08:00">2021-05-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
+<p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/02/0502/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/05/01/0501/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Duan Yifan">
+      <meta itemprop="description" content="USTC CS">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YJSX">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/01/0501/" class="post-title-link" itemprop="url">0501 Pixel-level Extrinsic Self Calibration of High Resolution LiDAR and Camera in Targetless Environment</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-01 01:59:00" itemprop="dateCreated datePublished" datetime="2021-05-01T01:59:00+08:00">2021-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-03 18:30:12" itemprop="dateModified" datetime="2021-05-03T18:30:12+08:00">2021-05-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -492,18 +561,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><em>作者: Tixiao Shan, Brendan Englot, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>我们通过SAM(smoothing and mapping)的方式，提出了一个 雷达-视觉-惯导的紧耦合的SLAM框架-LVI-SAM。该框架可以实时进行状态估计和高精度地图的构建。LVI-SAM分为两个部分：视觉惯性系统VIS 和 雷达惯性系统 LIS。这两个子系统均以紧耦合的方式进行设计。两个系统并行的作用如下：</p>
-<ol>
-<li>VIS利用LIS的估计进行初始化。</li>
-<li>通过使用激光雷达的测量结果来优化VIS中视觉特征的深度信息，可以提高VIS的准确性。</li>
-<li>LIS也可以利用VIS对位姿的估计，作为点云配准的初始值。</li>
-<li>闭环首先由VIS进行识别，再由LIS进行完善</li>
-<li>当任意一个系统发生故障时，LVI-SAM仍然可以稳定运行，提高了在缺乏纹理信息和特征区域的鲁棒性。<br>其中VIS以Vins-Mono为基础，LIS以LIO-SAM为基础。整个系统以IMU的速率输出位姿估计的结果。</li>
-</ol>
+          <p><em>作者: Chongjian Yuan, Xiyuan Liu, Xiaoping Hong, Fu Zhang</em><br><em>机构: hku</em><br><em>发表: arxiv</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一种高分辨率雷达和相机之间外参自动标定的方法。我们的方法不需要标定板，而且可以通过对齐两种传感器中的边特征以达到像素级准确度。在理论层面，我们分析了边特征带来的约束，以及标定准确度对环境中边特征分布的敏感度。在实现层面，我们研究了雷达测距的规律，提出了一个基于体素化以及平面拟合的高效准确的提取雷达边特征的方法。由于在自然环境中，边特征十分丰富，所以我们在室内外均进行实验，得到了鲁棒性强，准确性高的实验结果。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/04/22/0422-LVI-SAM/#more" rel="contents">
+              <a class="btn" href="/2021/05/01/0501/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -526,7 +588,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -594,7 +656,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -607,7 +669,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
