@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
+    <url>/2021/04/23/0423/</url>
+    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ul>
+<li>固态雷达SLAM具体的难点：<ul>
+<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
+<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
+<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
+</ul>
+</li>
+<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
+<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
+</ul>
+<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
+<img src="/2021/04/23/0423/1.png" class>
+<img src="/2021/04/23/0423/2.png" class>
+<img src="/2021/04/23/0423/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>solid</tag>
+        <tag>system</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0422 LVI-SAM:Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping</title>
     <url>/2021/04/22/0422-LVI-SAM/</url>
     <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
@@ -32,41 +65,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>code</tag>
         <tag>fusion-slam</tag>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
-    <url>/2021/04/23/0423/</url>
-    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ul>
-<li>固态雷达SLAM具体的难点：<ul>
-<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
-<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
-<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
-</ul>
-</li>
-<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
-<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
-</ul>
-<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
-<img src="/2021/04/23/0423/1.png" class>
-<img src="/2021/04/23/0423/2.png" class>
-<img src="/2021/04/23/0423/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>code</tag>
-        <tag>LiDAR</tag>
-        <tag>solid</tag>
-        <tag>system</tag>
       </tags>
   </entry>
   <entry>
@@ -128,8 +128,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
+        <tag>code</tag>
         <tag>recognition</tag>
       </tags>
   </entry>
@@ -230,36 +230,9 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
+        <tag>code</tag>
         <tag>learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0430 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</title>
-    <url>/2021/04/30/0430/</url>
-    <content><![CDATA[<p><em>作者: Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</em><br><em>机构: NTU+CMU</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>现有的VSLAM框架大多依赖静态环境，在动态环境中很容易失效。一些最近的工作使用深度学习得到语义信息来避免动态物体的影响，但是这些方法一般有着很高的计算开销，并且不能处理没有见过的物体。在本篇文章中，我们提出了一个实时的语义RGBD SLAM，可以处理见过或没见过的动态物体。为了减少计算开销，我们只对关键帧进行语义分割以剔除已知动态物体，并维护一个静态地图。除此之外，我们提出了一个高效的几何模块来检测未知的动态物体，具体方法为将深度图像聚类并通过重投影误差来识别动态区域。提出的方法在数据集以及真实场景进行测试。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>整个系统基于ORB-SLAM2，本文工作的目的是剔除属于动态物体的特征点。</li>
-<li>语义分割部分使用轻量级网络SegNet。</li>
-<li>不需要先验信息的几何模块，使用K-Means算法进行聚类（聚类数量N = 24），随后进行重投影误差的计算，误差大的则视为动态物体。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.01316v1.pdf">https://arxiv.org/pdf/2104.01316v1.pdf</a></p>
-<img src="/2021/04/30/0430/1.png" class>
-<img src="/2021/04/30/0430/2.png" class>
-<img src="/2021/04/30/0430/3.png" class>
-<img src="/2021/04/30/0430/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>semantic</tag>
-        <tag>dynamic</tag>
-        <tag>RGBD</tag>
       </tags>
   </entry>
   <entry>
@@ -290,8 +263,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
+        <tag>code</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
       </tags>
@@ -313,6 +286,33 @@
 <img src="/2021/05/02/0502/3.png" class>]]></content>
       <tags>
         <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0430 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</title>
+    <url>/2021/04/30/0430/</url>
+    <content><![CDATA[<p><em>作者: Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</em><br><em>机构: NTU+CMU</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>现有的VSLAM框架大多依赖静态环境，在动态环境中很容易失效。一些最近的工作使用深度学习得到语义信息来避免动态物体的影响，但是这些方法一般有着很高的计算开销，并且不能处理没有见过的物体。在本篇文章中，我们提出了一个实时的语义RGBD SLAM，可以处理见过或没见过的动态物体。为了减少计算开销，我们只对关键帧进行语义分割以剔除已知动态物体，并维护一个静态地图。除此之外，我们提出了一个高效的几何模块来检测未知的动态物体，具体方法为将深度图像聚类并通过重投影误差来识别动态区域。提出的方法在数据集以及真实场景进行测试。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>整个系统基于ORB-SLAM2，本文工作的目的是剔除属于动态物体的特征点。</li>
+<li>语义分割部分使用轻量级网络SegNet。</li>
+<li>不需要先验信息的几何模块，使用K-Means算法进行聚类（聚类数量N = 24），随后进行重投影误差的计算，误差大的则视为动态物体。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.01316v1.pdf">https://arxiv.org/pdf/2104.01316v1.pdf</a></p>
+<img src="/2021/04/30/0430/1.png" class>
+<img src="/2021/04/30/0430/2.png" class>
+<img src="/2021/04/30/0430/3.png" class>
+<img src="/2021/04/30/0430/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>semantic</tag>
+        <tag>dynamic</tag>
+        <tag>RGBD</tag>
       </tags>
   </entry>
   <entry>
@@ -409,8 +409,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
+        <tag>code</tag>
         <tag>multi</tag>
       </tags>
   </entry>
@@ -770,8 +770,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>LiDAR</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -1133,27 +1133,33 @@
       </tags>
   </entry>
   <entry>
-    <title>629</title>
+    <title>0629 SegMatch:Segment Based Place Recognition in 3D Point Clouds</title>
     <url>/2021/06/29/0629/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
+    <content><![CDATA[<p><em>作者:R. Dubé, D. Dugas, E. Stumm, J. Nieto, R. Siegwart, and C. Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2017</em></p>
+<p><strong>Abstract</strong><br>重定位问题通常是通过基于图像的方式解决的。基于局部特征的方法会受到运动模糊和环境变化的影响，基于全局特征的会受到视角变化的影响。我们提出了SegMatch，一种基于3D点云分割的重定位算法。分割提供了全局特征和局部特征之间很好的折中选项，可以利用二者的优点，同时克服二者的缺点。SegMatch不假设可以获得完美的分割，并且不对环境中可能出现的物体进行假设，这可以保证算法在大型非结构化的场景中进行稳定的运行。我们定量地证明了SegMatch可以以1Hz的频率在KITTI数据集中获得准确的定位信息。更进一步，我们展示了我们的算法可以实时检测回环。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<ol>
+<li>如图二所示，算法主要分为四个部分:点云分割，特征提取，分割匹配，几何检验。</li>
+<li>分割采用论文“On the segmentation of 3d lidar point clouds”中所提到的Cluster-All Method方法。如图3所示。</li>
+<li>特征提取，对每一个分割后的聚类进行提取。文章中提到两类：基于特征值的特征：linearity, planarity, scattering, omnivariance, anisotropy, eigenentropy and change of curvature；基于直方图的特征：1个640维的特征，由十个直方图获得。</li>
+<li>分割匹配：将上述特征放入随机森林进行训练，将匹配问题转化为分类问题，分为一类的即为同一物体。算法中一些参数如图4所示。</li>
+<li>几何检验：使用RANSAC进行几何一致性检验。</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/1609.07720.pdf">https://arxiv.org/pdf/1609.07720.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/ethz-asl/segmap">https://github.com/ethz-asl/segmap</a></strong></p>
 <img src="/2021/06/29/0629/1.png" class>
 <img src="/2021/06/29/0629/2.png" class>
 <img src="/2021/06/29/0629/3.png" class>
 <img src="/2021/06/29/0629/4.png" class>
 <img src="/2021/06/29/0629/5.png" class>
-<img src="/2021/06/29/0629/6.png" class>
-
-]]></content>
+<img src="/2021/06/29/0629/6.png" class>]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>localization</tag>
       </tags>
   </entry>
   <entry>

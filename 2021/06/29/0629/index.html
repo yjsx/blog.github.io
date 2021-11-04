@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"yjsx.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="作者:机构:发表: Abstract">
+  <meta name="description" content="作者:R. Dubé, D. Dugas, E. Stumm, J. Nieto, R. Siegwart, and C. Cadena机构:ETHZ发表:ICRA 2017 Abstract重定位问题通常是通过基于图像的方式解决的。基于局部特征的方法会受到运动模糊和环境变化的影响，基于全局特征的会受到视角变化的影响。我们提出了SegMatch，一种基于3D点云分割的重定位算法。分割提供了全局特征">
 <meta property="og:type" content="article">
-<meta property="og:title" content="629">
+<meta property="og:title" content="0629 SegMatch:Segment Based Place Recognition in 3D Point Clouds">
 <meta property="og:url" content="https://yjsx.top/2021/06/29/0629/index.html">
 <meta property="og:site_name" content="YJSX">
-<meta property="og:description" content="作者:机构:发表: Abstract">
+<meta property="og:description" content="作者:R. Dubé, D. Dugas, E. Stumm, J. Nieto, R. Siegwart, and C. Cadena机构:ETHZ发表:ICRA 2017 Abstract重定位问题通常是通过基于图像的方式解决的。基于局部特征的方法会受到运动模糊和环境变化的影响，基于全局特征的会受到视角变化的影响。我们提出了SegMatch，一种基于3D点云分割的重定位算法。分割提供了全局特征">
 <meta property="og:locale">
 <meta property="og:image" content="https://yjsx.top/2021/06/29/0629/1.png">
 <meta property="og:image" content="https://yjsx.top/2021/06/29/0629/2.png">
@@ -34,9 +34,11 @@
 <meta property="og:image" content="https://yjsx.top/2021/06/29/0629/5.png">
 <meta property="og:image" content="https://yjsx.top/2021/06/29/0629/6.png">
 <meta property="article:published_time" content="2021-06-28T18:29:51.000Z">
-<meta property="article:modified_time" content="2021-06-28T18:29:51.862Z">
+<meta property="article:modified_time" content="2021-11-04T14:20:18.804Z">
 <meta property="article:author" content="Duan Yifan">
 <meta property="article:tag" content="每日论文分享">
+<meta property="article:tag" content="LiDAR">
+<meta property="article:tag" content="localization">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yjsx.top/2021/06/29/0629/1.png">
 
@@ -53,7 +55,7 @@
   };
 </script>
 
-  <title>629 | YJSX</title>
+  <title>0629 SegMatch:Segment Based Place Recognition in 3D Point Clouds | YJSX</title>
   
 
 
@@ -215,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          629
+          0629 SegMatch:Segment Based Place Recognition in 3D Point Clouds
         </h1>
 
         <div class="post-meta">
@@ -227,6 +229,13 @@
 
               <time title="Created: 2021-06-29 02:29:51" itemprop="dateCreated datePublished" datetime="2021-06-29T02:29:51+08:00">2021-06-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-04 22:20:18" itemprop="dateModified" datetime="2021-11-04T22:20:18+08:00">2021-11-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -255,20 +264,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
+        <p><em>作者:R. Dubé, D. Dugas, E. Stumm, J. Nieto, R. Siegwart, and C. Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2017</em></p>
+<p><strong>Abstract</strong><br>重定位问题通常是通过基于图像的方式解决的。基于局部特征的方法会受到运动模糊和环境变化的影响，基于全局特征的会受到视角变化的影响。我们提出了SegMatch，一种基于3D点云分割的重定位算法。分割提供了全局特征和局部特征之间很好的折中选项，可以利用二者的优点，同时克服二者的缺点。SegMatch不假设可以获得完美的分割，并且不对环境中可能出现的物体进行假设，这可以保证算法在大型非结构化的场景中进行稳定的运行。我们定量地证明了SegMatch可以以1Hz的频率在KITTI数据集中获得准确的定位信息。更进一步，我们展示了我们的算法可以实时检测回环。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<ol>
+<li>如图二所示，算法主要分为四个部分:点云分割，特征提取，分割匹配，几何检验。</li>
+<li>分割采用论文“On the segmentation of 3d lidar point clouds”中所提到的Cluster-All Method方法。如图3所示。</li>
+<li>特征提取，对每一个分割后的聚类进行提取。文章中提到两类：基于特征值的特征：linearity, planarity, scattering, omnivariance, anisotropy, eigenentropy and change of curvature；基于直方图的特征：1个640维的特征，由十个直方图获得。</li>
+<li>分割匹配：将上述特征放入随机森林进行训练，将匹配问题转化为分类问题，分为一类的即为同一物体。算法中一些参数如图4所示。</li>
+<li>几何检验：使用RANSAC进行几何一致性检验。</li>
+</ol>
+<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1609.07720.pdf">https://arxiv.org/pdf/1609.07720.pdf</a></strong><br><strong>开源代码：<a target="_blank" rel="noopener" href="https://github.com/ethz-asl/segmap">https://github.com/ethz-asl/segmap</a></strong></p>
 <img src="/2021/06/29/0629/1.png" class>
 <img src="/2021/06/29/0629/2.png" class>
 <img src="/2021/06/29/0629/3.png" class>
 <img src="/2021/06/29/0629/4.png" class>
 <img src="/2021/06/29/0629/5.png" class>
 <img src="/2021/06/29/0629/6.png" class>
-
-
     </div>
 
     
@@ -283,7 +296,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://yjsx.top/2021/06/29/0629/" title="629">https://yjsx.top/2021/06/29/0629/</a>
+    <a href="https://yjsx.top/2021/06/29/0629/" title="0629 SegMatch:Segment Based Place Recognition in 3D Point Clouds">https://yjsx.top/2021/06/29/0629/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -295,6 +308,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" rel="tag"># 每日论文分享</a>
+              <a href="/tags/LiDAR/" rel="tag"># LiDAR</a>
+              <a href="/tags/localization/" rel="tag"># localization</a>
           </div>
 
         
