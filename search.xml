@@ -906,27 +906,35 @@
       </tags>
   </entry>
   <entry>
-    <title>603</title>
+    <title>0603：PHASER:a Robust and Correspondence-free Global Pointcloud Registration</title>
     <url>/2021/06/04/0603/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
+    <content><![CDATA[<p><em>作者:Lukas Bernreiter, Lionel Ott, Juan Nieto, Roland Siegwart and Cesar Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了PHASER，一种不需要对应关系的激光雷达点云的全局配准，对于噪音，稀疏性和部分重叠都很鲁棒。我们的方法可以无缝地处理多模态信息，并且不依赖于关键点提取或者描述子等预处理模块。通过傅里叶分析，PHASER直接利用传感器的信号，将多通道频谱进行融合，并且计算6-DOF的位姿变换。我们的配准流程（见图2）从寻找最可能的旋转r开始，随后寻找最可能的平移t。对r和t的估计都会根据其潜在流形的概率分布而考虑其分布，例如r对应Bingham分布，t对应Gaussian分布。这进一步允许我们通过考虑r的周期性来表示其不确定性。我们在不同的数据集和不同的传感器上进行了验证，并与一些知名的配准算法进行对比。我们的结果展示PHASER可以在100ms内，达到2cm和0.5°的精度。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
+<ol>
+<li>文章将配准问题形式化为两片点云经过傅里叶分析后的对应关系，<br>空间(spatial)傅里叶分析如图1上所示，球面（Spherical）</li>
+</ol>
 <p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<ol>
+<li>对点云进行球面和空间傅里叶分解，分别估计点云的旋转和平移；</li>
+<li>一种对任意输入模态的融合方法；</li>
+<li>一种估计分别利用Bingham分布和Gaussian分布来估计球面不确定度和空间相关不确定度的方法。</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/2102.02767.pdf">https://arxiv.org/pdf/2102.02767.pdf</a></strong><br><strong>开源代码：</strong></p>
 <img src="/2021/06/04/0603/1.png" class>
 <img src="/2021/06/04/0603/2.png" class>
 <img src="/2021/06/04/0603/3.png" class>
 <img src="/2021/06/04/0603/4.png" class>
 <img src="/2021/06/04/0603/5.png" class>
 <img src="/2021/06/04/0603/6.png" class>
-
 ]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>registration</tag>
       </tags>
   </entry>
   <entry>
@@ -967,38 +975,48 @@
       </tags>
   </entry>
   <entry>
-    <title>605</title>
+    <title>0605：LiTAMIN:LiDAR-based Tracking And MappINg by Stabilized ICP for Geometry Approximation with Normal Distributions</title>
     <url>/2021/06/06/0605/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
+    <content><![CDATA[<p><em>作者:Masashi Yokozuka, Kenji Koide, Shuji Oishi and Atsuhiko Banno</em><br><em>机构:AIST（日本产业技术综合研究所）</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>本文提出了一个高计算效率，准确性和鲁棒性的ICP算法，利用正态分布簇的局部近似几何。与之前基于正态分布的ICP方法(比如NDT和G-ICP)相比，我们的方法通过Frobenius范数和正则化协方差矩阵来标准化loss函数。以前的方法主要使用PCA，这些方法的计算代价更高。除此之外。我们的方法还减少了错误闭环检测的影响。实验结果表明我们的方法比SOTA更好（LOAM，LeGO-LOAM,hdl_graph_slam）.</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<ol>
+<li>文章对ICP所做的改变包括：</li>
+<li>不使用原始点云，而是减少了部分点云，使密度均匀；</li>
+<li>提出了一个新的cost function，如图3；</li>
+<li>在闭环检测中，将ICP较差的结果当做ourlier，从而减少闭环检测错误的影响。</li>
+</ol>
+<p><strong>论文地址：论文地址：<a href="https://ieeexplore.ieee.org/document/9341341/">https://ieeexplore.ieee.org/document/9341341/</a></strong></p>
 <img src="/2021/06/06/0605/1.png" class>
 <img src="/2021/06/06/0605/2.png" class>
 <img src="/2021/06/06/0605/3.png" class>
 <img src="/2021/06/06/0605/4.png" class>
 <img src="/2021/06/06/0605/5.png" class>
-
-
 ]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>registration</tag>
       </tags>
   </entry>
   <entry>
-    <title>606</title>
+    <title>0606:LiTAMIN2:Ultra Light LiDAR-based SLAM using Geometric Approximation applied with KL-Divergence</title>
     <url>/2021/06/07/0606/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
+    <content><![CDATA[<p><em>作者:Masashi Yokozuka, Kenji Koide, Shuji Oishi and Atsuhiko Banno</em><br><em>机构:AIST</em><br><em>发表:ICRA 2021</em></p>
+<p>注：本篇文章为昨天文章的后续工作，在ICP上又做了一些改进，进一步提升了配准的效率，达到了500Hz-1000Hz。<br><strong>Abstract</strong><br>在本篇文章中，我们提出了一个500Hz-1000Hz的SLAM系统。提出的方法大量减少了配准所需点云的数量，并且使用了一种新的ICP度量方法在保证准确率的同时加速配准的过程。当点云数量减少的时候，使用ICP配准的准确率一般是下降的，因为ICP的原理是最小化点之间的距离。为了避免这个问题，本文将对称的KL散度引入到ICP的cost中，这反应了两个概率分布之间的不同。这个cost不仅包含了点之间的距离，还包含了两个分布之间的不同。在KITTI上的实验证明了我们的方法拥有很高的计算效率，并且有着与SOTA相似的精准度。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<ol>
+<li>本文主要将LiTAMIN中点到正态分布的匹配，扩展到分布到分布的匹配，考虑了两个分布之间形状的不同；</li>
+<li>KL散度及对称KL散度见图4，5；</li>
+<li>ICP的cost function见图6，7；</li>
+<li>耗时见图8.</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/2103.00784.pdf">https://arxiv.org/pdf/2103.00784.pdf</a></strong><br><strong>开源代码：</strong></p>
 <img src="/2021/06/07/0606/1.png" class>
 <img src="/2021/06/07/0606/2.png" class>
 <img src="/2021/06/07/0606/3.png" class>
@@ -1006,23 +1024,29 @@
 <img src="/2021/06/07/0606/5.png" class>
 <img src="/2021/06/07/0606/6.png" class>
 <img src="/2021/06/07/0606/7.png" class>
+<img src="/2021/06/07/0606/8.png" class>
 ]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>registraion</tag>
       </tags>
   </entry>
   <entry>
-    <title>607</title>
+    <title>0607：Range Image-based LiDAR Localization for Autonomous Vehicles</title>
     <url>/2021/06/10/0607/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
+    <content><![CDATA[<p>*作者:Xieyuanli Chen, Ignacio Vizzo, Thomas Läbe, Jens Behley, Cyrill *<br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了利用激光生成的深度图来解决在大规模户外场景mesh地图中的定位问题。我们使用泊松表面重建来生成mesh地图。使用激光扫描生成的深度图和由mesh地图生成的渲染视图，我们提出一种新的观测模型，并将其融合进了蒙特卡洛定位框架，达到了更好的定位效果。我们在不同环境中使用不同的雷达进行了实验，结果证明了方法的准确与可靠。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<ol>
+<li>本文与2021.4.25推荐的“Robust Place Recognition using an Imaging Lidar”在雷达数据的处理上都为生成深度图，不过那一篇的思路为使用视觉重定位的方法（DBoW），本篇的思路为蒙特卡洛定位(MCL)。</li>
+<li>本文对MCL公式的修改如图4所示，主要考虑了由点云生成的深度图和由地图生成的深度图的不同。</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/2105.12121.pdf">https://arxiv.org/pdf/2105.12121.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/range-mcl">https://github.com/PRBonn/range-mcl</a></strong></p>
 <img src="/2021/06/10/0607/1.png" class>
 <img src="/2021/06/10/0607/2.png" class>
 <img src="/2021/06/10/0607/3.png" class>
@@ -1036,6 +1060,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -1085,6 +1111,74 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>object</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
+    <url>/2021/11/04/0609/</url>
+    <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
+<p>注：本篇文章看起来像是昨日文章的前置工作。<br><strong>Abstract</strong><br>在本文中，我们提出了一种激光SLAM的新的方法，专注于提高建图的精度，并于此同时估计位姿。我们使用frame-to-mesh的ICP，并且通过泊松表面重建获得triangle mesh来表示地图。我们通过滑动窗口的方式进行表面重建，这样我们获得了准确的局部地图，很合适进行配准，并且可以组装进全局地图。这让我们可以比surfle或TSDF等形式的3D地图展示更多的几何细节。我们的实验定性并定量地展示了， 我们的地图有着比别的地图更高的几何准确性。我们还表明，我们的地图是紧凑的，并且可以通过一种新的方法用于雷达里程计。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>所提出的地图的好处：</li>
+<li>对环境几何信息更精确的表示；</li>
+<li>更高的储存效率；</li>
+<li>新的frame-mesh的配准算法。</li>
+<li>对于每次扫描进行3个步骤：计算每个点的法线；将scan配准到local map（见图2）；将配准好的scan融合进global map。</li>
+<li>文章还进行了mesh post-processing，见图3。具体的，去除了度数较少的顶点（意味着不是很可靠）。</li>
+</ol>
+<p><strong>论文地址：<a href="http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf">http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/puma">https://github.com/PRBonn/puma</a></strong><br><strong>视频资料：<a href="https://www.bilibili.com/video/BV1R5411M75t">https://www.bilibili.com/video/BV1R5411M75t</a></strong></p>
+<img src="/2021/11/04/0609/1.png" class>
+<img src="/2021/11/04/0609/2.png" class>
+<img src="/2021/11/04/0609/3.png" class>
+<img src="/2021/11/04/0609/4.png" class>
+<img src="/2021/11/04/0609/5.png" class>
+<img src="/2021/11/04/0609/6.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>开源代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0613：OverlapNet:Loop Closing for LiDAR-based SLAM</title>
+    <url>/2021/11/04/0613/</url>
+    <content><![CDATA[<p><em>作者:Xieyuanli Chen，Olga Vysotska，Thomas Läbe，Alexandre Haag，Andres Milioto，Jens Behley，Timo Röhling，Cyrill Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:RSS 2020</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们旨在解决激光SLAM中回环检测的问题。我们使用DNN处理激光经过计算得到的各种数据来寻找闭环，估计两张深度图的重叠度，并获得两帧之间的偏航角（yaw）。基于这种预测，我们将这种闭环检测的手段融入进了现有的SLAM系统中。为了证明泛化性能，我们在KITTI数据集上进行训练，在福特校园数据集（Ford campus dataset）上进行测试。结果证明，即使是没有见过的场景，闭环检测也能正常运行。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>网路的输入包括，雷达产生的深度图，向量图，强度图，语义图，具体的网络结构见图4；</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>通过网络预测overlap值和偏航角（yaw）；</li>
+<li>结合里程计的信息，与1中提到的预测信息，检测闭环；</li>
+<li>提升了整体的SLAM效果；</li>
+<li>在没有先验位姿信息的情况下，解决了闭环问题；</li>
+<li>可以使用OverlapNet的预测结果初始化ICP。</li>
+</ol>
+<p><strong>论文地址：<a href="https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/chen2020rss.pdf">https://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/chen2020rss.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/OverlapNet">https://github.com/PRBonn/OverlapNet</a></strong></p>
+<img src="/2021/11/04/0613/1.png" class>
+<img src="/2021/11/04/0613/2.png" class>
+<img src="/2021/11/04/0613/3.png" class>
+<img src="/2021/11/04/0613/4.png" class>
+<img src="/2021/11/04/0613/5.png" class>
+<img src="/2021/11/04/0613/6.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>localization</tag>
+        <tag>开源代码</tag>
       </tags>
   </entry>
 </search>
