@@ -20,18 +20,29 @@
     var CONFIG = {"hostname":"yjsx.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="USTC CS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YJSX">
-<meta property="og:url" content="https://yjsx.top/tags/semantics/index.html">
+  <meta name="description" content="作者:Renato F. Salas-Moreno,Richard A. Newcombe, Hauke Strasdat, Andrew J. Davison机构:Imperial College London, University of Washington发表:CVPR 2013 Abstract我们提出了一种新的物体级的SLAM方法，其充分利用了许多场景由重复的，特定的物体和结构组成。当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0811 SLAM++:Simultaneous Localisation and Mapping at the Level of Objects">
+<meta property="og:url" content="https://yjsx.top/2021/08/11/0811/index.html">
 <meta property="og:site_name" content="YJSX">
-<meta property="og:description" content="USTC CS">
+<meta property="og:description" content="作者:Renato F. Salas-Moreno,Richard A. Newcombe, Hauke Strasdat, Andrew J. Davison机构:Imperial College London, University of Washington发表:CVPR 2013 Abstract我们提出了一种新的物体级的SLAM方法，其充分利用了许多场景由重复的，特定的物体和结构组成。当">
 <meta property="og:locale">
+<meta property="og:image" content="https://yjsx.top/2021/08/11/0811/1.png">
+<meta property="og:image" content="https://yjsx.top/2021/08/11/0811/2.png">
+<meta property="og:image" content="https://yjsx.top/2021/08/11/0811/3.png">
+<meta property="og:image" content="https://yjsx.top/2021/08/11/0811/4.png">
+<meta property="og:image" content="https://yjsx.top/2021/08/11/0811/5.png">
+<meta property="og:image" content="https://yjsx.top/2021/08/11/0811/6.png">
+<meta property="og:image" content="https://yjsx.top/2021/08/11/0811/7.png">
+<meta property="article:published_time" content="2021-08-11T06:50:23.000Z">
+<meta property="article:modified_time" content="2021-08-12T12:48:01.128Z">
 <meta property="article:author" content="Duan Yifan">
-<meta property="article:tag" content="SLAM">
+<meta property="article:tag" content="每日论文分享">
+<meta property="article:tag" content="object">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yjsx.top/2021/08/11/0811/1.png">
 
-<link rel="canonical" href="https://yjsx.top/tags/semantics/">
+<link rel="canonical" href="https://yjsx.top/2021/08/11/0811/">
 
 
 <script id="page-configurations">
@@ -39,12 +50,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Tag: semantics | YJSX</title>
+  <title>0811 SLAM++:Simultaneous Localisation and Mapping at the Level of Objects | YJSX</title>
   
 
 
@@ -186,51 +197,132 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">semantics
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2021/08/11/0811/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="Duan Yifan">
+      <meta itemprop="description" content="USTC CS">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YJSX">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          0811 SLAM++:Simultaneous Localisation and Mapping at the Level of Objects
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-11 14:50:23" itemprop="dateCreated datePublished" datetime="2021-08-11T14:50:23+08:00">2021-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-08-12 20:48:01" itemprop="dateModified" datetime="2021-08-12T20:48:01+08:00">2021-08-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <p><em>作者:Renato F. Salas-Moreno,Richard A. Newcombe, Hauke Strasdat, Andrew J. Davison</em><br><em>机构:Imperial College London, University of Washington</em><br><em>发表:CVPR 2013</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种新的物体级的SLAM方法，其充分利用了许多场景由重复的，特定的物体和结构组成。当手持深度相机浏览杂乱场景时，实时3D物体识别和追踪提供了6自由度的相机-物体的约束，这个可以构成一个精确的物体图，由高效的位姿图进行持续优化。这提供了SLAM系统的描述和预测能力，可以进行稠密表面重建，而且压缩了表示所需的代价。物体图使得每一帧中基于ICP的追踪更加精确，并且可以高效地发现未探索区域的新物体。我们展示了大而杂乱的场景中实时增量的SLAM，包含了回环检测，重定位，检测动态物体，并且生成具有实现潜力的物体级场景描述。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/08/11/0811/1.png" class>
+<img src="/2021/08/11/0811/2.png" class>
+<img src="/2021/08/11/0811/3.png" class>
+<img src="/2021/08/11/0811/4.png" class>
+<img src="/2021/08/11/0811/5.png" class>
+<img src="/2021/08/11/0811/6.png" class>
+<img src="/2021/08/11/0811/7.png" class>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-11T14:03:52+08:00"
-              content="2021-05-11">
-          05-11
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Duan Yifan
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://yjsx.top/2021/08/11/0811/" title="0811 SLAM++:Simultaneous Localisation and Mapping at the Level of Objects">https://yjsx.top/2021/08/11/0811/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/11/0511/" itemprop="url">
-            <span itemprop="name">0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</span>
-          </a>
-      </div>
 
-    </header>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" rel="tag"># 每日论文分享</a>
+              <a href="/tags/object/" rel="tag"># object</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/29/0629/" rel="prev" title="629">
+      <i class="fa fa-chevron-left"></i> 629
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -298,7 +390,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -311,7 +403,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

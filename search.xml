@@ -28,7 +28,7 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>Solid-State</tag>
+        <tag>solid</tag>
         <tag>system</tag>
         <tag>code</tag>
       </tags>
@@ -67,44 +67,6 @@
         <tag>每日论文分享</tag>
         <tag>code</tag>
         <tag>fusion-slam</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</title>
-    <url>/2021/04/24/0424/</url>
-    <content><![CDATA[<p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
-<p><strong>Abstract</strong><br>3D场景理解的监督学习算法的基础是大规模的标注数据。但是，由于数据收集和标注的成本很高，所以公开数据集往往规模都比较小，或者标注的类别不够丰富。这限制了对3D点云细粒度语义理解的发展。在这篇论文中，我们发布了一个城市规模的点云数据集，包含了接近30亿的包含语义信息的点。点云数量是已有数据集的三倍。数据集包含了英国的三个城市（伯明翰，剑桥，约克），约7.6平方千米的覆盖面积。数据被标注成了13个在城市中常见的种类。除此之外，我们对SOTA的算法进行了测试，并且进行分析。最后，文章提出了城市场景语义理解的几个挑战。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>13个标记的种类如下：地面，植被，建筑，墙，桥梁，停车场，铁轨，交通路，街道设施（长凳，电线杆，路灯等），车，人行道，自行车，水。</li>
-<li>数据集使用无人机进行录制，飞行路径和区域等见图二。数据集中的点云也包含RGB信息。</li>
-<li>对已有SOTA算法的测试结果见图四。</li>
-<li>文章末尾提出的点云语义理解的4项挑战：<ol>
-<li>对大规模点云的预处理（即如何下采样以塞进内存里）</li>
-<li>几何信息与颜色信息对分割算法的影响</li>
-<li>类别不平衡</li>
-<li>跨城市的泛化能力</li>
-</ol>
-</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>一个城市规模的3D语义数据集。 </li>
-<li>对现有算法的深入分析研究。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>项目首页：</strong><a href="https://github.com/QingyongHu/SensatUrban">https://github.com/QingyongHu/SensatUrban</a><br><strong>数据集地址：</strong><a href="https://forms.gle/m4HJiqZxnq8rmjc8A">https://forms.gle/m4HJiqZxnq8rmjc8A</a></p>
-<img src="/2021/04/24/0424/1.png" class>
-<img src="/2021/04/24/0424/2.png" class>
-<img src="/2021/04/24/0424/3.png" class>
-<img src="/2021/04/24/0424/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>dataset</tag>
-        <tag>semantic</tag>
       </tags>
   </entry>
   <entry>
@@ -161,28 +123,41 @@
       </tags>
   </entry>
   <entry>
-    <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</title>
-    <url>/2021/04/27/0427/</url>
-    <content><![CDATA[<p>*作者: Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表: CVPR 2021</em></p>
-<p><strong>Abstract</strong><br>本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十分敏感。为了解决这个问题，我们提出了一种新的可以识别outlier的神经树（neural tree），综合了深度学习和决策树两种方法。该方法由三个部分组成：</p>
+    <title>0424 Towards Semantic Segmentation of Urban-Scale 3D Point Clouds:A Dataset, Benchmarks and Challenges</title>
+    <url>/2021/04/24/0424/</url>
+    <content><![CDATA[<p><em>作者: Qingyong Hu, Bo Yang</em>, Sheikh Khalid, Wen Xiao, Niki Trigoni, Andrew Markham*<br><em>发表: CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>3D场景理解的监督学习算法的基础是大规模的标注数据。但是，由于数据收集和标注的成本很高，所以公开数据集往往规模都比较小，或者标注的类别不够丰富。这限制了对3D点云细粒度语义理解的发展。在这篇论文中，我们发布了一个城市规模的点云数据集，包含了接近30亿的包含语义信息的点。点云数量是已有数据集的三倍。数据集包含了英国的三个城市（伯明翰，剑桥，约克），约7.6平方千米的覆盖面积。数据被标注成了13个在城市中常见的种类。除此之外，我们对SOTA的算法进行了测试，并且进行分析。最后，文章提出了城市场景语义理解的几个挑战。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
 <ol>
-<li>一个按照 分层次划分室内空间 方法构建的决策树；</li>
-<li>一个nerual routing function（不知道咋翻译。。。），使用一个目标识别网络实现，以更好得理解场景；（大概思想是将输入沿着neural tree，一直找到相应的叶子节点，这个过程被称作route）</li>
-<li>一个离群点拒绝模块，用来过滤动态物体。<br>所提出的算法在RIO-10数据集上得到了验证，比SOTA算法效果好了约30%。<span id="more"></span></li>
+<li>13个标记的种类如下：地面，植被，建筑，墙，桥梁，停车场，铁轨，交通路，街道设施（长凳，电线杆，路灯等），车，人行道，自行车，水。</li>
+<li>数据集使用无人机进行录制，飞行路径和区域等见图二。数据集中的点云也包含RGB信息。</li>
+<li>对已有SOTA算法的测试结果见图四。</li>
+<li>文章末尾提出的点云语义理解的4项挑战：<ol>
+<li>对大规模点云的预处理（即如何下采样以塞进内存里）</li>
+<li>几何信息与颜色信息对分割算法的影响</li>
+<li>类别不平衡</li>
+<li>跨城市的泛化能力</li>
 </ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2012.04746.pdf">https://arxiv.org/pdf/2012.04746.pdf</a></p>
-<img src="/2021/04/27/0427/1.png" class>
-<img src="/2021/04/27/0427/2.png" class>
-<img src="/2021/04/27/0427/3.png" class>]]></content>
+</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>一个城市规模的3D语义数据集。 </li>
+<li>对现有算法的深入分析研究。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>项目首页：</strong><a href="https://github.com/QingyongHu/SensatUrban">https://github.com/QingyongHu/SensatUrban</a><br><strong>数据集地址：</strong><a href="https://forms.gle/m4HJiqZxnq8rmjc8A">https://forms.gle/m4HJiqZxnq8rmjc8A</a></p>
+<img src="/2021/04/24/0424/1.png" class>
+<img src="/2021/04/24/0424/2.png" class>
+<img src="/2021/04/24/0424/3.png" class>
+<img src="/2021/04/24/0424/4.png" class>]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>recognition</tag>
-        <tag>visual</tag>
-        <tag>dynamic</tag>
-        <tag>learning</tag>
+        <tag>dataset</tag>
+        <tag>semantic</tag>
       </tags>
   </entry>
   <entry>
@@ -209,8 +184,33 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>semantic</tag>
-        <tag>visual</tag>
         <tag>calibration</tag>
+        <tag>visual</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</title>
+    <url>/2021/04/27/0427/</url>
+    <content><![CDATA[<p>*作者: Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表: CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十分敏感。为了解决这个问题，我们提出了一种新的可以识别outlier的神经树（neural tree），综合了深度学习和决策树两种方法。该方法由三个部分组成：</p>
+<ol>
+<li>一个按照 分层次划分室内空间 方法构建的决策树；</li>
+<li>一个nerual routing function（不知道咋翻译。。。），使用一个目标识别网络实现，以更好得理解场景；（大概思想是将输入沿着neural tree，一直找到相应的叶子节点，这个过程被称作route）</li>
+<li>一个离群点拒绝模块，用来过滤动态物体。<br>所提出的算法在RIO-10数据集上得到了验证，比SOTA算法效果好了约30%。<span id="more"></span></li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2012.04746.pdf">https://arxiv.org/pdf/2012.04746.pdf</a></p>
+<img src="/2021/04/27/0427/1.png" class>
+<img src="/2021/04/27/0427/2.png" class>
+<img src="/2021/04/27/0427/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>recognition</tag>
+        <tag>visual</tag>
+        <tag>dynamic</tag>
+        <tag>learning</tag>
       </tags>
   </entry>
   <entry>
@@ -292,8 +292,8 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>code</tag>
-        <tag>visual</tag>
         <tag>calibration</tag>
+        <tag>visual</tag>
       </tags>
   </entry>
   <entry>
@@ -313,6 +313,70 @@
 <img src="/2021/05/02/0502/3.png" class>]]></content>
       <tags>
         <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0503 Towards High-Performance Solid-State-LiDAR-Inertial Odometry and Mapping</title>
+    <url>/2021/05/03/0503/</url>
+    <content><![CDATA[<p><em>作者:Kailai Li, Meng Li, and Uwe D. Hanebeck</em><br><em>机构:KIT</em><br><em>发表:RA-L</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种新的紧耦合的，对固态激光雷达和机械式雷达都适用的雷达惯导SLAM框架。前端包含一个轻量级的雷达里程计进行快速的关键帧之间的运动估计；后端是一个使用边缘化方法与滑动窗口，基于关键帧的，分层优化，来融合IMU和雷达的数据。对于Livox-Horizon（一款固态激光雷达），提出了一种新的特征点提取的方法来应对预处理时的不规律扫描。LiLi-OM是一个实时可以达到超过SOTA精度的系统。</p>
+<span id="more"></span>
+
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>提出了一个紧耦合的雷达惯导系统；</li>
+<li>一种针对Livox Horizon的特征提取方法(与LOAM差不多，使用特征值来判断）；</li>
+<li>一个使用边缘化方法与滑动窗口，基于关键帧的，分层优化方法；</li>
+<li>进行了实际实验。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.13150.pdf">https://arxiv.org/pdf/2010.13150.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/KIT-ISAS/lili-om">https://github.com/KIT-ISAS/lili-om</a></p>
+<img src="/2021/05/03/0503/1.png" class>
+<img src="/2021/05/03/0503/2.png" class>
+<img src="/2021/05/03/0503/3.png" class>
+<img src="/2021/05/03/0503/4.png" class>
+<img src="/2021/05/03/0503/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>solid</tag>
+        <tag>IMU</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving</title>
+    <url>/2021/05/05/0504/</url>
+    <content><![CDATA[<p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:IROS 2020</em></p>
+<p>注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。</p>
+<p><strong>Abstract</strong><br>在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误差等）总会存在（如图1）。在本篇文章中，我们关注了这种外参的不确定因素在多激光雷达3D目标检测任务中的影响。我们首先分析了外参扰动对两个简单几何任务的影响。为了最小化有害的影响，我们将不确定因素传播给了每一个输入的点云，然后使用这个信息来改进3D几何任务的方法。随后我们扩展了我们的发现，提出了一个3D目标检测的网络——MLOD。MLOD是一个两阶段的网络，在第一个阶段融合多个雷达的信息，并在第二个极端处理外参的扰动。最后我们进行了真实的实验。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>文章尝试了三种融合方案：分别在输入，特征，输出阶段，执行LiDAR的融合；</li>
+<li>文章对外参的不确定性与模型的测量误差一起进行建模；</li>
+<li>使用SECOND来生成3D proposals。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>分析了外参扰动对多雷达几何任务的影响，并证明了输入不确定性的先验可以提高对这种影响的鲁棒性；</li>
+<li>我们提出了一种两阶段的3D目标检测方法；</li>
+<li>进行了实际实验。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.11702.pdf">https://arxiv.org/pdf/2010.11702.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/mlod">https://ram-lab.com/file/site/mlod</a></p>
+<img src="/2021/05/05/0504/1.png" class>
+<img src="/2021/05/05/0504/2.png" class>
+<img src="/2021/05/05/0504/3.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>multi</tag>
       </tags>
   </entry>
   <entry>
@@ -347,70 +411,6 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>code</tag>
-        <tag>multi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0503 Towards High-Performance Solid-State-LiDAR-Inertial Odometry and Mapping</title>
-    <url>/2021/05/03/0503/</url>
-    <content><![CDATA[<p><em>作者:Kailai Li, Meng Li, and Uwe D. Hanebeck</em><br><em>机构:KIT</em><br><em>发表:RA-L</em></p>
-<p><strong>Abstract</strong><br>我们提出了一种新的紧耦合的，对固态激光雷达和机械式雷达都适用的雷达惯导SLAM框架。前端包含一个轻量级的雷达里程计进行快速的关键帧之间的运动估计；后端是一个使用边缘化方法与滑动窗口，基于关键帧的，分层优化，来融合IMU和雷达的数据。对于Livox-Horizon（一款固态激光雷达），提出了一种新的特征点提取的方法来应对预处理时的不规律扫描。LiLi-OM是一个实时可以达到超过SOTA精度的系统。</p>
-<span id="more"></span>
-
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>提出了一个紧耦合的雷达惯导系统；</li>
-<li>一种针对Livox Horizon的特征提取方法(与LOAM差不多，使用特征值来判断）；</li>
-<li>一个使用边缘化方法与滑动窗口，基于关键帧的，分层优化方法；</li>
-<li>进行了实际实验。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.13150.pdf">https://arxiv.org/pdf/2010.13150.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/KIT-ISAS/lili-om">https://github.com/KIT-ISAS/lili-om</a></p>
-<img src="/2021/05/03/0503/1.png" class>
-<img src="/2021/05/03/0503/2.png" class>
-<img src="/2021/05/03/0503/3.png" class>
-<img src="/2021/05/03/0503/4.png" class>
-<img src="/2021/05/03/0503/5.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>IMU</tag>
-        <tag>solid</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0504 MLOD:Awareness of Extrinsic Perturbation in Multi-LiDAR 3D Object Detection for Autonomous Driving</title>
-    <url>/2021/05/05/0504/</url>
-    <content><![CDATA[<p><em>作者:Jianhao Jiao ∗ , Peng Yun ∗ , Lei Tai, Ming Liu</em><br><em>机构:HKUST</em><br><em>发表:IROS 2020</em></p>
-<p>注：接下来三天会介绍HKUST的一个实验室关于多激光雷达的三项工作，分别发表在IROS2020， ICRA2021， TRO2021，本篇为多激光雷达在3D目标检测中的使用问题。</p>
-<p><strong>Abstract</strong><br>在多传感器系统中，外参的扰动（比如震动，温度导致的漂移，标定误差等）总会存在（如图1）。在本篇文章中，我们关注了这种外参的不确定因素在多激光雷达3D目标检测任务中的影响。我们首先分析了外参扰动对两个简单几何任务的影响。为了最小化有害的影响，我们将不确定因素传播给了每一个输入的点云，然后使用这个信息来改进3D几何任务的方法。随后我们扩展了我们的发现，提出了一个3D目标检测的网络——MLOD。MLOD是一个两阶段的网络，在第一个阶段融合多个雷达的信息，并在第二个极端处理外参的扰动。最后我们进行了真实的实验。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>文章尝试了三种融合方案：分别在输入，特征，输出阶段，执行LiDAR的融合；</li>
-<li>文章对外参的不确定性与模型的测量误差一起进行建模；</li>
-<li>使用SECOND来生成3D proposals。</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>分析了外参扰动对多雷达几何任务的影响，并证明了输入不确定性的先验可以提高对这种影响的鲁棒性；</li>
-<li>我们提出了一种两阶段的3D目标检测方法；</li>
-<li>进行了实际实验。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.11702.pdf">https://arxiv.org/pdf/2010.11702.pdf</a><br><strong>开源代码：</strong><a href="https://ram-lab.com/file/site/mlod">https://ram-lab.com/file/site/mlod</a></p>
-<img src="/2021/05/05/0504/1.png" class>
-<img src="/2021/05/05/0504/2.png" class>
-<img src="/2021/05/05/0504/3.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>multi</tag>
       </tags>
   </entry>
@@ -610,7 +610,7 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>semantics</tag>
+        <tag>semantic</tag>
       </tags>
   </entry>
   <entry>
@@ -775,17 +775,20 @@
       </tags>
   </entry>
   <entry>
-    <title>0522 Monocular Camera Localization in Prior LiDAR Maps with 2D-3D Line Correspondences</title>
+    <title>0522 DOT:Dynamic Object Tracking for Visual SLAM</title>
     <url>/2021/05/22/0522/</url>
-    <content><![CDATA[<p><em>作者:Huai Yu1, Weikun Zhen, Wen Yang, Ji Zhang and Sebastian Scherer</em><br><em>机构:武大+CMU</em><br><em>发表:IROS 2020</em></p>
-<p><strong>Abstract</strong><br>使用相机在已有地图中进行定位是基于视觉导航的基础。目前，VO和VIO在状态估计方面已经发展地很好了，但是在闭环检测时会发生不可避免的位姿跳变（由于累计误差）（这对导航来说有副作用）。为了避免这个问题，我们利用2D-3D中线特征的对应关系，提出了一种在LiDAR地图中使用单目摄像头进行重定位的方法。为了处理激光点云和图像之间的差异，我们offline地从LiDAR地图中提取3D线条，并online地从图像序列中提取2D线条。有了VIO输出的对位姿的预测，我们可以高效地，获得2D-3D中线的粗糙的对应关系。随后，相机的位姿和对应关系可以通过最小化投影误差来迭代优化。最后，我们在EurocMav数据集上进行了实验，证明了提出的方法可以使估计相机位姿时，没有累计误差，并且没有位姿跳变。</p>
+    <content><![CDATA[<p><em>作者:Irene Ballester, Alejandro Fontan, Javier Civera, Klaus H. Strobl, Rudolph Triebel</em><br><em>机构:University of Zaragoza</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>在本篇文章中,我们提出了DOT(dynamic object tracking),一种可以加到已有的SLAM系统中的前端,来提高在动态场景中的准确性和稳定性.DOT结合了实例分割与多视角集合,来生成动态物体的mask,从而在优化的过程中避免这些区域的影响.<br>为了判断哪些物体确实处于运动状态,DOT首先分割了所有可能移动的物体,随后通过最小化重投影误差来跟踪这些物体.这种短时间内的追踪提高了分割的准确度.最后,真正的动态物体的mask被生成.我们将DOT集成在ORB SLAM2中,并在3个数据集中进行了测试.实验展示了效果.</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <ol>
-<li>具体流程图见图2.使用PnP来初始化，使用VINS-Mono来做位姿估计；</li>
-<li>2D线特征提取，见图3。</li>
+<li>1.本篇文章,在实现思路上与2021.05.01分享的Towards Real-time Semantic RGB-D SLAM in Dynamic Environments在实现思路上有着一些相似之处.</li>
+<li>本文使用的语义分割网络为Detectron2(<a href="https://github.com/facebookresearch/detectron2">https://github.com/facebookresearch/detectron2</a>)</li>
+<li>文章在跟踪动态物体时,提出了一些方法来减少遮挡,光照变化和分割误差对追踪的影响,详情见3.4节.</li>
+<li>判断物体是否移动,文章提出了一个评价指标disparity,如图五.</li>
+<li>最终的mask有两种来源:从上一帧通过追踪得到的,和从网络里新得到的.</li>
 </ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2004.00740.pdf">https://arxiv.org/pdf/2004.00740.pdf</a></p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2010.00052.pdf">https://arxiv.org/pdf/2010.00052.pdf</a></p>
 <img src="/2021/05/22/0522/1.png" class>
 <img src="/2021/05/22/0522/2.png" class>
 <img src="/2021/05/22/0522/3.png" class>
@@ -797,9 +800,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>visual</tag>
-        <tag>localization</tag>
+        <tag>dynamic</tag>
       </tags>
   </entry>
   <entry>
@@ -862,8 +864,8 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
+        <tag>solid</tag>
         <tag>calibration</tag>
-        <tag>solid-state</tag>
       </tags>
   </entry>
   <entry>
@@ -901,6 +903,188 @@
         <tag>每日论文分享</tag>
         <tag>visual</tag>
         <tag>detection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>603</title>
+    <url>/2021/06/04/0603/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/06/04/0603/1.png" class>
+<img src="/2021/06/04/0603/2.png" class>
+<img src="/2021/06/04/0603/3.png" class>
+<img src="/2021/06/04/0603/4.png" class>
+<img src="/2021/06/04/0603/5.png" class>
+<img src="/2021/06/04/0603/6.png" class>
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0527 MULLS:Versatile LiDAR SLAM via Multi-metric Linear Least Square</title>
+    <url>/2021/05/29/0527/</url>
+    <content><![CDATA[<p><em>作者: Yue Pan , Pengchuan Xiao, Yujie He, Zhenlei Shao  and Zesong Li</em><br><em>机构: ethz，HESAI</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本文关注在自动驾驶场景的激光SLAM。我们提出了MULLS，一个高效，低漂移的通用激光SLAM系统。前端使用双阈值地面滤波和PCA，对点云进行了粗糙的分类（地面，立面，屋顶，立柱，横梁，顶点等）。随后利用提出的多度量线性最小二乘迭代最近点算法，进行scan-to-submap的配准。每一类中的点到点，点到线，点到面的误差被联合优化来估计位姿变化。静态特征点被添加到局部地图，来保持地图更新。在后端，使用历史submap进行分层位姿图优化，从而减小航位推算产生的漂移。我们采取了7种激光雷达，超过100k帧的数据集，进行了大量的实验。于此同时，在KITTI上，本文提出的方法目前排名第13.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>7种激光雷达为不同线数的机械式雷达，具体见图9；</li>
+<li>题目中的通用指的是不依赖激光雷达的特性，不必把点云变成环或者深度图像的形式，这样可以保证不丢失信息；</li>
+<li>配准分为两种：local 和 global。区别为前者需要提供良好的初值，以避免陷入局部最优，本文使用本文提出的MULLS-ICP；后者没有初值，文中提到的方法有RANSEC，分支定界法（BnB），TEASER等，本文使用TEASER。</li>
+<li>特征提取见图2，误差度量见图3，4，前端后端框图见图5，图优化见图6，实验结果见图7，8。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>一个通用的激光SLAM系统；</li>
+<li>一种高效的局部配准算法MULLS-ICP，实现了粗分类几何特征点的多种误差度量的线性最小二乘优化。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03771.pdf">https://arxiv.org/pdf/2102.03771.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/YuePanEdward/MULLS">https://github.com/YuePanEdward/MULLS</a></p>
+<img src="/2021/05/29/0527/1.png" class>
+<img src="/2021/05/29/0527/2.png" class>
+<img src="/2021/05/29/0527/3.png" class>
+<img src="/2021/05/29/0527/4.png" class>
+<img src="/2021/05/29/0527/5.png" class>
+<img src="/2021/05/29/0527/6.png" class>
+<img src="/2021/05/29/0527/7.png" class>
+<img src="/2021/05/29/0527/8.png" class>
+<img src="/2021/05/29/0527/9.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>605</title>
+    <url>/2021/06/06/0605/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/06/06/0605/1.png" class>
+<img src="/2021/06/06/0605/2.png" class>
+<img src="/2021/06/06/0605/3.png" class>
+<img src="/2021/06/06/0605/4.png" class>
+<img src="/2021/06/06/0605/5.png" class>
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>606</title>
+    <url>/2021/06/07/0606/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/06/07/0606/1.png" class>
+<img src="/2021/06/07/0606/2.png" class>
+<img src="/2021/06/07/0606/3.png" class>
+<img src="/2021/06/07/0606/4.png" class>
+<img src="/2021/06/07/0606/5.png" class>
+<img src="/2021/06/07/0606/6.png" class>
+<img src="/2021/06/07/0606/7.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>607</title>
+    <url>/2021/06/10/0607/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/06/10/0607/1.png" class>
+<img src="/2021/06/10/0607/2.png" class>
+<img src="/2021/06/10/0607/3.png" class>
+<img src="/2021/06/10/0607/4.png" class>
+<img src="/2021/06/10/0607/5.png" class>
+<img src="/2021/06/10/0607/6.png" class>
+<img src="/2021/06/10/0607/7.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>629</title>
+    <url>/2021/06/29/0629/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/06/29/0629/1.png" class>
+<img src="/2021/06/29/0629/2.png" class>
+<img src="/2021/06/29/0629/3.png" class>
+<img src="/2021/06/29/0629/4.png" class>
+<img src="/2021/06/29/0629/5.png" class>
+<img src="/2021/06/29/0629/6.png" class>
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0811 SLAM++:Simultaneous Localisation and Mapping at the Level of Objects</title>
+    <url>/2021/08/11/0811/</url>
+    <content><![CDATA[<p><em>作者:Renato F. Salas-Moreno,Richard A. Newcombe, Hauke Strasdat, Andrew J. Davison</em><br><em>机构:Imperial College London, University of Washington</em><br><em>发表:CVPR 2013</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种新的物体级的SLAM方法，其充分利用了许多场景由重复的，特定的物体和结构组成。当手持深度相机浏览杂乱场景时，实时3D物体识别和追踪提供了6自由度的相机-物体的约束，这个可以构成一个精确的物体图，由高效的位姿图进行持续优化。这提供了SLAM系统的描述和预测能力，可以进行稠密表面重建，而且压缩了表示所需的代价。物体图使得每一帧中基于ICP的追踪更加精确，并且可以高效地发现未探索区域的新物体。我们展示了大而杂乱的场景中实时增量的SLAM，包含了回环检测，重定位，检测动态物体，并且生成具有实现潜力的物体级场景描述。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/08/11/0811/1.png" class>
+<img src="/2021/08/11/0811/2.png" class>
+<img src="/2021/08/11/0811/3.png" class>
+<img src="/2021/08/11/0811/4.png" class>
+<img src="/2021/08/11/0811/5.png" class>
+<img src="/2021/08/11/0811/6.png" class>
+<img src="/2021/08/11/0811/7.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>object</tag>
       </tags>
   </entry>
 </search>
