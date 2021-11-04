@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
-    <url>/2021/04/23/0423/</url>
-    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ul>
-<li>固态雷达SLAM具体的难点：<ul>
-<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
-<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
-<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
-</ul>
-</li>
-<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
-<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
-</ul>
-<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
-<img src="/2021/04/23/0423/1.png" class>
-<img src="/2021/04/23/0423/2.png" class>
-<img src="/2021/04/23/0423/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>solid</tag>
-        <tag>system</tag>
-        <tag>code</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0422 LVI-SAM:Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping</title>
     <url>/2021/04/22/0422-LVI-SAM/</url>
     <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
@@ -65,61 +32,41 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>fusion-slam</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
-    <title>0425 Robust Place Recognition using an Imaging Lidar</title>
-    <url>/2021/04/25/0425/</url>
-    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
+    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
+    <url>/2021/04/23/0423/</url>
+    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
-<ol>
-<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
-<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></p>
-<img src="/2021/04/25/0425/1.png" class>
-<img src="/2021/04/25/0425/2.png" class>
-<img src="/2021/04/25/0425/3.png" class>
-<img src="/2021/04/25/0425/4.png" class>]]></content>
+<ul>
+<li>固态雷达SLAM具体的难点：<ul>
+<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
+<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
+<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
+</ul>
+</li>
+<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
+<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
+</ul>
+<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
+<img src="/2021/04/23/0423/1.png" class>
+<img src="/2021/04/23/0423/2.png" class>
+<img src="/2021/04/23/0423/3.png" class>]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
-        <tag>recognition</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0426 Efficient LiDAR Odometry for Autonomous Driving</title>
-    <url>/2021/04/26/0426/</url>
-    <content><![CDATA[<p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
-<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
-<span id="more"></span>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>利用非地面球面深度图像与地面点云鸟瞰图的雷达里程计</li>
-<li>自适应法向量估计方法</li>
-<li>高效的模型更新方法（指局部地图的更新）</li>
-<li>在kitti上取得了不错的成绩，且整体的运行速度在笔记本电脑上可以达到恐怖的169Hz</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.10879.pdf">https://arxiv.org/pdf/2104.10879.pdf</a></p>
-<img src="/2021/04/26/0426/1.png" class>
-<img src="/2021/04/26/0426/2.png" class>
-<img src="/2021/04/26/0426/3.png" class>
-<img src="/2021/04/26/0426/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>Odometry</tag>
+        <tag>solid</tag>
+        <tag>system</tag>
       </tags>
   </entry>
   <entry>
@@ -161,31 +108,56 @@
       </tags>
   </entry>
   <entry>
-    <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
-    <url>/2021/04/28/0428/</url>
-    <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
-<p><strong>Abstract</strong><br>作为数据融合的关键步骤，传感器标定在计算机视觉任务中扮演着重要角色。现有的技术通常需要大量的人力工作和复杂的设置，或者并不鲁棒易于产生次优解。在本文中，我们主要关注相机和激光雷达这两种在室外常用的传感器。我们提出了一种实时在线的标定，可以寻找二者之间最优的刚性位姿变化，而且不需要特殊的环境设置（指放置棋盘格等）。使用一个基于语义特征的新的标定度量标准，我们将标定任务表示为一个最优化问题，成功地将同步的一对数据进行实时对齐。效果达到了SOTA水平。</p>
+    <title>0425 Robust Place Recognition using an Imaging Lidar</title>
+    <url>/2021/04/25/0425/</url>
+    <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Fábio Duarte, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种鲁棒，实时的重定位方法，使用的传感器为图像级分辨率的激光雷达（128线机械式激光雷达）。利用激光的强度（intensity）数值，我们将点云进行投影，获得一个强度图像。从该图像中提取ORB特征，并编码为bag-of-words（BOW）向量。这个向量可以描述这一帧点云，并且插入由DBOW维护的数据库中。返回的与该向量相似的候选项通过特征匹配进一步进行筛选。通过RANSEC+PnP的方式来拒绝outliers（即计算视觉特征点重投影误差）。这种方法结合了视觉SLAM和激光SLAM在重定位方面的优点，具有旋转不变性，并且可以解决反向或者倒转情况下的重定位问题。所提出的方法在不同的平台和实验环境中得到了验证。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <ol>
-<li>使用PSPNet对图像进行语义分割（提取出来汽车的轮廓）。</li>
-<li>将图片按照一定的步骤形成height map（如图二）。</li>
-<li>通过计算过滤掉地面的点云与height map的重叠部分，来定义标定的qulity metric。</li>
+<li>提出了一个使用雷达点云生成的强度图像的重定位方法。</li>
+<li>所提出的方法对于传感器的位姿没有要求，在反向或颠倒的情况下仍然可以运行。</li>
 </ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9196627">https://ieeexplore.ieee.org/document/9196627</a></p>
-<img src="/2021/04/28/0428/1.png" class>
-<img src="/2021/04/28/0428/2.png" class>
-<img src="/2021/04/28/0428/3.png" class>
-<img src="/2021/04/28/0428/4.png" class>]]></content>
+<p><strong>论文地址：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition">https://github.com/TixiaoShan/imaging_lidar_place_recognition</a><br><strong>开源代码：</strong><a href="https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf">https://github.com/TixiaoShan/imaging_lidar_place_recognition/blob/master/doc/paper.pdf</a></p>
+<img src="/2021/04/25/0425/1.png" class>
+<img src="/2021/04/25/0425/2.png" class>
+<img src="/2021/04/25/0425/3.png" class>
+<img src="/2021/04/25/0425/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>recognition</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0426 Efficient LiDAR Odometry for Autonomous Driving</title>
+    <url>/2021/04/26/0426/</url>
+    <content><![CDATA[<p><em>作者: Xin Zheng, Jianke Zhu</em><br><em>发表: arxiv</em></p>
+<p>注：本篇还未正式发表，不过目前在kitti上排名第15，是一篇较新的文章。<br><strong>Abstract</strong><br>雷达里程计（点云配准问题）在激光SLAM中扮演着重要角色。传统基于KD-Tree的搜索方法无法高效地处理大规模的点云（通常使用下采样的方法解决此类问题）。最近基于球面深度图像的方法可以通过球面映射的方式高效地寻找最近邻点，但是无法很好得处理地面点云。为了解决这个问题，我们提出了一种方法，同时使用不包含地面点云的球面深度图和地面点云的鸟瞰图。除此之外，还提出了一种快速估计局部法向量的方法，以及一种新的模型（局部地图）更新方案以融合不同时间戳下的点云以及法向量</p>
+<span id="more"></span>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>利用非地面球面深度图像与地面点云鸟瞰图的雷达里程计</li>
+<li>自适应法向量估计方法</li>
+<li>高效的模型更新方法（指局部地图的更新）</li>
+<li>在kitti上取得了不错的成绩，且整体的运行速度在笔记本电脑上可以达到恐怖的169Hz</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.10879.pdf">https://arxiv.org/pdf/2104.10879.pdf</a></p>
+<img src="/2021/04/26/0426/1.png" class>
+<img src="/2021/04/26/0426/2.png" class>
+<img src="/2021/04/26/0426/3.png" class>
+<img src="/2021/04/26/0426/4.png" class>]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>semantic</tag>
-        <tag>calibration</tag>
-        <tag>visual</tag>
+        <tag>Odometry</tag>
       </tags>
   </entry>
   <entry>
@@ -214,6 +186,34 @@
       </tags>
   </entry>
   <entry>
+    <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
+    <url>/2021/04/28/0428/</url>
+    <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
+<p><strong>Abstract</strong><br>作为数据融合的关键步骤，传感器标定在计算机视觉任务中扮演着重要角色。现有的技术通常需要大量的人力工作和复杂的设置，或者并不鲁棒易于产生次优解。在本文中，我们主要关注相机和激光雷达这两种在室外常用的传感器。我们提出了一种实时在线的标定，可以寻找二者之间最优的刚性位姿变化，而且不需要特殊的环境设置（指放置棋盘格等）。使用一个基于语义特征的新的标定度量标准，我们将标定任务表示为一个最优化问题，成功地将同步的一对数据进行实时对齐。效果达到了SOTA水平。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>使用PSPNet对图像进行语义分割（提取出来汽车的轮廓）。</li>
+<li>将图片按照一定的步骤形成height map（如图二）。</li>
+<li>通过计算过滤掉地面的点云与height map的重叠部分，来定义标定的qulity metric。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9196627">https://ieeexplore.ieee.org/document/9196627</a></p>
+<img src="/2021/04/28/0428/1.png" class>
+<img src="/2021/04/28/0428/2.png" class>
+<img src="/2021/04/28/0428/3.png" class>
+<img src="/2021/04/28/0428/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>semantic</tag>
+        <tag>visual</tag>
+        <tag>calibration</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0429 Self-supervised Learning of LiDAR Odometry for Robotic Applications</title>
     <url>/2021/04/30/0429/</url>
     <content><![CDATA[<p><em>作者: Julian Nubert, Shehryar Khattak and Marco Hutter</em><br><em>发表: ICRA 2021</em></p>
@@ -230,8 +230,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
         <tag>learning</tag>
       </tags>
   </entry>
@@ -290,10 +290,10 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
-        <tag>calibration</tag>
+        <tag>LiDAR</tag>
         <tag>visual</tag>
+        <tag>calibration</tag>
       </tags>
   </entry>
   <entry>
@@ -409,8 +409,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
         <tag>multi</tag>
       </tags>
   </entry>
@@ -770,8 +770,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
       </tags>
   </entry>
   <entry>
@@ -906,38 +906,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0603：PHASER:a Robust and Correspondence-free Global Pointcloud Registration</title>
-    <url>/2021/06/04/0603/</url>
-    <content><![CDATA[<p><em>作者:Lukas Bernreiter, Lionel Ott, Juan Nieto, Roland Siegwart and Cesar Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>我们提出了PHASER，一种不需要对应关系的激光雷达点云的全局配准，对于噪音，稀疏性和部分重叠都很鲁棒。我们的方法可以无缝地处理多模态信息，并且不依赖于关键点提取或者描述子等预处理模块。通过傅里叶分析，PHASER直接利用传感器的信号，将多通道频谱进行融合，并且计算6-DOF的位姿变换。我们的配准流程（见图2）从寻找最可能的旋转r开始，随后寻找最可能的平移t。对r和t的估计都会根据其潜在流形的概率分布而考虑其分布，例如r对应Bingham分布，t对应Gaussian分布。这进一步允许我们通过考虑r的周期性来表示其不确定性。我们在不同的数据集和不同的传感器上进行了验证，并与一些知名的配准算法进行对比。我们的结果展示PHASER可以在100ms内，达到2cm和0.5°的精度。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>文章将配准问题形式化为两片点云经过傅里叶分析后的对应关系，<br>空间(spatial)傅里叶分析如图1上所示，球面（Spherical）</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>对点云进行球面和空间傅里叶分解，分别估计点云的旋转和平移；</li>
-<li>一种对任意输入模态的融合方法；</li>
-<li>一种估计分别利用Bingham分布和Gaussian分布来估计球面不确定度和空间相关不确定度的方法。</li>
-</ol>
-<p><strong>论文地址：<a href="https://arxiv.org/pdf/2102.02767.pdf">https://arxiv.org/pdf/2102.02767.pdf</a></strong><br><strong>开源代码：</strong></p>
-<img src="/2021/06/04/0603/1.png" class>
-<img src="/2021/06/04/0603/2.png" class>
-<img src="/2021/06/04/0603/3.png" class>
-<img src="/2021/06/04/0603/4.png" class>
-<img src="/2021/06/04/0603/5.png" class>
-<img src="/2021/06/04/0603/6.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>registration</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0527 MULLS:Versatile LiDAR SLAM via Multi-metric Linear Least Square</title>
     <url>/2021/05/29/0527/</url>
     <content><![CDATA[<p><em>作者: Yue Pan , Pengchuan Xiao, Yujie He, Zhenlei Shao  and Zesong Li</em><br><em>机构: ethz，HESAI</em><br><em>发表: ICRA 2021</em></p>
@@ -972,6 +940,38 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0603：PHASER:a Robust and Correspondence-free Global Pointcloud Registration</title>
+    <url>/2021/06/04/0603/</url>
+    <content><![CDATA[<p><em>作者:Lukas Bernreiter, Lionel Ott, Juan Nieto, Roland Siegwart and Cesar Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了PHASER，一种不需要对应关系的激光雷达点云的全局配准，对于噪音，稀疏性和部分重叠都很鲁棒。我们的方法可以无缝地处理多模态信息，并且不依赖于关键点提取或者描述子等预处理模块。通过傅里叶分析，PHASER直接利用传感器的信号，将多通道频谱进行融合，并且计算6-DOF的位姿变换。我们的配准流程（见图2）从寻找最可能的旋转r开始，随后寻找最可能的平移t。对r和t的估计都会根据其潜在流形的概率分布而考虑其分布，例如r对应Bingham分布，t对应Gaussian分布。这进一步允许我们通过考虑r的周期性来表示其不确定性。我们在不同的数据集和不同的传感器上进行了验证，并与一些知名的配准算法进行对比。我们的结果展示PHASER可以在100ms内，达到2cm和0.5°的精度。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>文章将配准问题形式化为两片点云经过傅里叶分析后的对应关系，<br>空间(spatial)傅里叶分析如图1上所示，球面（Spherical）</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>对点云进行球面和空间傅里叶分解，分别估计点云的旋转和平移；</li>
+<li>一种对任意输入模态的融合方法；</li>
+<li>一种估计分别利用Bingham分布和Gaussian分布来估计球面不确定度和空间相关不确定度的方法。</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/2102.02767.pdf">https://arxiv.org/pdf/2102.02767.pdf</a></strong><br><strong>开源代码：</strong></p>
+<img src="/2021/06/04/0603/1.png" class>
+<img src="/2021/06/04/0603/2.png" class>
+<img src="/2021/06/04/0603/3.png" class>
+<img src="/2021/06/04/0603/4.png" class>
+<img src="/2021/06/04/0603/5.png" class>
+<img src="/2021/06/04/0603/6.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>registration</tag>
       </tags>
   </entry>
   <entry>
@@ -1065,55 +1065,6 @@
       </tags>
   </entry>
   <entry>
-    <title>629</title>
-    <url>/2021/06/29/0629/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
-<img src="/2021/06/29/0629/1.png" class>
-<img src="/2021/06/29/0629/2.png" class>
-<img src="/2021/06/29/0629/3.png" class>
-<img src="/2021/06/29/0629/4.png" class>
-<img src="/2021/06/29/0629/5.png" class>
-<img src="/2021/06/29/0629/6.png" class>
-
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0811 SLAM++:Simultaneous Localisation and Mapping at the Level of Objects</title>
-    <url>/2021/08/11/0811/</url>
-    <content><![CDATA[<p><em>作者:Renato F. Salas-Moreno,Richard A. Newcombe, Hauke Strasdat, Andrew J. Davison</em><br><em>机构:Imperial College London, University of Washington</em><br><em>发表:CVPR 2013</em></p>
-<p><strong>Abstract</strong><br>我们提出了一种新的物体级的SLAM方法，其充分利用了许多场景由重复的，特定的物体和结构组成。当手持深度相机浏览杂乱场景时，实时3D物体识别和追踪提供了6自由度的相机-物体的约束，这个可以构成一个精确的物体图，由高效的位姿图进行持续优化。这提供了SLAM系统的描述和预测能力，可以进行稠密表面重建，而且压缩了表示所需的代价。物体图使得每一帧中基于ICP的追踪更加精确，并且可以高效地发现未探索区域的新物体。我们展示了大而杂乱的场景中实时增量的SLAM，包含了回环检测，重定位，检测动态物体，并且生成具有实现潜力的物体级场景描述。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
-<img src="/2021/08/11/0811/1.png" class>
-<img src="/2021/08/11/0811/2.png" class>
-<img src="/2021/08/11/0811/3.png" class>
-<img src="/2021/08/11/0811/4.png" class>
-<img src="/2021/08/11/0811/5.png" class>
-<img src="/2021/08/11/0811/6.png" class>
-<img src="/2021/08/11/0811/7.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>object</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
     <url>/2021/11/04/0609/</url>
     <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
@@ -1179,6 +1130,55 @@
         <tag>LiDAR</tag>
         <tag>localization</tag>
         <tag>开源代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>629</title>
+    <url>/2021/06/29/0629/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/06/29/0629/1.png" class>
+<img src="/2021/06/29/0629/2.png" class>
+<img src="/2021/06/29/0629/3.png" class>
+<img src="/2021/06/29/0629/4.png" class>
+<img src="/2021/06/29/0629/5.png" class>
+<img src="/2021/06/29/0629/6.png" class>
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0811 SLAM++:Simultaneous Localisation and Mapping at the Level of Objects</title>
+    <url>/2021/08/11/0811/</url>
+    <content><![CDATA[<p><em>作者:Renato F. Salas-Moreno,Richard A. Newcombe, Hauke Strasdat, Andrew J. Davison</em><br><em>机构:Imperial College London, University of Washington</em><br><em>发表:CVPR 2013</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种新的物体级的SLAM方法，其充分利用了许多场景由重复的，特定的物体和结构组成。当手持深度相机浏览杂乱场景时，实时3D物体识别和追踪提供了6自由度的相机-物体的约束，这个可以构成一个精确的物体图，由高效的位姿图进行持续优化。这提供了SLAM系统的描述和预测能力，可以进行稠密表面重建，而且压缩了表示所需的代价。物体图使得每一帧中基于ICP的追踪更加精确，并且可以高效地发现未探索区域的新物体。我们展示了大而杂乱的场景中实时增量的SLAM，包含了回环检测，重定位，检测动态物体，并且生成具有实现潜力的物体级场景描述。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+<img src="/2021/08/11/0811/1.png" class>
+<img src="/2021/08/11/0811/2.png" class>
+<img src="/2021/08/11/0811/3.png" class>
+<img src="/2021/08/11/0811/4.png" class>
+<img src="/2021/08/11/0811/5.png" class>
+<img src="/2021/08/11/0811/6.png" class>
+<img src="/2021/08/11/0811/7.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>object</tag>
       </tags>
   </entry>
 </search>
