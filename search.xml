@@ -85,35 +85,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0004 Volumetric Instance-Aware Semantic Mapping and 3D Object Discovery</title>
-    <url>/2022/05/30/0004/</url>
-    <content><![CDATA[<p><em>作者:Margarita Grinvald, Fadri Furrer, Tonci Novkovic, Jen Jen Chung, Cesar Cadena, Roland Siegwart, Juan Nieto</em><br><em>机构:ETHZ</em><br><em>发表:RAL IROS 2019</em></p>
-<p><strong>Abstract</strong><br>在建图时，除了构建场景的几何表示，对环境更高级的理解是检测到更高级的实例对象。这项工作提出了一种在RGBD相机实时扫描过程中，增量构建volumetric 以物体为中心的地图。首先，每一帧的分割结合了无监督几何方法与实例分割预测来识别场景元素和检测之前未见过的物体。随后，一个数据关联track了不同帧中的被预测的物体。最后，一个地图融合策略融合了它们的3D形状，位置，语义类别 于一个全局volume。在公开数据集上的测试，证明了这种方法已经可以和SOTA竞争，同时可以发现，之前未看到的种类。系统在实际中也进行了测试，展现了其实时性。并进行了开源<a href="https://github.com/ethz-asl/voxblox-plusplus">https://github.com/ethz-asl/voxblox-plusplus</a>.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>本项工作对每帧进行如下四步操作：<ol>
-<li>几何分割：convexity-based方法（将点云，划分为若干个凸集）</li>
-<li>实例语义分割：RGB使用Mask RCNN进行打标签，并根据第一步中的结果进行合并</li>
-<li>数据关联：当前帧与地图进行匹配</li>
-<li>地图融合：合并到地图中</li>
-</ol>
-</li>
-<li>一个假设：相机位姿已知<img src="/2022/05/30/0004/1.png" class>
-<img src="/2022/05/30/0004/2.png" class></li>
-</ol>
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
-        <tag>RGBD</tag>
-        <tag>object</tag>
-        <tag>instance</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0005 Hierarchical Object Map Estimation for Efficient and Robust Navigation</title>
     <url>/2022/05/30/0005/</url>
     <content><![CDATA[<p><em>作者:Kyel Ok, Katherine Liu, and Nicholas Roy</em><br><em>机构:MIT</em><br><em>发表:ICRA 2021</em></p>
@@ -160,6 +131,35 @@
         <tag>semantic</tag>
         <tag>RGBD</tag>
         <tag>dynamic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0004 Volumetric Instance-Aware Semantic Mapping and 3D Object Discovery</title>
+    <url>/2022/05/30/0004/</url>
+    <content><![CDATA[<p><em>作者:Margarita Grinvald, Fadri Furrer, Tonci Novkovic, Jen Jen Chung, Cesar Cadena, Roland Siegwart, Juan Nieto</em><br><em>机构:ETHZ</em><br><em>发表:RAL IROS 2019</em></p>
+<p><strong>Abstract</strong><br>在建图时，除了构建场景的几何表示，对环境更高级的理解是检测到更高级的实例对象。这项工作提出了一种在RGBD相机实时扫描过程中，增量构建volumetric 以物体为中心的地图。首先，每一帧的分割结合了无监督几何方法与实例分割预测来识别场景元素和检测之前未见过的物体。随后，一个数据关联track了不同帧中的被预测的物体。最后，一个地图融合策略融合了它们的3D形状，位置，语义类别 于一个全局volume。在公开数据集上的测试，证明了这种方法已经可以和SOTA竞争，同时可以发现，之前未看到的种类。系统在实际中也进行了测试，展现了其实时性。并进行了开源<a href="https://github.com/ethz-asl/voxblox-plusplus">https://github.com/ethz-asl/voxblox-plusplus</a>.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>本项工作对每帧进行如下四步操作：<ol>
+<li>几何分割：convexity-based方法（将点云，划分为若干个凸集）</li>
+<li>实例语义分割：RGB使用Mask RCNN进行打标签，并根据第一步中的结果进行合并</li>
+<li>数据关联：当前帧与地图进行匹配</li>
+<li>地图融合：合并到地图中</li>
+</ol>
+</li>
+<li>一个假设：相机位姿已知<img src="/2022/05/30/0004/1.png" class>
+<img src="/2022/05/30/0004/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>RGBD</tag>
+        <tag>object</tag>
+        <tag>instance</tag>
       </tags>
   </entry>
   <entry>
@@ -557,6 +557,25 @@
       </tags>
   </entry>
   <entry>
+    <title>0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</title>
+    <url>/2021/05/02/0502/</url>
+    <content><![CDATA[<p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
+<p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>本文主要关注海底场景。该场景的特点是：大型未知场景（所以需要多机器人）；容易出现新物种或者新的地质现象；</li>
+<li>匹配算法如图二所示。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14805.pdf">https://arxiv.org/pdf/2103.14805.pdf</a><br><strong>开源代码：</strong><a href="https://gitlab.com/warplab/ros/sunshine">https://gitlab.com/warplab/ros/sunshine</a></p>
+<img src="/2021/05/02/0502/1.png" class>
+<img src="/2021/05/02/0502/2.png" class>
+<img src="/2021/05/02/0502/3.png" class>]]></content>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0503 Towards High-Performance Solid-State-LiDAR-Inertial Odometry and Mapping</title>
     <url>/2021/05/03/0503/</url>
     <content><![CDATA[<p><em>作者:Kailai Li, Meng Li, and Uwe D. Hanebeck</em><br><em>机构:KIT</em><br><em>发表:RA-L</em></p>
@@ -585,25 +604,6 @@
         <tag>LiDAR</tag>
         <tag>solid</tag>
         <tag>IMU</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</title>
-    <url>/2021/05/02/0502/</url>
-    <content><![CDATA[<p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
-<p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>本文主要关注海底场景。该场景的特点是：大型未知场景（所以需要多机器人）；容易出现新物种或者新的地质现象；</li>
-<li>匹配算法如图二所示。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14805.pdf">https://arxiv.org/pdf/2103.14805.pdf</a><br><strong>开源代码：</strong><a href="https://gitlab.com/warplab/ros/sunshine">https://gitlab.com/warplab/ros/sunshine</a></p>
-<img src="/2021/05/02/0502/1.png" class>
-<img src="/2021/05/02/0502/2.png" class>
-<img src="/2021/05/02/0502/3.png" class>]]></content>
-      <tags>
-        <tag>每日论文分享</tag>
       </tags>
   </entry>
   <entry>
@@ -813,33 +813,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</title>
-    <url>/2021/05/11/0511/</url>
-    <content><![CDATA[<p><em>作者:Yachen Zhu, Yanyang Ma, Long Chen, Cong Liu, Maosheng Ye, and Lingxi Li</em><br><em>机构:SYSU</em><br><em>发表:IROS 2020</em></p>
-<p><strong>Abstract</strong><br>针对闭环检测任务，point-level的方法一般不是很稳定。本文提出了一种semantic-level的方法：GOSMatch，来提供更可靠的重定位。我们利用一种新的从语义对象的空间关系中生成的描述子，来描述数据并进行数据匹配。我们还提出了一种由粗到细的策略，来高效的搜索闭环。除此之外，在检测到闭环之后GOSMatch可以输出一个准确的6自由度的初始位姿估计。最后，在KITTI上进行了实验。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>语义分割使用rangenet++；</li>
-<li>题目中graph of semantic的含义为，将物体作为节点，分为三类（树，车辆，电线杆）；边分为六类（车车，树树，杆杆，车树，树杆，杆车）；（见图1）</li>
-<li>全局描述子（graph descriptor）为上述六种边组成的直方图。比如A类边，长度范围是[l_min,l_max],将其分为b个区间，每个区间长度为（l_max - l_min）/b, 统计落在这个区间的边的个数。（见图1）</li>
-<li>局部描述子（vertex descriptors）也是直方图，不过是对一个点所连的边进行描述。（见图1）</li>
-</ol>
-<p><strong>主要贡献：</strong><br>1.一个物体级的方法来进行重定位；<br>2.一种基于物体空间位置的全局描述子和局部描述子，可以进行两步分层搜索.</p>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9341299/">https://ieeexplore.ieee.org/document/9341299/</a><br><strong>开源代码：</strong><a href="https://github.com/zhuyachen/GOSMatch%EF%BC%88matlab%E5%AE%9E%E7%8E%B0%EF%BC%89">https://github.com/zhuyachen/GOSMatch（matlab实现）</a></p>
-<img src="/2021/05/11/0511/1.png" class>
-<img src="/2021/05/11/0511/2.png" class>
-<img src="/2021/05/11/0511/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>semantic</tag>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources</title>
     <url>/2021/05/10/0510/</url>
     <content><![CDATA[<p><em>作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge</em><br><em>机构:Facebook Reality Labs Research</em><br><em>发表:ICRA 2021</em></p>
@@ -874,28 +847,30 @@
       </tags>
   </entry>
   <entry>
-    <title>0514 HD Map Update for Autonomous Driving With Crowdsourced Data</title>
-    <url>/2021/05/14/0514/</url>
-    <content><![CDATA[<p><em>作者:Kitae Kim , Soohyun Cho, and Woojin Chung</em><br><em>机构:Korea University</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
-<p><strong>Abstract</strong><br>自动驾驶汽车使用高精度地图(HD map)可以进行准确的定位，并且生成不碰撞的轨迹。因此,保持高精度地图的准确性很重要。通常，HD map的构建要使用昂贵的地图构建系统，而且要进行很多人工的修改。传统的HD map因为太过昂贵，而不能时常进行构建。在本文中，我们使用了低成本众包传感器收集的道路数据，这些传感器被安装在反复移动的车（比如公交）上。我们提出了一种维护HD map的方法，关注数据中的landmark信息，选择不确定度低的数据来更新地图。并考虑离散和连续地标（交通灯交通标志，车道线）的差异，设计一个观察学习算法。通过所提出的更新模式选择策略，可以调整地图更新的触发条件。本文所提出的地图更新方案已通过从真实道路环境中收集的众包数据进行了实验验证.</p>
+    <title>0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</title>
+    <url>/2021/05/11/0511/</url>
+    <content><![CDATA[<p><em>作者:Yachen Zhu, Yanyang Ma, Long Chen, Cong Liu, Maosheng Ye, and Lingxi Li</em><br><em>机构:SYSU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>针对闭环检测任务，point-level的方法一般不是很稳定。本文提出了一种semantic-level的方法：GOSMatch，来提供更可靠的重定位。我们利用一种新的从语义对象的空间关系中生成的描述子，来描述数据并进行数据匹配。我们还提出了一种由粗到细的策略，来高效的搜索闭环。除此之外，在检测到闭环之后GOSMatch可以输出一个准确的6自由度的初始位姿估计。最后，在KITTI上进行了实验。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <ol>
-<li>传感器使用的是摄像头和GNSS；</li>
-<li>文章主要提出了一种车道线检测的方法；并且针对离散的地标如交通灯，和连续的地标如车道线，分别给出了更新HD map的策略。</li>
+<li>语义分割使用rangenet++；</li>
+<li>题目中graph of semantic的含义为，将物体作为节点，分为三类（树，车辆，电线杆）；边分为六类（车车，树树，杆杆，车树，树杆，杆车）；（见图1）</li>
+<li>全局描述子（graph descriptor）为上述六种边组成的直方图。比如A类边，长度范围是[l_min,l_max],将其分为b个区间，每个区间长度为（l_max - l_min）/b, 统计落在这个区间的边的个数。（见图1）</li>
+<li>局部描述子（vertex descriptors）也是直方图，不过是对一个点所连的边进行描述。（见图1）</li>
 </ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9357917">https://ieeexplore.ieee.org/document/9357917</a></p>
-<img src="/2021/05/14/0514/1.png" class>
-<img src="/2021/05/14/0514/2.png" class>
-<img src="/2021/05/14/0514/3.png" class>
-<img src="/2021/05/14/0514/4.png" class>
-]]></content>
+<p><strong>主要贡献：</strong><br>1.一个物体级的方法来进行重定位；<br>2.一种基于物体空间位置的全局描述子和局部描述子，可以进行两步分层搜索.</p>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9341299/">https://ieeexplore.ieee.org/document/9341299/</a><br><strong>开源代码：</strong><a href="https://github.com/zhuyachen/GOSMatch%EF%BC%88matlab%E5%AE%9E%E7%8E%B0%EF%BC%89">https://github.com/zhuyachen/GOSMatch（matlab实现）</a></p>
+<img src="/2021/05/11/0511/1.png" class>
+<img src="/2021/05/11/0511/2.png" class>
+<img src="/2021/05/11/0511/3.png" class>]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>semantic</tag>
         <tag>每日论文分享</tag>
-        <tag>map</tag>
+        <tag>LiDAR</tag>
       </tags>
   </entry>
   <entry>
@@ -937,6 +912,31 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0514 HD Map Update for Autonomous Driving With Crowdsourced Data</title>
+    <url>/2021/05/14/0514/</url>
+    <content><![CDATA[<p><em>作者:Kitae Kim , Soohyun Cho, and Woojin Chung</em><br><em>机构:Korea University</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>自动驾驶汽车使用高精度地图(HD map)可以进行准确的定位，并且生成不碰撞的轨迹。因此,保持高精度地图的准确性很重要。通常，HD map的构建要使用昂贵的地图构建系统，而且要进行很多人工的修改。传统的HD map因为太过昂贵，而不能时常进行构建。在本文中，我们使用了低成本众包传感器收集的道路数据，这些传感器被安装在反复移动的车（比如公交）上。我们提出了一种维护HD map的方法，关注数据中的landmark信息，选择不确定度低的数据来更新地图。并考虑离散和连续地标（交通灯交通标志，车道线）的差异，设计一个观察学习算法。通过所提出的更新模式选择策略，可以调整地图更新的触发条件。本文所提出的地图更新方案已通过从真实道路环境中收集的众包数据进行了实验验证.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>传感器使用的是摄像头和GNSS；</li>
+<li>文章主要提出了一种车道线检测的方法；并且针对离散的地标如交通灯，和连续的地标如车道线，分别给出了更新HD map的策略。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9357917">https://ieeexplore.ieee.org/document/9357917</a></p>
+<img src="/2021/05/14/0514/1.png" class>
+<img src="/2021/05/14/0514/2.png" class>
+<img src="/2021/05/14/0514/3.png" class>
+<img src="/2021/05/14/0514/4.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>map</tag>
       </tags>
   </entry>
   <entry>
@@ -1163,6 +1163,37 @@
         <tag>每日论文分享</tag>
         <tag>visual</tag>
         <tag>detection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0526:A New Framework for Registration of Semantic Point Clouds from Stereo and RGB-D Cameras</title>
+    <url>/2021/11/04/0526/</url>
+    <content><![CDATA[<p><em>作者:Ray Zhang, Tzu-Yuan Lin, Chien Erh Lin, Steven A. Parkison, William Clark, Jessy W. Grizzle, Ryan M. Eustice and Maani Ghaffari</em><br><em>机构:umich</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本篇文章提出了一个新的非参数化的刚性点云配准框架，结合了几何信息和语义信息（比如颜色，或者语义分类的标签），而且不需要显式的数据关联。点云被表示为再生核希尔伯特空间（RKHS）中的非参数函数。对齐任务变成了最大化两个函数之间的内积问题，本质上是加权核的和，每个加权核利用了局部几何信息和语义特征（如图1）。最后，作为一个连续的函数模型，我们可以对其进行梯度计算，从而找到位姿变换的局部最优解。除此之外，我们提出了一个新的点云配准的度量标准（考虑几何和语义信息）。方法在双目和RGBD数据集上得到了验证，并开源了一个GPU实现的代码。</p>
+<span id="more"></span>
+
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>一种新的语义点云配准框架，通过特征的分层分布表示，将几何，颜色，语义方法推广到非参数的连续模型；</li>
+<li>一个新的点云配准的度量标准（考虑几何和语义信息）。</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/2012.03683.pdf">https://arxiv.org/pdf/2012.03683.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/UMich-CURLY/unified_cvo">https://github.com/UMich-CURLY/unified_cvo</a></strong></p>
+<img src="/2021/11/04/0526/1.png" class>
+<img src="/2021/11/04/0526/2.png" class>
+<img src="/2021/11/04/0526/3.png" class>
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>semantic</tag>
+        <tag>每日论文分享</tag>
+        <tag>RGB-D</tag>
+        <tag>开源代码</tag>
       </tags>
   </entry>
   <entry>
@@ -1552,6 +1583,30 @@
       </tags>
   </entry>
   <entry>
+    <title>20220509 FasterGICP:Acceptance-Rejection Sampling Based 3D Lidar Odometry</title>
+    <url>/2022/05/06/20220509/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20220521 FAST-LIVO:Fast and Tightly-coupled Sparse-Direct LiDAR-Inertial-Visual Odometry</title>
     <url>/2022/05/21/20220521/</url>
     <content><![CDATA[<p><em>作者:Chunran Zheng∗ , Qingyan Zhu∗ , Wei Xu, Xiyuan Liu, Qizhi Guo and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:arxiv</em></p>
@@ -1574,30 +1629,6 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>fusion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20220509 FasterGICP:Acceptance-Rejection Sampling Based 3D Lidar Odometry</title>
-    <url>/2022/05/06/20220509/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
       </tags>
   </entry>
   <entry>
