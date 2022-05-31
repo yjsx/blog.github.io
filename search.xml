@@ -1,36 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
-    <url>/2021/04/23/0423/</url>
-    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+    <title>0003 SO-SLAM:Semantic Object SLAM with Scale Proportional and Symmetrical Texture Constraints</title>
+    <url>/2022/05/30/0003/</url>
+    <content><![CDATA[<p><em>作者:Ziwei Liao, Yutong Hu, Jiadong Zhang, Xianyu Qi, Xiaoyu Zhang, Wei Wang</em><br><em>机构:北航</em><br><em>发表:RAL ICRA 2022</em></p>
+<p><strong>Abstract</strong><br>Object-SLAM可以帮助移动机器人理解室内场景和物体级别的交互应用。SOTA的物体级SLAM面临着一些挑战，比如部分观测，遮挡，不可观测等问题，限制着建图精确度和鲁棒性。本文提出了一个新的单目语义物体SLAM——SO-SLAM，解决了引入物体空间约束。我们探索了三种代表性的空间约束包括尺度约束，对称纹理约束和平面约束。基于这些语义约束，我们提出了两个新的方法，一个更鲁棒的物体初始化方法，和一个方向精细优化的方法。我们在数据集和真实数据上验证了算法的性能。并进行了开源<a href="https://github.com/XunshanMan/SoSLAM%E3%80%82">https://github.com/XunshanMan/SoSLAM。</a></p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
-<ul>
-<li>固态雷达SLAM具体的难点：<ul>
-<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
-<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
-<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
-</ul>
-</li>
-<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
-<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
-</ul>
-<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
-<img src="/2021/04/23/0423/1.png" class>
-<img src="/2021/04/23/0423/2.png" class>
-<img src="/2021/04/23/0423/3.png" class>]]></content>
+<ol>
+<li>物体检测使用YOLO</li>
+</ol>
+<img src="/2022/05/30/0003/1.png" class>
+
+]]></content>
       <categories>
-        <category>每日论文分享</category>
+        <category>一分钟</category>
       </categories>
       <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>solid</tag>
-        <tag>system</tag>
-        <tag>code</tag>
+        <tag>一分钟</tag>
+        <tag>单目</tag>
+        <tag>object</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0002. Panoptic Neural Fields:A Semantic Object-Aware Neural Scene Representation</title>
+    <url>/2022/05/30/0002/</url>
+    <content><![CDATA[<p><em>作者:Abhijit Kundu, Kyle Genova, Xiaoqi Yin, Alireza Fathi,Caroline Pantofaru, Leonidas Guibas, Andrea Tagliasacchi, Frank Dellaert, Thomas Funkhouser</em><br><em>机构:Google Research + Georgia Tech+Simon Fraser University + Stanford University</em><br><em>发表: CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>我们提出了Panoptic Neural Fields (PNF)，一个object-aware的neural的场景表示，可以结构一个场景变成一组物体（thing）和背景（stuff）。每一个物体被表示为一个有朝向的3D bbox和一个多层感知机（输入位置方向和时间，输出密度和辐射）。stuff被表示为一个简单的MLP，输出语义标签。每一个物体MLP是实例1的，因此可以比之前的物体感知方法更小更快，于此同时通过元学习初始化，保持特定类别的先验。我们的模型仅从RGB图像就可以构建了一个panoptic radiance field来对任何场景进行表示。我们使用了现成的算法来预测相机位姿，物体轨迹和2D图像语义分割。然后我们使用基于颜色图像的自监督和基于预测语义分割的伪监督的综合分析，来联合优化MLP的参数，和bbox的参数。在真实世界的动态场景中的实验里，我们发现我们的模型可以被用来高效地完成比如视角合成，2D panoptic 分割，3D场景编辑和多视角深度估计等。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>对标的算法有 <ul>
+<li>MeshRCNN,Total3D,</li>
+<li>Atlas,SLAM++,PanopticFusion,Kimera,DynSceneGraphs,</li>
+<li>SemanticNerf,NSG,ObjectNeRF</li>
+</ul>
+</li>
+<li>本篇为NeRF流的</li>
+</ol>
+<img src="/2022/05/30/0002/1.png" class>
+<img src="/2022/05/30/0002/2.png" class>
+<img src="/2022/05/30/0002/3.png" class>
+<img src="/2022/05/30/0002/4.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>object</tag>
+        <tag>semantic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0004 Volumetric Instance-Aware Semantic Mapping and 3D Object Discovery</title>
+    <url>/2022/05/30/0004/</url>
+    <content><![CDATA[<p><em>作者:Margarita Grinvald, Fadri Furrer, Tonci Novkovic, Jen Jen Chung, Cesar Cadena, Roland Siegwart, Juan Nieto</em><br><em>机构:ETHZ</em><br><em>发表:RAL IROS 2019</em></p>
+<p><strong>Abstract</strong><br>在建图时，除了构建场景的几何表示，对环境更高级的理解是检测到更高级的实例对象。这项工作提出了一种在RGBD相机实时扫描过程中，增量构建volumetric 以物体为中心的地图。首先，每一帧的分割结合了无监督几何方法与实例分割预测来识别场景元素和检测之前未见过的物体。随后，一个数据关联track了不同帧中的被预测的物体。最后，一个地图融合策略融合了它们的3D形状，位置，语义类别 于一个全局volume。在公开数据集上的测试，证明了这种方法已经可以和SOTA竞争，同时可以发现，之前未看到的种类。系统在实际中也进行了测试，展现了其实时性。并进行了开源<a href="https://github.com/ethz-asl/voxblox-plusplus">https://github.com/ethz-asl/voxblox-plusplus</a>.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>本项工作对每帧进行如下四步操作：<ol>
+<li>几何分割：convexity-based方法（将点云，划分为若干个凸集）</li>
+<li>实例语义分割：RGB使用Mask RCNN进行打标签，并根据第一步中的结果进行合并</li>
+<li>数据关联：当前帧与地图进行匹配</li>
+<li>地图融合：合并到地图中</li>
+</ol>
+</li>
+<li>一个假设：相机位姿已知<img src="/2022/05/30/0004/1.png" class>
+<img src="/2022/05/30/0004/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>object</tag>
+        <tag>RGBD</tag>
+        <tag>instance</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0005 Hierarchical Object Map Estimation for Efficient and Robust Navigation</title>
+    <url>/2022/05/30/0005/</url>
+    <content><![CDATA[<p><em>作者:Kyel Ok, Katherine Liu, and Nicholas Roy</em><br><em>机构:MIT</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一个物体的分层次表示的方法，随着测量的累计，物体的表示可以进行改变。我们初始估计每个物体为一个2Dbbox或者一个3D点，用来描述几何性质（从有限的视角即可获得）。随着更多的测量，我们允许每个物体变成更高维的3D体素模型，来提高重建精度和碰撞检测。我们的 Hierarchical Object Map Estimation (HOME) 对视角上的缺陷是鲁棒的，可以规划出围绕障碍物的安全高效轨迹。在TUM数据集上进行了验证。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>一篇为导航设计的建图算法，对物体模型的构建由粗到细</li>
+</ol>
+<img src="/2022/05/30/0005/1.png" class>
+<img src="/2022/05/30/0005/2.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0006 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</title>
+    <url>/2022/05/30/0006/</url>
+    <content><![CDATA[<p><em>作者: Tete Ji, Chen Wang, and Lihua Xie</em><br><em>机构: NTU+CMU</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>现有的VSLAM框架大多依赖静态环境，在动态环境中很容易失效。一些最近的工作使用深度学习得到语义信息来避免动态物体的影响，但是这些方法一般有着很高的计算开销，并且不能处理没有见过的物体。在本篇文章中，我们提出了一个实时的语义RGBD SLAM，可以处理见过或没见过的动态物体。为了减少计算开销，我们只对关键帧进行语义分割以剔除已知动态物体，并维护一个静态地图。除此之外，我们提出了一个高效的几何模块来检测未知的动态物体，具体方法为将深度图像聚类并通过重投影误差来识别动态区域。提出的方法在数据集以及真实场景进行测试。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>几何方法加语义方法，提升SLAM性能</li>
+</ol>
+<img src="/2022/05/30/0006/1.png" class>
+<img src="/2022/05/30/0006/2.png" class>
+<img src="/2022/05/30/0006/3.png" class>
+<img src="/2022/05/30/0006/4.png" class>
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>semantic</tag>
+        <tag>RGBD</tag>
+        <tag>dynamic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0007 SoftGroup for 3D Instance Segmentation on Point Clouds</title>
+    <url>/2022/05/30/0007/</url>
+    <content><![CDATA[<p><em>作者:Thang Vu, Kookhoi Kim, Tung M. Luu, Xuan Thanh Nguyen, Chang D. Yoo</em><br><em>机构:KAIST</em><br><em>发表:CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>现存的SOTA实例分割方法使用grouping。hard预测将每个点与每个单独的种类相关联。然而，来自硬决策的错误，导致了（1）预测的实例与GT的低重叠度（2）大量的假阳性。</p>
+<p>为了解决这些问题，本文提出了一个名为SoftGroup的3D实例分割算法，先自底向上的grouping，再自顶向下的refine。SoftGroup允许每个点被关联到不同的种类，来缓解语义预测的错误和FP，通过学习将其种类变为背景。实验展示了在不同数据集和多种评价指标下证明其效用。在ScanNetV2上超过最好6.2%，在S3DIS上超过最好6.8%.在Titan X上，每帧推算时间为345ms。开源： <a href="https://github.com/thangvubk/SoftGroup.git">https://github.com/thangvubk/SoftGroup.git</a></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>目前实例分割的SOTA</li>
+<li>group流</li>
+<li>自底向上，逐点预测语义和offset。soft grouping 将其处理为 实例proposal。自顶向下，提取到的特征被用来预测类别，实例掩码，掩码分数来作为最后的结果。<img src="/2022/05/30/0007/1.png" class>
+<img src="/2022/05/30/0007/2.png" class>
+<img src="/2022/05/30/0007/3.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>instance</tag>
+        <tag>point cloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0008 PointGroup:Dual-Set Point Grouping for 3D Instance Segmentation</title>
+    <url>/2022/05/30/0008/</url>
+    <content><![CDATA[<p><em>作者:Li Jiang, Hengshuang Zhao, Shaoshuai Shi1 Shu Liu, Chi-Wing Fu, Jiaya Jia</em><br><em>机构:港中文+smartmore</em><br><em>发表:CVPR2020</em></p>
+<p><strong>Abstract</strong><br>与2D实例分割相比，3D还有很多提升空间。在本文中，我们提出了PointGroup，一个新的端到端，自下而上的架构，关注探索物体之间的空隙以更好地group点。我们设计了两个分支的网络，来提取点云特征，并预测语义label和与实例中心之间的offset。一个聚类组件，使用原始和偏移过后的点集，利用它们互补的优势。更进一步，我们搭建了ScoreNet来评估instance候选者，并用NMS来去除重复数据。我们在ScanNet和S3DIS上进行了实验。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>实例分割分两步走，首先将3D空间划分为单独的物体，第二部为为每个物体打上标签。</li>
+<li>与2D卷积不同的是，没有遮挡问题，且物体会自然地被空区域所分割<img src="/2022/05/30/0008/1.png" class>
+<img src="/2022/05/30/0008/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>instance</tag>
+        <tag>point cloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0010 ROCA:Robust CAD Model Retrieval and Alignment from a Single Image</title>
+    <url>/2022/05/30/0010/</url>
+    <content><![CDATA[<p><em>作者:Can Gümeli, Angela Dai, Matthias Nießner</em><br><em>机构:TUM</em><br><em>发表:CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>我们提出了ROCA，一个新的端到端方法从一个形状数据库中检索并对齐3D CAD 模型（来自单张图像中）。这使得可以从2D图像中获得3D感知信息。我们方法的核心是我们的2D-3D物体对应的可微对齐优化和Pro-crustes 对齐.ROCA可以提供一个鲁棒的CAD对齐，同时通过2D-3D的对应学习几何相似性来进行CAD检索。实验在ScanNet上，将SOTA从9.5%提升到了17.6%。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>算法流程：<ol>
+<li>输入为RGB图片，相机内参和CAD数据库</li>
+<li>目标为输出CAD模型与图像的9DoF对齐参数</li>
+<li>首先使用Mask RCNN对其进行语义分割，同时使用multi-scale FPN估计物体深度</li>
+<li>随后使用深度，2D特征，instance mask来估计尺度和初始位姿</li>
+<li>此外我们建立了与物体规范空间之间的可学习，稠密的对应关系。我们<img src="/2022/05/30/0010/1.png" class>
+<img src="/2022/05/30/0010/2.png" class>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Retrieval</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0009 ScanNet:Richly-annotated 3D Reconstructions of Indoor Scenes</title>
+    <url>/2022/05/30/0009/</url>
+    <content><![CDATA[<p><em>作者:Angela Dai, Angel X. Chang, Manolis Savva, Maciej Halber, Thomas Funkhouser, Matthias Nießner</em><br><em>机构:Stanford University + Princeton University + Technical University of Munich</em><br><em>发表:CVPR 2017</em></p>
+<p><strong>Abstract</strong><br>监督学习的关键是一个大型数据集。但是，目前RGB-D场景理解的数据非常少。为了解决这个问题，我们发布了ScanNet，一个RGBD视频数据集，包含了2.5M帧，在1513个场景中，标注了3D相机位姿，表面重建和语义分割。为了收集这个数据，我们设计了易用的RGBD捕捉系统，包含了自动化表面重建和众包的语义标注。我们展示了使用这个数据可以达到SOTA性能，在一些场景理解任务上，包括3D物体识别，语义label，和CAD模型检索。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>支持的任务：3D物体分类，语义分割，3D模型匹配</li>
+</ol>
+<img src="/2022/05/30/0009/1.png" class>
+<img src="/2022/05/30/0009/2.png" class>
+<img src="/2022/05/30/0009/3.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>dataset</tag>
       </tags>
   </entry>
   <entry>
@@ -65,8 +262,41 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>code</tag>
         <tag>fusion-slam</tag>
+        <tag>code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0423 Lightweight 3-D Localization and Mapping for Solid-State LiDAR</title>
+    <url>/2021/04/23/0423/</url>
+    <content><![CDATA[<p><em>作者: Han Wang , Chen Wang , and Lihua Xie</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>最近由于固态激光雷达的推出为小型机器人提供了一种经济高效且灵活的解决方案。与传统的机械式雷达相比，固态激光雷达拥有更高的频率（注：指本文所用的这一款）和分辨率，但同时缺点是视野（FOV）比较小。这对于现有的激光雷达框架是一个不小的挑战。因此，本文提出了一个新的SLAM，包含了特征提取，激光里程计，地图构建等模块。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ul>
+<li>固态雷达SLAM具体的难点：<ul>
+<li>固态雷达更高的角分辨率，点云更加稠密，导致传统配准算法如ICP效率低下。</li>
+<li>更新频率更高，使得如LOAM等激光SLAM算法在实时性上不能达到要求</li>
+<li>视野较小，导致有剧烈旋转的时候，容易导致跟踪的丢失。</li>
+</ul>
+</li>
+<li>本文使用的固态激光雷达为Intel L515，与VLP-16的参数对比如图一所示。</li>
+<li>本文的作者Han Wang为FLOAM，ISCLOAM等激光SLAM开源代码的作者</li>
+</ul>
+<p><strong>主要贡献：</strong><br>1.实现了一个完整的固态激光SLAM框架，并开源。<br>2.提出了一种改进的特征提取算法，可以提取到在旋转情况下，稳定的特征。另外左李导数用于迭代位姿估计，以便以无奇异点的形式表示位姿。<br>3.在AGV小车上以及手持场景，进行了实验。</p>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03800.pdf">https://arxiv.org/pdf/2102.03800.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/wh200720041/ssl_slam2">https://github.com/wh200720041/ssl_slam2</a></p>
+<img src="/2021/04/23/0423/1.png" class>
+<img src="/2021/04/23/0423/2.png" class>
+<img src="/2021/04/23/0423/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>code</tag>
+        <tag>LiDAR</tag>
+        <tag>solid</tag>
+        <tag>system</tag>
       </tags>
   </entry>
   <entry>
@@ -102,9 +332,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
-        <tag>每日论文分享</tag>
-        <tag>dataset</tag>
         <tag>semantic</tag>
+        <tag>dataset</tag>
+        <tag>每日论文分享</tag>
       </tags>
   </entry>
   <entry>
@@ -128,9 +358,34 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
         <tag>recognition</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</title>
+    <url>/2021/04/27/0427/</url>
+    <content><![CDATA[<p>*作者: Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表: CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十分敏感。为了解决这个问题，我们提出了一种新的可以识别outlier的神经树（neural tree），综合了深度学习和决策树两种方法。该方法由三个部分组成：</p>
+<ol>
+<li>一个按照 分层次划分室内空间 方法构建的决策树；</li>
+<li>一个nerual routing function（不知道咋翻译。。。），使用一个目标识别网络实现，以更好得理解场景；（大概思想是将输入沿着neural tree，一直找到相应的叶子节点，这个过程被称作route）</li>
+<li>一个离群点拒绝模块，用来过滤动态物体。<br>所提出的算法在RIO-10数据集上得到了验证，比SOTA算法效果好了约30%。<span id="more"></span></li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2012.04746.pdf">https://arxiv.org/pdf/2012.04746.pdf</a></p>
+<img src="/2021/04/27/0427/1.png" class>
+<img src="/2021/04/27/0427/2.png" class>
+<img src="/2021/04/27/0427/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>dynamic</tag>
+        <tag>每日论文分享</tag>
+        <tag>recognition</tag>
+        <tag>visual</tag>
+        <tag>learning</tag>
       </tags>
   </entry>
   <entry>
@@ -161,31 +416,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0427 Robust Neural Routing Through Space Partitions for Camera Relocalization in Dynamic Indoor Environments</title>
-    <url>/2021/04/27/0427/</url>
-    <content><![CDATA[<p>*作者: Siyan Dong *, Qingnan Fan <em>, He Wang, Ji Shi, Li Yi, Thomas Funkhouser, Baoquan Chen, Leonidas Guibas</em><br><em>发表: CVPR 2021</em></p>
-<p><strong>Abstract</strong><br>本篇文章关注在动态场景中的重定位问题。估计相机3D位姿的最新进展使用CNN或者决策树进行估计。这两种方法一般使用静态的图像序列，所以对动态的室内物体十分敏感。为了解决这个问题，我们提出了一种新的可以识别outlier的神经树（neural tree），综合了深度学习和决策树两种方法。该方法由三个部分组成：</p>
-<ol>
-<li>一个按照 分层次划分室内空间 方法构建的决策树；</li>
-<li>一个nerual routing function（不知道咋翻译。。。），使用一个目标识别网络实现，以更好得理解场景；（大概思想是将输入沿着neural tree，一直找到相应的叶子节点，这个过程被称作route）</li>
-<li>一个离群点拒绝模块，用来过滤动态物体。<br>所提出的算法在RIO-10数据集上得到了验证，比SOTA算法效果好了约30%。<span id="more"></span></li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2012.04746.pdf">https://arxiv.org/pdf/2012.04746.pdf</a></p>
-<img src="/2021/04/27/0427/1.png" class>
-<img src="/2021/04/27/0427/2.png" class>
-<img src="/2021/04/27/0427/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>recognition</tag>
-        <tag>visual</tag>
-        <tag>dynamic</tag>
-        <tag>learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0428 Online Camera-LiDAR Calibration with Sensor Semantic Information</title>
     <url>/2021/04/28/0428/</url>
     <content><![CDATA[<p><em>作者: Yufeng Zhu, Chenghui Li and Yubo Zhang</em><br><em>发表: ICRA 2020</em></p>
@@ -206,9 +436,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>semantic</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>semantic</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
       </tags>
@@ -230,9 +460,36 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
         <tag>learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0430 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</title>
+    <url>/2021/04/30/0430/</url>
+    <content><![CDATA[<p><em>作者: Tete Ji, Chen Wang, and Lihua Xie</em><br><em>机构: NTU+CMU</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>现有的VSLAM框架大多依赖静态环境，在动态环境中很容易失效。一些最近的工作使用深度学习得到语义信息来避免动态物体的影响，但是这些方法一般有着很高的计算开销，并且不能处理没有见过的物体。在本篇文章中，我们提出了一个实时的语义RGBD SLAM，可以处理见过或没见过的动态物体。为了减少计算开销，我们只对关键帧进行语义分割以剔除已知动态物体，并维护一个静态地图。除此之外，我们提出了一个高效的几何模块来检测未知的动态物体，具体方法为将深度图像聚类并通过重投影误差来识别动态区域。提出的方法在数据集以及真实场景进行测试。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>整个系统基于ORB-SLAM2，本文工作的目的是剔除属于动态物体的特征点。</li>
+<li>语义分割部分使用轻量级网络SegNet。</li>
+<li>不需要先验信息的几何模块，使用K-Means算法进行聚类（聚类数量N = 24），随后进行重投影误差的计算，误差大的则视为动态物体。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.01316v1.pdf">https://arxiv.org/pdf/2104.01316v1.pdf</a></p>
+<img src="/2021/04/30/0430/1.png" class>
+<img src="/2021/04/30/0430/2.png" class>
+<img src="/2021/04/30/0430/3.png" class>
+<img src="/2021/04/30/0430/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>semantic</tag>
+        <tag>RGBD</tag>
+        <tag>dynamic</tag>
+        <tag>每日论文分享</tag>
       </tags>
   </entry>
   <entry>
@@ -263,8 +520,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
         <tag>visual</tag>
         <tag>calibration</tag>
       </tags>
@@ -286,33 +543,6 @@
 <img src="/2021/05/02/0502/3.png" class>]]></content>
       <tags>
         <tag>每日论文分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0430 Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</title>
-    <url>/2021/04/30/0430/</url>
-    <content><![CDATA[<p><em>作者: Towards Real-time Semantic RGB-D SLAM in Dynamic Environments</em><br><em>机构: NTU+CMU</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>现有的VSLAM框架大多依赖静态环境，在动态环境中很容易失效。一些最近的工作使用深度学习得到语义信息来避免动态物体的影响，但是这些方法一般有着很高的计算开销，并且不能处理没有见过的物体。在本篇文章中，我们提出了一个实时的语义RGBD SLAM，可以处理见过或没见过的动态物体。为了减少计算开销，我们只对关键帧进行语义分割以剔除已知动态物体，并维护一个静态地图。除此之外，我们提出了一个高效的几何模块来检测未知的动态物体，具体方法为将深度图像聚类并通过重投影误差来识别动态区域。提出的方法在数据集以及真实场景进行测试。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>整个系统基于ORB-SLAM2，本文工作的目的是剔除属于动态物体的特征点。</li>
-<li>语义分割部分使用轻量级网络SegNet。</li>
-<li>不需要先验信息的几何模块，使用K-Means算法进行聚类（聚类数量N = 24），随后进行重投影误差的计算，误差大的则视为动态物体。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2104.01316v1.pdf">https://arxiv.org/pdf/2104.01316v1.pdf</a></p>
-<img src="/2021/04/30/0430/1.png" class>
-<img src="/2021/04/30/0430/2.png" class>
-<img src="/2021/04/30/0430/3.png" class>
-<img src="/2021/04/30/0430/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>semantic</tag>
-        <tag>dynamic</tag>
-        <tag>RGBD</tag>
       </tags>
   </entry>
   <entry>
@@ -409,8 +639,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
         <tag>multi</tag>
       </tags>
   </entry>
@@ -514,8 +744,8 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
-        <tag>每日论文分享</tag>
         <tag>dynamic</tag>
+        <tag>每日论文分享</tag>
         <tag>vslam</tag>
       </tags>
   </entry>
@@ -547,9 +777,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>dynamic</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>dynamic</tag>
       </tags>
   </entry>
   <entry>
@@ -608,9 +838,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>semantic</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>semantic</tag>
       </tags>
   </entry>
   <entry>
@@ -636,6 +866,38 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>map</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
+    <url>/2021/05/17/0516/</url>
+    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
+<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
+<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
+<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
+<li>一个利用上述描述子进行重定位的框架。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
+<img src="/2021/05/17/0516/1.png" class>
+<img src="/2021/05/17/0516/2.png" class>
+<img src="/2021/05/17/0516/3.png" class>
+<img src="/2021/05/17/0516/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -677,38 +939,6 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>multi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
-    <url>/2021/05/17/0516/</url>
-    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
-<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
-<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
-<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
-<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
-<li>一个利用上述描述子进行重定位的框架。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
-<img src="/2021/05/17/0516/1.png" class>
-<img src="/2021/05/17/0516/2.png" class>
-<img src="/2021/05/17/0516/3.png" class>
-<img src="/2021/05/17/0516/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -770,8 +1000,8 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>code</tag>
+        <tag>LiDAR</tag>
       </tags>
   </entry>
   <entry>
@@ -799,9 +1029,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>dynamic</tag>
         <tag>每日论文分享</tag>
         <tag>visual</tag>
-        <tag>dynamic</tag>
       </tags>
   </entry>
   <entry>
@@ -987,7 +1217,7 @@
 <li>提出了一个新的cost function，如图3；</li>
 <li>在闭环检测中，将ICP较差的结果当做ourlier，从而减少闭环检测错误的影响。</li>
 </ol>
-<p><strong>论文地址：论文地址：<a href="https://ieeexplore.ieee.org/document/9341341/">https://ieeexplore.ieee.org/document/9341341/</a></strong></p>
+<p><strong>论文地址：<a href="https://ieeexplore.ieee.org/document/9341341/">https://ieeexplore.ieee.org/document/9341341/</a></strong></p>
 <img src="/2021/06/06/0605/1.png" class>
 <img src="/2021/06/06/0605/2.png" class>
 <img src="/2021/06/06/0605/3.png" class>
@@ -1065,38 +1295,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
-    <url>/2021/11/04/0609/</url>
-    <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
-<p>注：本篇文章看起来像是昨日文章的前置工作。<br><strong>Abstract</strong><br>在本文中，我们提出了一种激光SLAM的新的方法，专注于提高建图的精度，并于此同时估计位姿。我们使用frame-to-mesh的ICP，并且通过泊松表面重建获得triangle mesh来表示地图。我们通过滑动窗口的方式进行表面重建，这样我们获得了准确的局部地图，很合适进行配准，并且可以组装进全局地图。这让我们可以比surfle或TSDF等形式的3D地图展示更多的几何细节。我们的实验定性并定量地展示了， 我们的地图有着比别的地图更高的几何准确性。我们还表明，我们的地图是紧凑的，并且可以通过一种新的方法用于雷达里程计。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>所提出的地图的好处：</li>
-<li>对环境几何信息更精确的表示；</li>
-<li>更高的储存效率；</li>
-<li>新的frame-mesh的配准算法。</li>
-<li>对于每次扫描进行3个步骤：计算每个点的法线；将scan配准到local map（见图2）；将配准好的scan融合进global map。</li>
-<li>文章还进行了mesh post-processing，见图3。具体的，去除了度数较少的顶点（意味着不是很可靠）。</li>
-</ol>
-<p><strong>论文地址：<a href="http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf">http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/puma">https://github.com/PRBonn/puma</a></strong><br><strong>视频资料：<a href="https://www.bilibili.com/video/BV1R5411M75t">https://www.bilibili.com/video/BV1R5411M75t</a></strong></p>
-<img src="/2021/11/04/0609/1.png" class>
-<img src="/2021/11/04/0609/2.png" class>
-<img src="/2021/11/04/0609/3.png" class>
-<img src="/2021/11/04/0609/4.png" class>
-<img src="/2021/11/04/0609/5.png" class>
-<img src="/2021/11/04/0609/6.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>开源代码</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0613：OverlapNet:Loop Closing for LiDAR-based SLAM</title>
     <url>/2021/11/04/0613/</url>
     <content><![CDATA[<p><em>作者:Xieyuanli Chen，Olga Vysotska，Thomas Läbe，Alexandre Haag，Andres Milioto，Jens Behley，Timo Röhling，Cyrill Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:RSS 2020</em></p>
@@ -1129,6 +1327,38 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>localization</tag>
+        <tag>开源代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
+    <url>/2021/11/04/0609/</url>
+    <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
+<p>注：本篇文章看起来像是昨日文章的前置工作。<br><strong>Abstract</strong><br>在本文中，我们提出了一种激光SLAM的新的方法，专注于提高建图的精度，并于此同时估计位姿。我们使用frame-to-mesh的ICP，并且通过泊松表面重建获得triangle mesh来表示地图。我们通过滑动窗口的方式进行表面重建，这样我们获得了准确的局部地图，很合适进行配准，并且可以组装进全局地图。这让我们可以比surfle或TSDF等形式的3D地图展示更多的几何细节。我们的实验定性并定量地展示了， 我们的地图有着比别的地图更高的几何准确性。我们还表明，我们的地图是紧凑的，并且可以通过一种新的方法用于雷达里程计。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>所提出的地图的好处：</li>
+<li>对环境几何信息更精确的表示；</li>
+<li>更高的储存效率；</li>
+<li>新的frame-mesh的配准算法。</li>
+<li>对于每次扫描进行3个步骤：计算每个点的法线；将scan配准到local map（见图2）；将配准好的scan融合进global map。</li>
+<li>文章还进行了mesh post-processing，见图3。具体的，去除了度数较少的顶点（意味着不是很可靠）。</li>
+</ol>
+<p><strong>论文地址：<a href="http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf">http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/puma">https://github.com/PRBonn/puma</a></strong><br><strong>视频资料：<a href="https://www.bilibili.com/video/BV1R5411M75t">https://www.bilibili.com/video/BV1R5411M75t</a></strong></p>
+<img src="/2021/11/04/0609/1.png" class>
+<img src="/2021/11/04/0609/2.png" class>
+<img src="/2021/11/04/0609/3.png" class>
+<img src="/2021/11/04/0609/4.png" class>
+<img src="/2021/11/04/0609/5.png" class>
+<img src="/2021/11/04/0609/6.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
         <tag>开源代码</tag>
       </tags>
   </entry>
@@ -1183,8 +1413,187 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
-        <tag>每日论文分享</tag>
         <tag>object</tag>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220422 A decentralized framework for simultaneous calibration, localization and mapping with multiple LiDARs</title>
+    <url>/2022/04/22/20220422/</url>
+    <content><![CDATA[<p><em>作者:Jiarong Lin, Xiyuan Liu and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>单个激光雷达经常遭到环境问题（温度颠簸等）导致的硬件问题（比如断连），或因为缺乏足够的几何特征导致的退化，这个问题对于小FOV固态激光来说更为严重。为了提高在SLAM中的鲁棒性，我们开发了一个分布式框架，用于多激光雷达的标定定位和建图。我们提出的框架基于EKF，但是是分布的实现形式。这样可以将每个雷达的密集计算分布到小的计算单元上，并且避免单点故障问题。然后，一辆搭载5个低功耗雷达，以1.3m/s的速度运行的小车被用来做实验。提出的方法可以成功估计状态，并且计算激光雷达外参。定位误差最高0.2%. 代码已开源。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/2007.01483">https://arxiv.org/pdf/2007.01483</a></strong><br><strong>开源代码：<a href="https://github.com/hku-mars/decentralized_loam">https://github.com/hku-mars/decentralized_loam</a></strong><br><strong>硬件模型：<a href="https://github.com/hku-mars/lidar_car_platfrom">https://github.com/hku-mars/lidar_car_platfrom</a></strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220506 Generalized-ICP</title>
+    <url>/2022/05/06/20220506/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220507 Voxelized GICP for Fast and Accurate 3D Point Cloud Registration</title>
+    <url>/2022/05/06/20220507/</url>
+    <content><![CDATA[<p><em>作者:Kenji Koide, Masashi Yokozuka, Shuji Oishi, and Atsuhiko Banno</em><br><em>机构: AIST</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本文提出了体素化的GICP，称之为VGICP，来实现快速准确的3D配准。在GICP的基础上，通过体素化来避免大量的最近邻查询。与NDT（通过点的位置计算体素分布）相比，我们通过aggregate 每个点的分布，来估计体素的分布。这个操作可以高效地并行处理优化，15000个点在CPU 30Hz， 在GPU 120Hz。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>GICP弱点：依赖最近邻搜索，耗时长。NDT弱点：对voxel分辨率很敏感，对不同场景和传感器需要设置不同的分辨率。</li>
+<li>multi-point distribution aggregation approach的含义为，对每个voxel里的点，取其分布的平均，来代替GICP的点对点的模式。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>提出一个multi-point distribution aggregation approach 来鲁棒地估计体素的分布。</li>
+<li>提出VGICP算法和GICP一样准，但是快很多。</li>
+<li>开源。</li>
+</ol>
+<p><strong>论文地址：<a href="https://easychair.org/publications/preprint/ftvV">https://easychair.org/publications/preprint/ftvV</a></strong><br><strong>开源代码：<a href="https://github.com/SMRT-AIST/fast_gicp">https://github.com/SMRT-AIST/fast_gicp</a></strong></p>
+<img src="/2022/05/06/20220507/1.png" class>
+<img src="/2022/05/06/20220507/2.png" class>
+<img src="/2022/05/06/20220507/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>registration</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220508 Globally Consistent 3D LiDAR Mapping with GPU-accelerated GICP Matching Cost Factors</title>
+    <url>/2022/05/06/20220508/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220509 FasterGICP:Acceptance-Rejection Sampling Based 3D Lidar Odometry</title>
+    <url>/2022/05/06/20220509/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220521 FAST-LIVO:Fast and Tightly-coupled Sparse-Direct LiDAR-Inertial-Visual Odometry</title>
+    <url>/2022/05/21/20220521/</url>
+    <content><![CDATA[<p><em>作者:Chunran Zheng∗ , Qingyan Zhu∗ , Wei Xu, Xiyuan Liu, Qizhi Guo and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:arxiv</em></p>
+<p><strong>Abstract</strong><br>为了鲁棒准确地估计位姿，多传感器融合是一个有效的方法。本文提出FAST-LIVO，一个快速的激光惯性视觉融合里程计系统，构建了两个紧耦合并且是直接法的里程计子系统，VIO和LIO。LIO使用原始点云来构建增量式地图。地图点添加时绑定了图像patch，这些patch可以用在VIO系统中通过直接最小化光度误差来对齐新的图像。为了更进一步提升VIO的鲁棒性和准确性，一个新的外点拒绝方法被提出来拒绝不稳定的地图点（在边缘或者被遮挡的）。实验在数据集和自己收集的数据上被执行。结果展现了提出的系统超过了别的竞争对手，并且可以解决有挑战的场景。该套系统可以支持旋转式和LIVOX两种雷达，并且可以在电脑和ARM上实时运行。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>fusion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220526 R3LIVE:A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package</title>
+    <url>/2022/05/26/20220526/</url>
+    <content><![CDATA[<p><em>作者:Jiarong Lin and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:ICRA 2022</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一个新的LIV融合的框架R3LIVE，该框架由两个子系统组成，LIO和VIO。LIO以FAST-LIO为基础，利用激光雷达构建全局地图的空间结构。VIO利用相机渲染地图的颜色。更详细的，VIO为利用最小化光度误差（frametomap）的直接法.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>IMU</tag>
+        <tag>fusion</tag>
       </tags>
   </entry>
 </search>
