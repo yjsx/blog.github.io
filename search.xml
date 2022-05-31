@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>0003 SO-SLAM:Semantic Object SLAM with Scale Proportional and Symmetrical Texture Constraints</title>
-    <url>/2022/05/30/0003/</url>
-    <content><![CDATA[<p><em>作者:Ziwei Liao, Yutong Hu, Jiadong Zhang, Xianyu Qi, Xiaoyu Zhang, Wei Wang</em><br><em>机构:北航</em><br><em>发表:RAL ICRA 2022</em></p>
-<p><strong>Abstract</strong><br>Object-SLAM可以帮助移动机器人理解室内场景和物体级别的交互应用。SOTA的物体级SLAM面临着一些挑战，比如部分观测，遮挡，不可观测等问题，限制着建图精确度和鲁棒性。本文提出了一个新的单目语义物体SLAM——SO-SLAM，解决了引入物体空间约束。我们探索了三种代表性的空间约束包括尺度约束，对称纹理约束和平面约束。基于这些语义约束，我们提出了两个新的方法，一个更鲁棒的物体初始化方法，和一个方向精细优化的方法。我们在数据集和真实数据上验证了算法的性能。并进行了开源<a href="https://github.com/XunshanMan/SoSLAM%E3%80%82">https://github.com/XunshanMan/SoSLAM。</a></p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>物体检测使用YOLO</li>
-</ol>
-<img src="/2022/05/30/0003/1.png" class>
-
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
-        <tag>单目</tag>
-        <tag>object</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0002. Panoptic Neural Fields:A Semantic Object-Aware Neural Scene Representation</title>
     <url>/2022/05/30/0002/</url>
     <content><![CDATA[<p><em>作者:Abhijit Kundu, Kyle Genova, Xiaoqi Yin, Alireza Fathi,Caroline Pantofaru, Leonidas Guibas, Andrea Tagliasacchi, Frank Dellaert, Thomas Funkhouser</em><br><em>机构:Google Research + Georgia Tech+Simon Fraser University + Stanford University</em><br><em>发表: CVPR 2022</em></p>
@@ -50,8 +28,52 @@
       </categories>
       <tags>
         <tag>一分钟</tag>
-        <tag>object</tag>
         <tag>semantic</tag>
+        <tag>object</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0003 SO-SLAM:Semantic Object SLAM with Scale Proportional and Symmetrical Texture Constraints</title>
+    <url>/2022/05/30/0003/</url>
+    <content><![CDATA[<p><em>作者:Ziwei Liao, Yutong Hu, Jiadong Zhang, Xianyu Qi, Xiaoyu Zhang, Wei Wang</em><br><em>机构:北航</em><br><em>发表:RAL ICRA 2022</em></p>
+<p><strong>Abstract</strong><br>Object-SLAM可以帮助移动机器人理解室内场景和物体级别的交互应用。SOTA的物体级SLAM面临着一些挑战，比如部分观测，遮挡，不可观测等问题，限制着建图精确度和鲁棒性。本文提出了一个新的单目语义物体SLAM——SO-SLAM，解决了引入物体空间约束。我们探索了三种代表性的空间约束包括尺度约束，对称纹理约束和平面约束。基于这些语义约束，我们提出了两个新的方法，一个更鲁棒的物体初始化方法，和一个方向精细优化的方法。我们在数据集和真实数据上验证了算法的性能。并进行了开源<a href="https://github.com/XunshanMan/SoSLAM%E3%80%82">https://github.com/XunshanMan/SoSLAM。</a></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>物体检测使用YOLO</li>
+</ol>
+<img src="/2022/05/30/0003/1.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>object</tag>
+        <tag>单目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0005 Hierarchical Object Map Estimation for Efficient and Robust Navigation</title>
+    <url>/2022/05/30/0005/</url>
+    <content><![CDATA[<p><em>作者:Kyel Ok, Katherine Liu, and Nicholas Roy</em><br><em>机构:MIT</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一个物体的分层次表示的方法，随着测量的累计，物体的表示可以进行改变。我们初始估计每个物体为一个2Dbbox或者一个3D点，用来描述几何性质（从有限的视角即可获得）。随着更多的测量，我们允许每个物体变成更高维的3D体素模型，来提高重建精度和碰撞检测。我们的 Hierarchical Object Map Estimation (HOME) 对视角上的缺陷是鲁棒的，可以规划出围绕障碍物的安全高效轨迹。在TUM数据集上进行了验证。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>一篇为导航设计的建图算法，对物体模型的构建由粗到细</li>
+</ol>
+<img src="/2022/05/30/0005/1.png" class>
+<img src="/2022/05/30/0005/2.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
       </tags>
   </entry>
   <entry>
@@ -81,28 +103,6 @@
         <tag>object</tag>
         <tag>RGBD</tag>
         <tag>instance</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0005 Hierarchical Object Map Estimation for Efficient and Robust Navigation</title>
-    <url>/2022/05/30/0005/</url>
-    <content><![CDATA[<p><em>作者:Kyel Ok, Katherine Liu, and Nicholas Roy</em><br><em>机构:MIT</em><br><em>发表:ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>我们提出了一个物体的分层次表示的方法，随着测量的累计，物体的表示可以进行改变。我们初始估计每个物体为一个2Dbbox或者一个3D点，用来描述几何性质（从有限的视角即可获得）。随着更多的测量，我们允许每个物体变成更高维的3D体素模型，来提高重建精度和碰撞检测。我们的 Hierarchical Object Map Estimation (HOME) 对视角上的缺陷是鲁棒的，可以规划出围绕障碍物的安全高效轨迹。在TUM数据集上进行了验证。</p>
-<span id="more"></span>
-
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>一篇为导航设计的建图算法，对物体模型的构建由粗到细</li>
-</ol>
-<img src="/2022/05/30/0005/1.png" class>
-<img src="/2022/05/30/0005/2.png" class>
-
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
       </tags>
   </entry>
   <entry>
@@ -158,6 +158,29 @@
       </tags>
   </entry>
   <entry>
+    <title>0009 ScanNet:Richly-annotated 3D Reconstructions of Indoor Scenes</title>
+    <url>/2022/05/30/0009/</url>
+    <content><![CDATA[<p><em>作者:Angela Dai, Angel X. Chang, Manolis Savva, Maciej Halber, Thomas Funkhouser, Matthias Nießner</em><br><em>机构:Stanford University + Princeton University + Technical University of Munich</em><br><em>发表:CVPR 2017</em></p>
+<p><strong>Abstract</strong><br>监督学习的关键是一个大型数据集。但是，目前RGB-D场景理解的数据非常少。为了解决这个问题，我们发布了ScanNet，一个RGBD视频数据集，包含了2.5M帧，在1513个场景中，标注了3D相机位姿，表面重建和语义分割。为了收集这个数据，我们设计了易用的RGBD捕捉系统，包含了自动化表面重建和众包的语义标注。我们展示了使用这个数据可以达到SOTA性能，在一些场景理解任务上，包括3D物体识别，语义label，和CAD模型检索。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>支持的任务：3D物体分类，语义分割，3D模型匹配</li>
+</ol>
+<img src="/2022/05/30/0009/1.png" class>
+<img src="/2022/05/30/0009/2.png" class>
+<img src="/2022/05/30/0009/3.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>dataset</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0008 PointGroup:Dual-Set Point Grouping for 3D Instance Segmentation</title>
     <url>/2022/05/30/0008/</url>
     <content><![CDATA[<p><em>作者:Li Jiang, Hengshuang Zhao, Shaoshuai Shi1 Shu Liu, Chi-Wing Fu, Jiaya Jia</em><br><em>机构:港中文+smartmore</em><br><em>发表:CVPR2020</em></p>
@@ -205,29 +228,6 @@
       <tags>
         <tag>一分钟</tag>
         <tag>Retrieval</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0009 ScanNet:Richly-annotated 3D Reconstructions of Indoor Scenes</title>
-    <url>/2022/05/30/0009/</url>
-    <content><![CDATA[<p><em>作者:Angela Dai, Angel X. Chang, Manolis Savva, Maciej Halber, Thomas Funkhouser, Matthias Nießner</em><br><em>机构:Stanford University + Princeton University + Technical University of Munich</em><br><em>发表:CVPR 2017</em></p>
-<p><strong>Abstract</strong><br>监督学习的关键是一个大型数据集。但是，目前RGB-D场景理解的数据非常少。为了解决这个问题，我们发布了ScanNet，一个RGBD视频数据集，包含了2.5M帧，在1513个场景中，标注了3D相机位姿，表面重建和语义分割。为了收集这个数据，我们设计了易用的RGBD捕捉系统，包含了自动化表面重建和众包的语义标注。我们展示了使用这个数据可以达到SOTA性能，在一些场景理解任务上，包括3D物体识别，语义label，和CAD模型检索。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>支持的任务：3D物体分类，语义分割，3D模型匹配</li>
-</ol>
-<img src="/2022/05/30/0009/1.png" class>
-<img src="/2022/05/30/0009/2.png" class>
-<img src="/2022/05/30/0009/3.png" class>
-
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
-        <tag>dataset</tag>
       </tags>
   </entry>
   <entry>
@@ -817,33 +817,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</title>
-    <url>/2021/05/11/0511/</url>
-    <content><![CDATA[<p><em>作者:Yachen Zhu, Yanyang Ma, Long Chen, Cong Liu, Maosheng Ye, and Lingxi Li</em><br><em>机构:SYSU</em><br><em>发表:IROS 2020</em></p>
-<p><strong>Abstract</strong><br>针对闭环检测任务，point-level的方法一般不是很稳定。本文提出了一种semantic-level的方法：GOSMatch，来提供更可靠的重定位。我们利用一种新的从语义对象的空间关系中生成的描述子，来描述数据并进行数据匹配。我们还提出了一种由粗到细的策略，来高效的搜索闭环。除此之外，在检测到闭环之后GOSMatch可以输出一个准确的6自由度的初始位姿估计。最后，在KITTI上进行了实验。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>语义分割使用rangenet++；</li>
-<li>题目中graph of semantic的含义为，将物体作为节点，分为三类（树，车辆，电线杆）；边分为六类（车车，树树，杆杆，车树，树杆，杆车）；（见图1）</li>
-<li>全局描述子（graph descriptor）为上述六种边组成的直方图。比如A类边，长度范围是[l_min,l_max],将其分为b个区间，每个区间长度为（l_max - l_min）/b, 统计落在这个区间的边的个数。（见图1）</li>
-<li>局部描述子（vertex descriptors）也是直方图，不过是对一个点所连的边进行描述。（见图1）</li>
-</ol>
-<p><strong>主要贡献：</strong><br>1.一个物体级的方法来进行重定位；<br>2.一种基于物体空间位置的全局描述子和局部描述子，可以进行两步分层搜索.</p>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9341299/">https://ieeexplore.ieee.org/document/9341299/</a><br><strong>开源代码：</strong><a href="https://github.com/zhuyachen/GOSMatch%EF%BC%88matlab%E5%AE%9E%E7%8E%B0%EF%BC%89">https://github.com/zhuyachen/GOSMatch（matlab实现）</a></p>
-<img src="/2021/05/11/0511/1.png" class>
-<img src="/2021/05/11/0511/2.png" class>
-<img src="/2021/05/11/0511/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>semantic</tag>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0514 HD Map Update for Autonomous Driving With Crowdsourced Data</title>
     <url>/2021/05/14/0514/</url>
     <content><![CDATA[<p><em>作者:Kitae Kim , Soohyun Cho, and Woojin Chung</em><br><em>机构:Korea University</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
@@ -869,35 +842,30 @@
       </tags>
   </entry>
   <entry>
-    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
-    <url>/2021/05/17/0516/</url>
-    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
-<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
+    <title>0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</title>
+    <url>/2021/05/11/0511/</url>
+    <content><![CDATA[<p><em>作者:Yachen Zhu, Yanyang Ma, Long Chen, Cong Liu, Maosheng Ye, and Lingxi Li</em><br><em>机构:SYSU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>针对闭环检测任务，point-level的方法一般不是很稳定。本文提出了一种semantic-level的方法：GOSMatch，来提供更可靠的重定位。我们利用一种新的从语义对象的空间关系中生成的描述子，来描述数据并进行数据匹配。我们还提出了一种由粗到细的策略，来高效的搜索闭环。除此之外，在检测到闭环之后GOSMatch可以输出一个准确的6自由度的初始位姿估计。最后，在KITTI上进行了实验。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <ol>
-<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
-<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
-<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
-<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
+<li>语义分割使用rangenet++；</li>
+<li>题目中graph of semantic的含义为，将物体作为节点，分为三类（树，车辆，电线杆）；边分为六类（车车，树树，杆杆，车树，树杆，杆车）；（见图1）</li>
+<li>全局描述子（graph descriptor）为上述六种边组成的直方图。比如A类边，长度范围是[l_min,l_max],将其分为b个区间，每个区间长度为（l_max - l_min）/b, 统计落在这个区间的边的个数。（见图1）</li>
+<li>局部描述子（vertex descriptors）也是直方图，不过是对一个点所连的边进行描述。（见图1）</li>
 </ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
-<li>一个利用上述描述子进行重定位的框架。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
-<img src="/2021/05/17/0516/1.png" class>
-<img src="/2021/05/17/0516/2.png" class>
-<img src="/2021/05/17/0516/3.png" class>
-<img src="/2021/05/17/0516/4.png" class>]]></content>
+<p><strong>主要贡献：</strong><br>1.一个物体级的方法来进行重定位；<br>2.一种基于物体空间位置的全局描述子和局部描述子，可以进行两步分层搜索.</p>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9341299/">https://ieeexplore.ieee.org/document/9341299/</a><br><strong>开源代码：</strong><a href="https://github.com/zhuyachen/GOSMatch%EF%BC%88matlab%E5%AE%9E%E7%8E%B0%EF%BC%89">https://github.com/zhuyachen/GOSMatch（matlab实现）</a></p>
+<img src="/2021/05/11/0511/1.png" class>
+<img src="/2021/05/11/0511/2.png" class>
+<img src="/2021/05/11/0511/3.png" class>]]></content>
       <categories>
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>semantic</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -939,6 +907,38 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>multi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
+    <url>/2021/05/17/0516/</url>
+    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
+<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
+<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
+<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
+<li>一个利用上述描述子进行重定位的框架。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
+<img src="/2021/05/17/0516/1.png" class>
+<img src="/2021/05/17/0516/2.png" class>
+<img src="/2021/05/17/0516/3.png" class>
+<img src="/2021/05/17/0516/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -1295,6 +1295,38 @@
       </tags>
   </entry>
   <entry>
+    <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
+    <url>/2021/11/04/0609/</url>
+    <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
+<p>注：本篇文章看起来像是昨日文章的前置工作。<br><strong>Abstract</strong><br>在本文中，我们提出了一种激光SLAM的新的方法，专注于提高建图的精度，并于此同时估计位姿。我们使用frame-to-mesh的ICP，并且通过泊松表面重建获得triangle mesh来表示地图。我们通过滑动窗口的方式进行表面重建，这样我们获得了准确的局部地图，很合适进行配准，并且可以组装进全局地图。这让我们可以比surfle或TSDF等形式的3D地图展示更多的几何细节。我们的实验定性并定量地展示了， 我们的地图有着比别的地图更高的几何准确性。我们还表明，我们的地图是紧凑的，并且可以通过一种新的方法用于雷达里程计。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>所提出的地图的好处：</li>
+<li>对环境几何信息更精确的表示；</li>
+<li>更高的储存效率；</li>
+<li>新的frame-mesh的配准算法。</li>
+<li>对于每次扫描进行3个步骤：计算每个点的法线；将scan配准到local map（见图2）；将配准好的scan融合进global map。</li>
+<li>文章还进行了mesh post-processing，见图3。具体的，去除了度数较少的顶点（意味着不是很可靠）。</li>
+</ol>
+<p><strong>论文地址：<a href="http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf">http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/puma">https://github.com/PRBonn/puma</a></strong><br><strong>视频资料：<a href="https://www.bilibili.com/video/BV1R5411M75t">https://www.bilibili.com/video/BV1R5411M75t</a></strong></p>
+<img src="/2021/11/04/0609/1.png" class>
+<img src="/2021/11/04/0609/2.png" class>
+<img src="/2021/11/04/0609/3.png" class>
+<img src="/2021/11/04/0609/4.png" class>
+<img src="/2021/11/04/0609/5.png" class>
+<img src="/2021/11/04/0609/6.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>开源代码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0613：OverlapNet:Loop Closing for LiDAR-based SLAM</title>
     <url>/2021/11/04/0613/</url>
     <content><![CDATA[<p><em>作者:Xieyuanli Chen，Olga Vysotska，Thomas Läbe，Alexandre Haag，Andres Milioto，Jens Behley，Timo Röhling，Cyrill Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:RSS 2020</em></p>
@@ -1327,38 +1359,6 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>localization</tag>
-        <tag>开源代码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
-    <url>/2021/11/04/0609/</url>
-    <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
-<p>注：本篇文章看起来像是昨日文章的前置工作。<br><strong>Abstract</strong><br>在本文中，我们提出了一种激光SLAM的新的方法，专注于提高建图的精度，并于此同时估计位姿。我们使用frame-to-mesh的ICP，并且通过泊松表面重建获得triangle mesh来表示地图。我们通过滑动窗口的方式进行表面重建，这样我们获得了准确的局部地图，很合适进行配准，并且可以组装进全局地图。这让我们可以比surfle或TSDF等形式的3D地图展示更多的几何细节。我们的实验定性并定量地展示了， 我们的地图有着比别的地图更高的几何准确性。我们还表明，我们的地图是紧凑的，并且可以通过一种新的方法用于雷达里程计。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>所提出的地图的好处：</li>
-<li>对环境几何信息更精确的表示；</li>
-<li>更高的储存效率；</li>
-<li>新的frame-mesh的配准算法。</li>
-<li>对于每次扫描进行3个步骤：计算每个点的法线；将scan配准到local map（见图2）；将配准好的scan融合进global map。</li>
-<li>文章还进行了mesh post-processing，见图3。具体的，去除了度数较少的顶点（意味着不是很可靠）。</li>
-</ol>
-<p><strong>论文地址：<a href="http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf">http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/puma">https://github.com/PRBonn/puma</a></strong><br><strong>视频资料：<a href="https://www.bilibili.com/video/BV1R5411M75t">https://www.bilibili.com/video/BV1R5411M75t</a></strong></p>
-<img src="/2021/11/04/0609/1.png" class>
-<img src="/2021/11/04/0609/2.png" class>
-<img src="/2021/11/04/0609/3.png" class>
-<img src="/2021/11/04/0609/4.png" class>
-<img src="/2021/11/04/0609/5.png" class>
-<img src="/2021/11/04/0609/6.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>开源代码</tag>
       </tags>
   </entry>
