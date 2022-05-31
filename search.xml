@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>0001 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things</title>
+    <url>/2022/05/27/0001/</url>
+    <content><![CDATA[<p><em>作者:Gaku Narita, Takashi Seno, Tomoya Ishikawa, Yohsuke Kaji</em><br><em>机构:sony</em><br><em>发表:IROS 2019</em></p>
+<p><strong>Abstract</strong><br>我们提出了PanopticFusion, 一个新的volumetric 语义建图系统，在stuff和things的层次上。stuff代表背景，things代表前景。除此之外，该系统可以重建大规模场景，并且可以提取有标签的mesh，因为其用了 spatially hashed volumetric 的地图表示形式。我们的系统首先对输入的RGB图像预测像素级的panoptic label（背景为class，前景为实例ID），通过融合2D语义和实例分割的输出。预测的panoptic标签和深度一起被融合进volumetric map，于此同时保持了帧间一致性。除此之外，我们构建了全连接CRF，用于地图regularization。对于在线的CRF推断，我们提出了一个新的一元势近似和地图划分策略。</p>
+<p>我们在ScanNet（v2）中验证了性能。 </p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>使用数据集为ScanNet V2</li>
+<li>对比的算法有SLAM++，2.5D is not enough，SemanticFusion，DA-RNN，MaskFusion，Fusion++</li>
+<li>地图的表示方法为 Real-time 3d reconstruction at scale using voxel hashing中的方法（2013 ToG）</li>
+<li>建图方法为voxblox（ Voxblox: Incremental 3d euclidean signed distance fields for on-board mav planning 2017 IROS）</li>
+<li>使用的网络为PSPNet和Mask R-CNN</li>
+</ol>
+<img src="/2022/05/27/0001/1.png" class>
+<img src="/2022/05/27/0001/2.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>semantic</tag>
+        <tag>RGBD</tag>
+        <tag>object</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0002. Panoptic Neural Fields:A Semantic Object-Aware Neural Scene Representation</title>
     <url>/2022/05/30/0002/</url>
     <content><![CDATA[<p><em>作者:Abhijit Kundu, Kyle Genova, Xiaoqi Yin, Alireza Fathi,Caroline Pantofaru, Leonidas Guibas, Andrea Tagliasacchi, Frank Dellaert, Thomas Funkhouser</em><br><em>机构:Google Research + Georgia Tech+Simon Fraser University + Stanford University</em><br><em>发表: CVPR 2022</em></p>
@@ -78,8 +108,8 @@
       </categories>
       <tags>
         <tag>一分钟</tag>
-        <tag>object</tag>
         <tag>RGBD</tag>
+        <tag>object</tag>
         <tag>instance</tag>
       </tags>
   </entry>
@@ -203,6 +233,34 @@
       </tags>
   </entry>
   <entry>
+    <title>0010 ROCA:Robust CAD Model Retrieval and Alignment from a Single Image</title>
+    <url>/2022/05/30/0010/</url>
+    <content><![CDATA[<p><em>作者:Can Gümeli, Angela Dai, Matthias Nießner</em><br><em>机构:TUM</em><br><em>发表:CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>我们提出了ROCA，一个新的端到端方法从一个形状数据库中检索并对齐3D CAD 模型（来自单张图像中）。这使得可以从2D图像中获得3D感知信息。我们方法的核心是我们的2D-3D物体对应的可微对齐优化和Pro-crustes 对齐.ROCA可以提供一个鲁棒的CAD对齐，同时通过2D-3D的对应学习几何相似性来进行CAD检索。实验在ScanNet上，将SOTA从9.5%提升到了17.6%。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>算法流程：<ol>
+<li>输入为RGB图片，相机内参和CAD数据库</li>
+<li>目标为输出CAD模型与图像的9DoF对齐参数</li>
+<li>首先使用Mask RCNN对其进行语义分割，同时使用multi-scale FPN估计物体深度</li>
+<li>随后使用深度，2D特征，instance mask来估计尺度和初始位姿</li>
+<li>此外我们建立了与物体规范空间之间的可学习，稠密的对应关系。我们<img src="/2022/05/30/0010/1.png" class>
+<img src="/2022/05/30/0010/2.png" class>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Retrieval</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0422 LVI-SAM:Tightly-coupled Lidar-Visual-Inertial Odometry via Smoothing and Mapping</title>
     <url>/2021/04/22/0422-LVI-SAM/</url>
     <content><![CDATA[<p><em>作者: Tixiao Shan, Brendan Englot, Carlo Ratti, and Daniela Rus</em><br><em>发表: ICRA 2021</em></p>
@@ -269,34 +327,6 @@
         <tag>LiDAR</tag>
         <tag>solid</tag>
         <tag>system</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0010 ROCA:Robust CAD Model Retrieval and Alignment from a Single Image</title>
-    <url>/2022/05/30/0010/</url>
-    <content><![CDATA[<p><em>作者:Can Gümeli, Angela Dai, Matthias Nießner</em><br><em>机构:TUM</em><br><em>发表:CVPR 2022</em></p>
-<p><strong>Abstract</strong><br>我们提出了ROCA，一个新的端到端方法从一个形状数据库中检索并对齐3D CAD 模型（来自单张图像中）。这使得可以从2D图像中获得3D感知信息。我们方法的核心是我们的2D-3D物体对应的可微对齐优化和Pro-crustes 对齐.ROCA可以提供一个鲁棒的CAD对齐，同时通过2D-3D的对应学习几何相似性来进行CAD检索。实验在ScanNet上，将SOTA从9.5%提升到了17.6%。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>算法流程：<ol>
-<li>输入为RGB图片，相机内参和CAD数据库</li>
-<li>目标为输出CAD模型与图像的9DoF对齐参数</li>
-<li>首先使用Mask RCNN对其进行语义分割，同时使用multi-scale FPN估计物体深度</li>
-<li>随后使用深度，2D特征，instance mask来估计尺度和初始位姿</li>
-<li>此外我们建立了与物体规范空间之间的可学习，稠密的对应关系。我们<img src="/2022/05/30/0010/1.png" class>
-<img src="/2022/05/30/0010/2.png" class>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
-        <tag>Retrieval</tag>
       </tags>
   </entry>
   <entry>
@@ -527,25 +557,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</title>
-    <url>/2021/05/02/0502/</url>
-    <content><![CDATA[<p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
-<p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>本文主要关注海底场景。该场景的特点是：大型未知场景（所以需要多机器人）；容易出现新物种或者新的地质现象；</li>
-<li>匹配算法如图二所示。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14805.pdf">https://arxiv.org/pdf/2103.14805.pdf</a><br><strong>开源代码：</strong><a href="https://gitlab.com/warplab/ros/sunshine">https://gitlab.com/warplab/ros/sunshine</a></p>
-<img src="/2021/05/02/0502/1.png" class>
-<img src="/2021/05/02/0502/2.png" class>
-<img src="/2021/05/02/0502/3.png" class>]]></content>
-      <tags>
-        <tag>每日论文分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0503 Towards High-Performance Solid-State-LiDAR-Inertial Odometry and Mapping</title>
     <url>/2021/05/03/0503/</url>
     <content><![CDATA[<p><em>作者:Kailai Li, Meng Li, and Uwe D. Hanebeck</em><br><em>机构:KIT</em><br><em>发表:RA-L</em></p>
@@ -574,6 +585,25 @@
         <tag>LiDAR</tag>
         <tag>solid</tag>
         <tag>IMU</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0502 Multi-Robot Distributed Semantic Mapping in Unfamiliar Environments through Online Matching of Learned Representations</title>
+    <url>/2021/05/02/0502/</url>
+    <content><![CDATA[<p>*作者:*Stewart Jamieson , Kaveh Fathian , Kasra Khosoussi , Jonathan P. How  , Yogesh Girdhar<br>*机构:*MIT+WHOI（伍兹霍尔海洋研究所）<br>*发表:*ICRA 2021</p>
+<p><strong>Abstract</strong><br>我们提出了一种分布式多机器人在未知环境中的语义建图系统。大多数SOTA语义建图系统一般基于监督学习算法，这样不能实时给新观察到的物体进行分类。非监督学习算法可以基于新观察的物体类别，但是由于多机器人的独立性，对于同一种事物往往不能获得一个一致性的标签。这种问题会随着机器人数量的增加而更加严重，这不利于各个机器人产生的局部地图的融合。我们提出的算法克服了这些缺点：使每个机器人使用非监督学习算法来进行语义分类。同时使用一个多路匹配算法，来获得不同机器人对同一类事物标签的一致性。与SOTA相比，我们的建图效果有20%-60%的提升，而且不会随着机器人数量的增多而下降。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>本文主要关注海底场景。该场景的特点是：大型未知场景（所以需要多机器人）；容易出现新物种或者新的地质现象；</li>
+<li>匹配算法如图二所示。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14805.pdf">https://arxiv.org/pdf/2103.14805.pdf</a><br><strong>开源代码：</strong><a href="https://gitlab.com/warplab/ros/sunshine">https://gitlab.com/warplab/ros/sunshine</a></p>
+<img src="/2021/05/02/0502/1.png" class>
+<img src="/2021/05/02/0502/2.png" class>
+<img src="/2021/05/02/0502/3.png" class>]]></content>
+      <tags>
+        <tag>每日论文分享</tag>
       </tags>
   </entry>
   <entry>
@@ -750,40 +780,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources</title>
-    <url>/2021/05/10/0510/</url>
-    <content><![CDATA[<p><em>作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge</em><br><em>机构:Facebook Reality Labs Research</em><br><em>发表:ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>一些设备无法负担运行一个完整的SLAM系统所需要的计算和存储的开销。我们提出了一个client-server结构的SLAM优化框架，可以在低性能的设备（client）上进行实时的状态估计。client只在一小部分地图上进行工作，地图的其他部分由server进行处理。通过发送总结好的剩余部分的地图信息给client，状态估计将会更加精准。更进一步提高精度的方法是“早闭环检测（early loop closure）”，可以使client从server读取有用的信息。实验证明了在计算力和存储受限的设备上，可以达到准确的估计。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>ORB-SLAM需要200MB内存，但一些嵌入式设备只有1MB RAM；</li>
-<li>解决的两个问题<ol>
-<li>估计状态的上限取决于client已知的local graph信息；</li>
-<li>server给出全局优化需要时间，这导致client不能实时地利用到这个信息。</li>
-</ol>
-</li>
-<li>算法流程：server定期将总结好的历史信息发送给client；server将与新变量相关的历史变量发到client上，这样可以实现“早闭环”；第一步中汇总的信息进行稀疏化，来减小通信开销</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14303.pdf">https://arxiv.org/pdf/2103.14303.pdf</a></p>
-<img src="/2021/05/10/0510/1.png" class>
-<img src="/2021/05/10/0510/2.png" class>
-<img src="/2021/05/10/0510/3.png" class>
-<img src="/2021/05/10/0510/4.png" class>
-<img src="/2021/05/10/0510/5.png" class>
-<img src="/2021/05/10/0510/6.png" class>
-<img src="/2021/05/10/0510/7.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>distribute</tag>
-        <tag>graph</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0509 ERASOR:Egocentric Ratio of Pseudo Occupancy-based Dynamic Object Removal for Static 3D Point Cloud Map Building</title>
     <url>/2021/05/09/0509/</url>
     <content><![CDATA[<p><em>作者:Hyungtae Lim, Sungwon Hwang, and Hyun Myung</em><br><em>机构:KAIST(韩科院）</em><br><em>发表:ICRA 2021</em></p>
@@ -841,6 +837,40 @@
         <tag>semantic</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources</title>
+    <url>/2021/05/10/0510/</url>
+    <content><![CDATA[<p><em>作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge</em><br><em>机构:Facebook Reality Labs Research</em><br><em>发表:ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>一些设备无法负担运行一个完整的SLAM系统所需要的计算和存储的开销。我们提出了一个client-server结构的SLAM优化框架，可以在低性能的设备（client）上进行实时的状态估计。client只在一小部分地图上进行工作，地图的其他部分由server进行处理。通过发送总结好的剩余部分的地图信息给client，状态估计将会更加精准。更进一步提高精度的方法是“早闭环检测（early loop closure）”，可以使client从server读取有用的信息。实验证明了在计算力和存储受限的设备上，可以达到准确的估计。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>ORB-SLAM需要200MB内存，但一些嵌入式设备只有1MB RAM；</li>
+<li>解决的两个问题<ol>
+<li>估计状态的上限取决于client已知的local graph信息；</li>
+<li>server给出全局优化需要时间，这导致client不能实时地利用到这个信息。</li>
+</ol>
+</li>
+<li>算法流程：server定期将总结好的历史信息发送给client；server将与新变量相关的历史变量发到client上，这样可以实现“早闭环”；第一步中汇总的信息进行稀疏化，来减小通信开销</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2103.14303.pdf">https://arxiv.org/pdf/2103.14303.pdf</a></p>
+<img src="/2021/05/10/0510/1.png" class>
+<img src="/2021/05/10/0510/2.png" class>
+<img src="/2021/05/10/0510/3.png" class>
+<img src="/2021/05/10/0510/4.png" class>
+<img src="/2021/05/10/0510/5.png" class>
+<img src="/2021/05/10/0510/6.png" class>
+<img src="/2021/05/10/0510/7.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>distribute</tag>
+        <tag>graph</tag>
       </tags>
   </entry>
   <entry>
@@ -1173,35 +1203,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0605：LiTAMIN:LiDAR-based Tracking And MappINg by Stabilized ICP for Geometry Approximation with Normal Distributions</title>
-    <url>/2021/06/06/0605/</url>
-    <content><![CDATA[<p><em>作者:Masashi Yokozuka, Kenji Koide, Shuji Oishi and Atsuhiko Banno</em><br><em>机构:AIST（日本产业技术综合研究所）</em><br><em>发表:IROS 2020</em></p>
-<p><strong>Abstract</strong><br>本文提出了一个高计算效率，准确性和鲁棒性的ICP算法，利用正态分布簇的局部近似几何。与之前基于正态分布的ICP方法(比如NDT和G-ICP)相比，我们的方法通过Frobenius范数和正则化协方差矩阵来标准化loss函数。以前的方法主要使用PCA，这些方法的计算代价更高。除此之外。我们的方法还减少了错误闭环检测的影响。实验结果表明我们的方法比SOTA更好（LOAM，LeGO-LOAM,hdl_graph_slam）.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>文章对ICP所做的改变包括：</li>
-<li>不使用原始点云，而是减少了部分点云，使密度均匀；</li>
-<li>提出了一个新的cost function，如图3；</li>
-<li>在闭环检测中，将ICP较差的结果当做ourlier，从而减少闭环检测错误的影响。</li>
-</ol>
-<p><strong>论文地址：<a href="https://ieeexplore.ieee.org/document/9341341/">https://ieeexplore.ieee.org/document/9341341/</a></strong></p>
-<img src="/2021/06/06/0605/1.png" class>
-<img src="/2021/06/06/0605/2.png" class>
-<img src="/2021/06/06/0605/3.png" class>
-<img src="/2021/06/06/0605/4.png" class>
-<img src="/2021/06/06/0605/5.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>registration</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0603：PHASER:a Robust and Correspondence-free Global Pointcloud Registration</title>
     <url>/2021/06/04/0603/</url>
     <content><![CDATA[<p><em>作者:Lukas Bernreiter, Lionel Ott, Juan Nieto, Roland Siegwart and Cesar Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2021</em></p>
@@ -1230,6 +1231,35 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
+        <tag>registration</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0605：LiTAMIN:LiDAR-based Tracking And MappINg by Stabilized ICP for Geometry Approximation with Normal Distributions</title>
+    <url>/2021/06/06/0605/</url>
+    <content><![CDATA[<p><em>作者:Masashi Yokozuka, Kenji Koide, Shuji Oishi and Atsuhiko Banno</em><br><em>机构:AIST（日本产业技术综合研究所）</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>本文提出了一个高计算效率，准确性和鲁棒性的ICP算法，利用正态分布簇的局部近似几何。与之前基于正态分布的ICP方法(比如NDT和G-ICP)相比，我们的方法通过Frobenius范数和正则化协方差矩阵来标准化loss函数。以前的方法主要使用PCA，这些方法的计算代价更高。除此之外。我们的方法还减少了错误闭环检测的影响。实验结果表明我们的方法比SOTA更好（LOAM，LeGO-LOAM,hdl_graph_slam）.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>文章对ICP所做的改变包括：</li>
+<li>不使用原始点云，而是减少了部分点云，使密度均匀；</li>
+<li>提出了一个新的cost function，如图3；</li>
+<li>在闭环检测中，将ICP较差的结果当做ourlier，从而减少闭环检测错误的影响。</li>
+</ol>
+<p><strong>论文地址：<a href="https://ieeexplore.ieee.org/document/9341341/">https://ieeexplore.ieee.org/document/9341341/</a></strong></p>
+<img src="/2021/06/06/0605/1.png" class>
+<img src="/2021/06/06/0605/2.png" class>
+<img src="/2021/06/06/0605/3.png" class>
+<img src="/2021/06/06/0605/4.png" class>
+<img src="/2021/06/06/0605/5.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
         <tag>registration</tag>
       </tags>
   </entry>
@@ -1522,30 +1552,6 @@
       </tags>
   </entry>
   <entry>
-    <title>20220509 FasterGICP:Acceptance-Rejection Sampling Based 3D Lidar Odometry</title>
-    <url>/2022/05/06/20220509/</url>
-    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
-<p><strong>Abstract</strong></p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20220521 FAST-LIVO:Fast and Tightly-coupled Sparse-Direct LiDAR-Inertial-Visual Odometry</title>
     <url>/2022/05/21/20220521/</url>
     <content><![CDATA[<p><em>作者:Chunran Zheng∗ , Qingyan Zhu∗ , Wei Xu, Xiyuan Liu, Qizhi Guo and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:arxiv</em></p>
@@ -1568,6 +1574,30 @@
       <tags>
         <tag>每日论文分享</tag>
         <tag>fusion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220509 FasterGICP:Acceptance-Rejection Sampling Based 3D Lidar Odometry</title>
+    <url>/2022/05/06/20220509/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
       </tags>
   </entry>
   <entry>
@@ -1594,6 +1624,31 @@
         <tag>每日论文分享</tag>
         <tag>IMU</tag>
         <tag>fusion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220527 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things</title>
+    <url>/2022/05/27/20220527/</url>
+    <content><![CDATA[<p><em>作者:Gaku Narita, Takashi Seno, Tomoya Ishikawa, Yohsuke Kaji</em><br><em>机构:sony</em><br><em>发表:IROS 2019</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<p><strong>主要贡献：</strong></p>
+<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>semantic</tag>
+        <tag>每日论文分享</tag>
       </tags>
   </entry>
 </search>

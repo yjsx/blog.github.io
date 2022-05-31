@@ -496,7 +496,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2022/05/26/20220526/">
+    <link itemprop="mainEntityOfPage" href="https://yjsx.top/2022/05/27/0001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/head.png">
@@ -510,7 +510,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/26/20220526/" class="post-title-link" itemprop="url">20220526 R3LIVE:A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package</a>
+            <a href="/2022/05/27/0001/" class="post-title-link" itemprop="url">0001 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things</a>
         </h2>
 
         <div class="post-meta">
@@ -520,14 +520,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-05-26 11:09:40" itemprop="dateCreated datePublished" datetime="2022-05-26T11:09:40+08:00">2022-05-26</time>
+              <time title="Created: 2022-05-27 10:56:23" itemprop="dateCreated datePublished" datetime="2022-05-27T10:56:23+08:00">2022-05-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-31 22:48:46" itemprop="dateModified" datetime="2022-05-31T22:48:46+08:00">2022-05-31</time>
+                <time title="Modified: 2022-05-31 23:05:01" itemprop="dateModified" datetime="2022-05-31T23:05:01+08:00">2022-05-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -535,7 +535,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">每日论文分享</span></a>
+                  <a href="/categories/%E4%B8%80%E5%88%86%E9%92%9F/" itemprop="url" rel="index"><span itemprop="name">一分钟</span></a>
                 </span>
             </span>
 
@@ -550,11 +550,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><em>作者:Jiarong Lin and Fu Zhang</em><br><em>机构:HKU</em><br><em>发表:ICRA 2022</em></p>
-<p><strong>Abstract</strong><br>在本文中，我们提出了一个新的LIV融合的框架R3LIVE，该框架由两个子系统组成，LIO和VIO。LIO以FAST-LIO为基础，利用激光雷达构建全局地图的空间结构。VIO利用相机渲染地图的颜色。更详细的，VIO为利用最小化光度误差（frametomap）的直接法.</p>
+          <p><em>作者:Gaku Narita, Takashi Seno, Tomoya Ishikawa, Yohsuke Kaji</em><br><em>机构:sony</em><br><em>发表:IROS 2019</em></p>
+<p><strong>Abstract</strong><br>我们提出了PanopticFusion, 一个新的volumetric 语义建图系统，在stuff和things的层次上。stuff代表背景，things代表前景。除此之外，该系统可以重建大规模场景，并且可以提取有标签的mesh，因为其用了 spatially hashed volumetric 的地图表示形式。我们的系统首先对输入的RGB图像预测像素级的panoptic label（背景为class，前景为实例ID），通过融合2D语义和实例分割的输出。预测的panoptic标签和深度一起被融合进volumetric map，于此同时保持了帧间一致性。除此之外，我们构建了全连接CRF，用于地图regularization。对于在线的CRF推断，我们提出了一个新的一元势近似和地图划分策略。</p>
+<p>我们在ScanNet（v2）中验证了性能。 </p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/26/20220526/#more" rel="contents">
+              <a class="btn" href="/2022/05/27/0001/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -577,7 +578,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -645,7 +646,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
