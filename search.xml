@@ -445,6 +445,30 @@
       </tags>
   </entry>
   <entry>
+    <title>0018 Panoptic Multi-TSDFs:a Flexible Representation for Online Multi-resolution Volumetric Mapping and Long-term Dynamic Scene Consistency</title>
+    <url>/2022/06/01/0018/</url>
+    <content><![CDATA[<p><em>作者:Lukas Schmid, Jeffrey Delmerico, Johannes L. Schönberger, Juan Nieto, Marc Pollefeys, Roland Siegwart, and Cesar Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2022</em></p>
+<p><strong>Abstract</strong><br>对于机器人在环境中的交互，语义和体积是至关重要的。但是，这些环境往往会随着时间发生变化。我们提出 panoptic multi-TSDFs 作为一个新的多分辨率体素建图的表示。通过利用3D重建的高维信息，我们的系统只在需要的地方提高分辨率。通过object-level的推断，实现了在时间上的语义一致性。这使得我们的方法可以保持高精确度的最新重建。同时通过合并以前的数据以提高覆盖率。我们展示了地图可以实时构建维护和查询。提出的方法可以使用全景分割作为输入。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>本文的核心思路是使用语义分割信息来进行多分辨率三维重建和维持一致性。而不是优化语义标记。</li>
+<li>输入为RGBD图，位姿为通过SLAM方法获得。随后进行全景分割，可以接受不完美的分割。</li>
+<li>地图表示的思想：世界不会随机改变，而是以一种语义一致的方式改变，改变的最小单位为一个object.也分成活动地图和不活动地图。</li>
+<li>地图使用分层表示，自上而下为：子地图集合，每个submap包含各种标签，集合信息用TSDF表示。包含物体的空间被用block表示，保存着表面信息。为了高效遍历submap集合，每一个物体。<img src="/2022/06/01/0018/1.png" class>
+<img src="/2022/06/01/0018/2.png" class>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>19 Kimera</title>
     <url>/2022/06/01/0019/</url>
     <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
@@ -1164,38 +1188,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
-    <url>/2021/05/17/0516/</url>
-    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
-<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
-<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
-<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
-<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
-<li>一个利用上述描述子进行重定位的框架。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
-<img src="/2021/05/17/0516/1.png" class>
-<img src="/2021/05/17/0516/2.png" class>
-<img src="/2021/05/17/0516/3.png" class>
-<img src="/2021/05/17/0516/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>localization</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0518 RadarLoc:Learning to Relocalize in FMCW Radar</title>
     <url>/2021/05/18/0518/</url>
     <content><![CDATA[<p><em>作者:Wei Wang, Pedro P. B. de Gusmão, Bo Yang, Andrew Markham, and Niki Trigoni</em><br><em>机构:Oxford</em><br><em>发表:ICRA 2021</em></p>
@@ -1226,8 +1218,40 @@
       </categories>
       <tags>
         <tag>每日论文分享</tag>
-        <tag>localization</tag>
         <tag>radar</tag>
+        <tag>localization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
+    <url>/2021/05/17/0516/</url>
+    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
+<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
+<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
+<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
+<li>一个利用上述描述子进行重定位的框架。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
+<img src="/2021/05/17/0516/1.png" class>
+<img src="/2021/05/17/0516/2.png" class>
+<img src="/2021/05/17/0516/3.png" class>
+<img src="/2021/05/17/0516/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -1421,43 +1445,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0527 MULLS:Versatile LiDAR SLAM via Multi-metric Linear Least Square</title>
-    <url>/2021/05/29/0527/</url>
-    <content><![CDATA[<p><em>作者: Yue Pan , Pengchuan Xiao, Yujie He, Zhenlei Shao  and Zesong Li</em><br><em>机构: ethz，HESAI</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>本文关注在自动驾驶场景的激光SLAM。我们提出了MULLS，一个高效，低漂移的通用激光SLAM系统。前端使用双阈值地面滤波和PCA，对点云进行了粗糙的分类（地面，立面，屋顶，立柱，横梁，顶点等）。随后利用提出的多度量线性最小二乘迭代最近点算法，进行scan-to-submap的配准。每一类中的点到点，点到线，点到面的误差被联合优化来估计位姿变化。静态特征点被添加到局部地图，来保持地图更新。在后端，使用历史submap进行分层位姿图优化，从而减小航位推算产生的漂移。我们采取了7种激光雷达，超过100k帧的数据集，进行了大量的实验。于此同时，在KITTI上，本文提出的方法目前排名第13.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>7种激光雷达为不同线数的机械式雷达，具体见图9；</li>
-<li>题目中的通用指的是不依赖激光雷达的特性，不必把点云变成环或者深度图像的形式，这样可以保证不丢失信息；</li>
-<li>配准分为两种：local 和 global。区别为前者需要提供良好的初值，以避免陷入局部最优，本文使用本文提出的MULLS-ICP；后者没有初值，文中提到的方法有RANSEC，分支定界法（BnB），TEASER等，本文使用TEASER。</li>
-<li>特征提取见图2，误差度量见图3，4，前端后端框图见图5，图优化见图6，实验结果见图7，8。</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>一个通用的激光SLAM系统；</li>
-<li>一种高效的局部配准算法MULLS-ICP，实现了粗分类几何特征点的多种误差度量的线性最小二乘优化。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03771.pdf">https://arxiv.org/pdf/2102.03771.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/YuePanEdward/MULLS">https://github.com/YuePanEdward/MULLS</a></p>
-<img src="/2021/05/29/0527/1.png" class>
-<img src="/2021/05/29/0527/2.png" class>
-<img src="/2021/05/29/0527/3.png" class>
-<img src="/2021/05/29/0527/4.png" class>
-<img src="/2021/05/29/0527/5.png" class>
-<img src="/2021/05/29/0527/6.png" class>
-<img src="/2021/05/29/0527/7.png" class>
-<img src="/2021/05/29/0527/8.png" class>
-<img src="/2021/05/29/0527/9.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0603：PHASER:a Robust and Correspondence-free Global Pointcloud Registration</title>
     <url>/2021/06/04/0603/</url>
     <content><![CDATA[<p><em>作者:Lukas Bernreiter, Lionel Ott, Juan Nieto, Roland Siegwart and Cesar Cadena</em><br><em>机构:ETHZ</em><br><em>发表:ICRA 2021</em></p>
@@ -1548,6 +1535,43 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>registraion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0527 MULLS:Versatile LiDAR SLAM via Multi-metric Linear Least Square</title>
+    <url>/2021/05/29/0527/</url>
+    <content><![CDATA[<p><em>作者: Yue Pan , Pengchuan Xiao, Yujie He, Zhenlei Shao  and Zesong Li</em><br><em>机构: ethz，HESAI</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本文关注在自动驾驶场景的激光SLAM。我们提出了MULLS，一个高效，低漂移的通用激光SLAM系统。前端使用双阈值地面滤波和PCA，对点云进行了粗糙的分类（地面，立面，屋顶，立柱，横梁，顶点等）。随后利用提出的多度量线性最小二乘迭代最近点算法，进行scan-to-submap的配准。每一类中的点到点，点到线，点到面的误差被联合优化来估计位姿变化。静态特征点被添加到局部地图，来保持地图更新。在后端，使用历史submap进行分层位姿图优化，从而减小航位推算产生的漂移。我们采取了7种激光雷达，超过100k帧的数据集，进行了大量的实验。于此同时，在KITTI上，本文提出的方法目前排名第13.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>7种激光雷达为不同线数的机械式雷达，具体见图9；</li>
+<li>题目中的通用指的是不依赖激光雷达的特性，不必把点云变成环或者深度图像的形式，这样可以保证不丢失信息；</li>
+<li>配准分为两种：local 和 global。区别为前者需要提供良好的初值，以避免陷入局部最优，本文使用本文提出的MULLS-ICP；后者没有初值，文中提到的方法有RANSEC，分支定界法（BnB），TEASER等，本文使用TEASER。</li>
+<li>特征提取见图2，误差度量见图3，4，前端后端框图见图5，图优化见图6，实验结果见图7，8。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>一个通用的激光SLAM系统；</li>
+<li>一种高效的局部配准算法MULLS-ICP，实现了粗分类几何特征点的多种误差度量的线性最小二乘优化。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03771.pdf">https://arxiv.org/pdf/2102.03771.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/YuePanEdward/MULLS">https://github.com/YuePanEdward/MULLS</a></p>
+<img src="/2021/05/29/0527/1.png" class>
+<img src="/2021/05/29/0527/2.png" class>
+<img src="/2021/05/29/0527/3.png" class>
+<img src="/2021/05/29/0527/4.png" class>
+<img src="/2021/05/29/0527/5.png" class>
+<img src="/2021/05/29/0527/6.png" class>
+<img src="/2021/05/29/0527/7.png" class>
+<img src="/2021/05/29/0527/8.png" class>
+<img src="/2021/05/29/0527/9.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
       </tags>
   </entry>
   <entry>
