@@ -15,6 +15,7 @@
 <li>地图的表示方法为 Real-time 3d reconstruction at scale using voxel hashing中的方法（2013 ToG）</li>
 <li>建图方法为voxblox（ Voxblox: Incremental 3d euclidean signed distance fields for on-board mav planning 2017 IROS）</li>
 <li>使用的网络为PSPNet和Mask R-CNN</li>
+<li>流程：RGB图片进行语义和实例分割，融合两个输入变为全景标签。全景标签通过地图被持续追踪，并且被融入了深度图中。</li>
 </ol>
 <img src="/2022/05/27/0001/1.png" class>
 <img src="/2022/05/27/0001/2.png" class>
@@ -85,6 +86,35 @@
       </tags>
   </entry>
   <entry>
+    <title>0004 Volumetric Instance-Aware Semantic Mapping and 3D Object Discovery</title>
+    <url>/2022/05/30/0004/</url>
+    <content><![CDATA[<p><em>作者:Margarita Grinvald, Fadri Furrer, Tonci Novkovic, Jen Jen Chung, Cesar Cadena, Roland Siegwart, Juan Nieto</em><br><em>机构:ETHZ</em><br><em>发表:RAL IROS 2019</em></p>
+<p><strong>Abstract</strong><br>在建图时，除了构建场景的几何表示，对环境更高级的理解是检测到更高级的实例对象。这项工作提出了一种在RGBD相机实时扫描过程中，增量构建volumetric 以物体为中心的地图。首先，每一帧的分割结合了无监督几何方法与实例分割预测来识别场景元素和检测之前未见过的物体。随后，一个数据关联track了不同帧中的被预测的物体。最后，一个地图融合策略融合了它们的3D形状，位置，语义类别 于一个全局volume。在公开数据集上的测试，证明了这种方法已经可以和SOTA竞争，同时可以发现，之前未看到的种类。系统在实际中也进行了测试，展现了其实时性。并进行了开源<a href="https://github.com/ethz-asl/voxblox-plusplus">https://github.com/ethz-asl/voxblox-plusplus</a>.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>本项工作对每帧进行如下四步操作：<ol>
+<li>几何分割：convexity-based方法（将点云，划分为若干个凸集）</li>
+<li>实例语义分割：RGB使用Mask RCNN进行打标签，并根据第一步中的结果进行合并</li>
+<li>数据关联：当前帧与地图进行匹配</li>
+<li>地图融合：合并到地图中</li>
+</ol>
+</li>
+<li>一个假设：相机位姿已知<img src="/2022/05/30/0004/1.png" class>
+<img src="/2022/05/30/0004/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>RGBD</tag>
+        <tag>object</tag>
+        <tag>instance</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0005 Hierarchical Object Map Estimation for Efficient and Robust Navigation</title>
     <url>/2022/05/30/0005/</url>
     <content><![CDATA[<p><em>作者:Kyel Ok, Katherine Liu, and Nicholas Roy</em><br><em>机构:MIT</em><br><em>发表:ICRA 2021</em></p>
@@ -131,35 +161,6 @@
         <tag>semantic</tag>
         <tag>RGBD</tag>
         <tag>dynamic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0004 Volumetric Instance-Aware Semantic Mapping and 3D Object Discovery</title>
-    <url>/2022/05/30/0004/</url>
-    <content><![CDATA[<p><em>作者:Margarita Grinvald, Fadri Furrer, Tonci Novkovic, Jen Jen Chung, Cesar Cadena, Roland Siegwart, Juan Nieto</em><br><em>机构:ETHZ</em><br><em>发表:RAL IROS 2019</em></p>
-<p><strong>Abstract</strong><br>在建图时，除了构建场景的几何表示，对环境更高级的理解是检测到更高级的实例对象。这项工作提出了一种在RGBD相机实时扫描过程中，增量构建volumetric 以物体为中心的地图。首先，每一帧的分割结合了无监督几何方法与实例分割预测来识别场景元素和检测之前未见过的物体。随后，一个数据关联track了不同帧中的被预测的物体。最后，一个地图融合策略融合了它们的3D形状，位置，语义类别 于一个全局volume。在公开数据集上的测试，证明了这种方法已经可以和SOTA竞争，同时可以发现，之前未看到的种类。系统在实际中也进行了测试，展现了其实时性。并进行了开源<a href="https://github.com/ethz-asl/voxblox-plusplus">https://github.com/ethz-asl/voxblox-plusplus</a>.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>本项工作对每帧进行如下四步操作：<ol>
-<li>几何分割：convexity-based方法（将点云，划分为若干个凸集）</li>
-<li>实例语义分割：RGB使用Mask RCNN进行打标签，并根据第一步中的结果进行合并</li>
-<li>数据关联：当前帧与地图进行匹配</li>
-<li>地图融合：合并到地图中</li>
-</ol>
-</li>
-<li>一个假设：相机位姿已知<img src="/2022/05/30/0004/1.png" class>
-<img src="/2022/05/30/0004/2.png" class></li>
-</ol>
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
-        <tag>RGBD</tag>
-        <tag>object</tag>
-        <tag>instance</tag>
       </tags>
   </entry>
   <entry>
@@ -245,9 +246,39 @@
 <li>目标为输出CAD模型与图像的9DoF对齐参数</li>
 <li>首先使用Mask RCNN对其进行语义分割，同时使用multi-scale FPN估计物体深度</li>
 <li>随后使用深度，2D特征，instance mask来估计尺度和初始位姿</li>
-<li>此外我们建立了与物体规范空间之间的可学习，稠密的对应关系。我们<img src="/2022/05/30/0010/1.png" class>
-<img src="/2022/05/30/0010/2.png" class>
+<li>此外我们建立了与物体规范空间之间的可学习，稠密的对应关系。我们进行了Procrustes优化，来求旋转和平移。</li>
+<li>retrieve流程：首先用语义信息来选择一个类别进行搜索，通过学习几何信息的embedding来评估几何相似性（主要利用canonical correspondences and 2D features）。为了更进一步学习形状feature，还训练了形状补全任务。检索和对齐被端到端进行训练，输出的CAD retrieval 被用于CAD数据库中的最近邻查询。</li>
+</ol>
 </li>
+<li>运行效率为19Hz<img src="/2022/05/30/0010/1.png" class>
+<img src="/2022/05/30/0010/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Retrieval</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0011 End-to-End CAD Model Retrieval and 9DoF Alignment in 3D Scans</title>
+    <url>/2022/06/01/0011/</url>
+    <content><![CDATA[<p><em>作者:Armen Avetisyan, Angela Dai, Matthias Nießner</em><br><em>机构:TUM</em><br><em>发表:ICCV 2019</em></p>
+<p><strong>Abstract</strong><br>我们提出了一个端到端方法来对齐CAD和3D扫描，是嘈杂不完整的3D扫描转换为紧凑干净的CAD模型。我们主要的贡献在于建立了一个可微的Procrustes对齐。为了同时对齐扫描中的所有物体，我们的方法检测物体位置，并预测symmetry-aware dense object correspondences，在统一的空间。我们的方法以一种全卷积的方式操作，使得对齐操作在一次前向传递中完成，比之前快了250倍.</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>为了端到端的学习，提出了 symmetry-aware object correspondences (SOCs)，建立了稠密的对应关系，并且提出了 differentiable Procrustes alignment loss</li>
+<li>流程：<ol>
+<li>检测物体中心，作为体素网格中的heatmap预测，并预测bbox，并进行剪裁。</li>
+<li>根据这一邻域来预测SOC，稠密地建立了邻域中每个voxel与CAD模型的对应关系。同时为了避免对称性的影响，我们还估计了物体的对称类型。</li>
+<li>预测了一个mask来进行前景分割。</li>
+<li>学习了一个描述符，来进行搜索</li>
+<li>最后引入了一个可微的 Procrustes对齐<img src="/2022/06/01/0011/1.png" class>
+<img src="/2022/06/01/0011/2.png" class></li>
 </ol>
 </li>
 </ol>
@@ -258,6 +289,199 @@
       <tags>
         <tag>一分钟</tag>
         <tag>Retrieval</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0012 SPAMs:Structured Implicit Parametric Models</title>
+    <url>/2022/06/01/0012/</url>
+    <content><![CDATA[<p><em>作者:Pablo Palafox, Nikolaos Sarafianos,Tony Tung, Angela Dai</em><br><em>机构:TUM + META</em><br><em>发表:CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>Parametric 3D models是构建可形变物体的基础，比如人体面部手部等，然而构建这些parametric models需要大量的人力劳动和专业知识。最近，神经隐3D表示展现了在捕捉3D形状方面很高的表现力。我们观察到可变形物体的动作通常是有语义结构的，所以提出了Structured-implicit PArametric Models (SPAMs)作为一个可形变物体的表示，将非刚性物体运动解耦到形状和空间的两个表示，分别被表示为一个deep implicit functions。这使得对物体运动的结构化表征成为可能，通过分解低维空间，我们在其中建立粗糙的运动对应关系。特别的，我们可以利用这种分解来拟合序列中的未观测部分，通过估计输入观察和学习到的part space之间的对应关系。这指导了形状和位姿之间鲁棒的联合优化。实验证明了我们的方法成为了SOTA。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>SPAMs包含：<ol>
+<li>在 canonical shape space中学习几何形状的潜在空间</li>
+<li>一个部分解码器在部分形状上，引导canonical shape space中的结构划分</li>
+<li>structured, latent pose spaces conditional 对形状和位姿</li>
+</ol>
+</li>
+<li></li>
+</ol>
+<img src="/2022/06/01/0012/1.png" class>
+<img src="/2022/06/01/0012/2.png" class>
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Parametric Models</tag>
+        <tag>Implicit</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0013 NPMs:Neural Parametric Models for 3D Deformable Shapes</title>
+    <url>/2022/06/01/0013/</url>
+    <content><![CDATA[<p><em>作者:Pablo Palafox, Aljaz Bozic, Justus Thies, Matthias Nießner, Angela Dai</em><br><em>机构:TUM</em><br><em>发表:ICCV 2021</em></p>
+<p><strong>Abstract</strong><br>参数化3D模型已经在计算机图形和视觉中实现了各种各样的任务，如建模人体、面部和手。然而，这些参数化模型的构建通常是乏味的，因为它需要大量的手动调整，而且它们难以表示额外的复杂性和细节，如皱纹或服装。为此，我们提出了神经参数化模型(npm)，这是传统参数化3D模型的一种新颖、可学习的替代方案，不需要手工制作、对象特定的约束。特别是，我们学习将四维动力学分解为形状和姿势的潜在空间表示，利用最近在学习隐式函数的发展中的灵活性。至关重要的是，一旦学会，我们的形状和姿势的神经参数模型可以优化学习空间，以适应新的观察，类似于传统参数模型的拟合，如SMPL。这使得npm能够对观察到的可变形序列实现更精确和详细的表示。我们表明，在重建和跟踪穿着衣服的人和手的单目深度序列方面，npm比参数和非参数都有显著改善。潜空插</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong><br>训练两个网络，一个用来描述形变，一个用来预测运动的flow</p>
+<img src="/2022/06/01/0013/1.png" class>
+<img src="/2022/06/01/0013/2.png" class>
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Parametric Models</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0014 CSG-Stump:A Learning Friendly CSG-Like Representation for Interpretable Shape Parsing</title>
+    <url>/2022/06/01/0014/</url>
+    <content><![CDATA[<p><em>作者:Daxuan Ren, Jianmin Zheng, Jianfei Cai, Jiatong Li, Haiyong Jiang, Zhongang Cai, Junzhe Zhang, Liang Pan, Mingyuan Zhang, Haiyu Zhao, Shuai Yi</em><br><em>机构:NTU</em><br><em>发表:ICCV 2021</em></p>
+<p><strong>Abstract</strong><br>从点云生成一个可解释的紧凑的三维表示，是一个重要的问题。本文提出CSG-Stump Net, 一个无监督端到端的网络来从点云学习形状，并且发现底层的组件原模型和操作。核心是一个三层网络结构，由底层的补层，中间的交叉层和顶部的联合层组成。CSG-Stump被证明和CSG等价，继承了CSG的可解释性，紧凑和可编辑的特性，同时避免了CSG复杂的树状结构。特别的，CSG-Stump有一个简单规则的结构，允许神经网络以一个固定的维度进行输出，这使他对深度学习友好。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li><p>CSG-Stump结构：补层与元模型一一对应，不同层的节点包含一些操作信息，如它们的名字所示。</p>
+</li>
+<li><p>补层之下为1xK维的01矩阵，与K个元模型相对应；补层与交层之间为KxC的01矩阵，C&lt; K；交层与并层之间为Cx1</p>
+</li>
+<li><p>CSG-Stump Net 设计这么一个网络来检测元件，并且和CSG-Stump进行连接。</p>
+<ol>
+<li>首先编码为一个特征，然后通过 primitive head和connection head 将其编码为元件和连接</li>
+<li>使用DGCNN作为backbone</li>
+</ol>
+</li>
+</ol>
+<img src="/2022/06/01/0014/1.png" class>
+<img src="/2022/06/01/0014/2.png" class>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0015 Occupancy Networks:Learning 3D Reconstruction in Function Space</title>
+    <url>/2022/06/01/0015/</url>
+    <content><![CDATA[<p><em>作者:Lars Mescheder, Michae, Oechsle,Michael Niemeyer, Sebastian Nowozin3, Andreas Geiger</em><br><em>机构:MPI for Intelligent Systems and University of Tübingen</em><br><em>发表:CVPR 2019</em></p>
+<p><strong>Abstract</strong><br>基于学习的三维重建方法越来越受到欢迎，但是与图像不同，3D场景没有一个可以在计算和存储方面高效的表示。许多SOTA的学习三维重建方法只能表示很粗糙的3D几何信息，或者限制在有限的领域中。在本文中，我们提出了OccNet。OccNet隐式地表现了3D表面为一个神经网络分类其的连续的决策边界。与现有方法对比，我们的表示编码了3D描述在一个无限分辨率，而不占用过多的内存。我们验证了我们的表示可以高效地编码3D结构，并且可以从不同形式的输入进行推断（单帧图像，有噪音的点云，粗糙的体素）。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>该网络主要描述了3D空间中每个点的占用情况，对一个输入的点，输出其占据概率。思路是，通过一个神经网络来近似这个函数，等价于二值分类网络，感兴趣的是这个决策边界。</li>
+<li>生成3D模型时，通过Multiresolution IsoSurface Extraction进行。<img src="/2022/06/01/0015/1.png" class>
+<img src="/2022/06/01/0015/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>implicitly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0016 BSP-Net:Generating Compact Meshes via Binary Space Partitioning</title>
+    <url>/2022/06/01/0016/</url>
+    <content><![CDATA[<p><em>作者:Zhiqin Chen, Andrea Tagliasacchi, Hao Zhang</em><br><em>机构:Simon Fraser University</em><br><em>发表:CVPR 2020</em></p>
+<p><strong>Abstract</strong><br>mesh在深度学习中，并没有扮演一个重要角色，一般只在经过iso-surfacing处理时才生成。本文研究了在 Binary Space Partitioning（BSP）的启发下促进3D学习的方法。BSP的核心是对空间进行递归细分获得凸集。利用这个性质，本文设计了BSP-Net，一个通过convex decomposition来学习3D形状的无监督网络。<br>网络通过训练，利用一组convex来重建一个形状，这些convex来构建在一组平面上的BSPtree。这些convex可以轻松提取成多边形网格，而无需进行iso-surfacing处理，而且是紧凑的，可以表示尖锐的几何形状。同时他还是水密的，可以被参数化。重建质量可以媲美SOTA，而且使用的primitives少很多。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>设计了一种网络结构，提供了一个可微分的BSP-tree，很容易训练而且可解释（输出为凸多边形）。下文用2D做例子。</li>
+<li>三个模块:<ol>
+<li>根据输入数据提取超平面</li>
+<li>以半空间的形式对超平面进行分组并创建part（凸集）</li>
+<li>将各个part组装起来</li>
+</ol>
+</li>
+</ol>
+<img src="/2022/06/01/0016/1.png" class>
+<img src="/2022/06/01/0016/2.png" class>
+<img src="/2022/06/01/0016/3.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>17 SP-GAN</title>
+    <url>/2022/06/01/0017/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong><br>无监督的生成模型在2D图像和自然语言的研究中都取得了很好的性能。尤其是借助于GAN的的广泛研究，像StyleGAN，BigGAN生成的图像几近于以假乱真。但3D模型的生成效果还差强人意。相对于2D图像，三维数据富含较大几何变化。现有方法的生成模型通常包含较差的细节或者噪声较多。 另外，3D数据的结构性编辑是一个非常常见的应用，但传统的GAN的结构设计并不能支持这样的需求。针对这两方面的问题，我们提出了这是一种新的无监督生成模型SP-GAN(Sphere-guided），用于高质量点云生成和无监督编辑。与现有模型相比，SP-GAN 能够合成具有细节多样化和高质量的形状，并提供一种结构性形状生成和操作的可控性 (structure-aware controllability)，而且整个过程无需任何的局部结构标记数据。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>19 Kimera</title>
+    <url>/2022/06/01/0019/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20 NICE-SLAM</title>
+    <url>/2022/06/01/0020/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
       </tags>
   </entry>
   <entry>
@@ -874,6 +1098,31 @@
       </tags>
   </entry>
   <entry>
+    <title>0514 HD Map Update for Autonomous Driving With Crowdsourced Data</title>
+    <url>/2021/05/14/0514/</url>
+    <content><![CDATA[<p><em>作者:Kitae Kim , Soohyun Cho, and Woojin Chung</em><br><em>机构:Korea University</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>自动驾驶汽车使用高精度地图(HD map)可以进行准确的定位，并且生成不碰撞的轨迹。因此,保持高精度地图的准确性很重要。通常，HD map的构建要使用昂贵的地图构建系统，而且要进行很多人工的修改。传统的HD map因为太过昂贵，而不能时常进行构建。在本文中，我们使用了低成本众包传感器收集的道路数据，这些传感器被安装在反复移动的车（比如公交）上。我们提出了一种维护HD map的方法，关注数据中的landmark信息，选择不确定度低的数据来更新地图。并考虑离散和连续地标（交通灯交通标志，车道线）的差异，设计一个观察学习算法。通过所提出的更新模式选择策略，可以调整地图更新的触发条件。本文所提出的地图更新方案已通过从真实道路环境中收集的众包数据进行了实验验证.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>传感器使用的是摄像头和GNSS；</li>
+<li>文章主要提出了一种车道线检测的方法；并且针对离散的地标如交通灯，和连续的地标如车道线，分别给出了更新HD map的策略。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9357917">https://ieeexplore.ieee.org/document/9357917</a></p>
+<img src="/2021/05/14/0514/1.png" class>
+<img src="/2021/05/14/0514/2.png" class>
+<img src="/2021/05/14/0514/3.png" class>
+<img src="/2021/05/14/0514/4.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>map</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0517 LAMP:Large-Scale Autonomous Mapping and Positioning for Exploration of Perceptually-Degraded Subterranean Environments</title>
     <url>/2021/05/17/0515/</url>
     <content><![CDATA[<p><em>作者:Kamak Ebadi, Yun Chang, Matteo Palieri, Alex Stephens, Alex Hatteland, Eric Heiden, Abhishek Thakur, Benjamin Morrell, Sally Wood, Luca Carlone, Ali-akbar Agha-mohammadi</em><br><em>机构:CIT+MIT</em><br><em>发表:ICRA 2020</em></p>
@@ -912,31 +1161,6 @@
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>multi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0514 HD Map Update for Autonomous Driving With Crowdsourced Data</title>
-    <url>/2021/05/14/0514/</url>
-    <content><![CDATA[<p><em>作者:Kitae Kim , Soohyun Cho, and Woojin Chung</em><br><em>机构:Korea University</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
-<p><strong>Abstract</strong><br>自动驾驶汽车使用高精度地图(HD map)可以进行准确的定位，并且生成不碰撞的轨迹。因此,保持高精度地图的准确性很重要。通常，HD map的构建要使用昂贵的地图构建系统，而且要进行很多人工的修改。传统的HD map因为太过昂贵，而不能时常进行构建。在本文中，我们使用了低成本众包传感器收集的道路数据，这些传感器被安装在反复移动的车（比如公交）上。我们提出了一种维护HD map的方法，关注数据中的landmark信息，选择不确定度低的数据来更新地图。并考虑离散和连续地标（交通灯交通标志，车道线）的差异，设计一个观察学习算法。通过所提出的更新模式选择策略，可以调整地图更新的触发条件。本文所提出的地图更新方案已通过从真实道路环境中收集的众包数据进行了实验验证.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>传感器使用的是摄像头和GNSS；</li>
-<li>文章主要提出了一种车道线检测的方法；并且针对离散的地标如交通灯，和连续的地标如车道线，分别给出了更新HD map的策略。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9357917">https://ieeexplore.ieee.org/document/9357917</a></p>
-<img src="/2021/05/14/0514/1.png" class>
-<img src="/2021/05/14/0514/2.png" class>
-<img src="/2021/05/14/0514/3.png" class>
-<img src="/2021/05/14/0514/4.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>map</tag>
       </tags>
   </entry>
   <entry>
