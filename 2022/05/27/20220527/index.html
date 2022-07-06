@@ -20,19 +20,27 @@
     var CONFIG = {"hostname":"yjsx.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="作者:Gaku Narita, Takashi Seno, Tomoya Ishikawa, Yohsuke Kaji机构:sony发表:IROS 2019 Abstract">
+  <meta name="description" content="作者:RUIHUI LI, XIANZHI LI, KA-HEI HUI, and CHI-WING FU机构:CUHK发表:TOG 2021 Abstract我们提出SP-GAN，一个新的无监督球体引导的生成模型，来直接合成用点云表示的3D形状。与已有的模型相比，SP-GAN可以合成不同的高质量的形状，同时拥有好的细节，并且对局部可以控制操作其形状（训练时未对局部进行标注）。在SP-GAN中，我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20220527 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things">
+<meta property="og:title" content="20220527 SP-GAN:Sphere-Guided 3D Shape Generation and Manipulation">
 <meta property="og:url" content="https://yjsx.top/2022/05/27/20220527/index.html">
 <meta property="og:site_name" content="YJSX">
-<meta property="og:description" content="作者:Gaku Narita, Takashi Seno, Tomoya Ishikawa, Yohsuke Kaji机构:sony发表:IROS 2019 Abstract">
+<meta property="og:description" content="作者:RUIHUI LI, XIANZHI LI, KA-HEI HUI, and CHI-WING FU机构:CUHK发表:TOG 2021 Abstract我们提出SP-GAN，一个新的无监督球体引导的生成模型，来直接合成用点云表示的3D形状。与已有的模型相比，SP-GAN可以合成不同的高质量的形状，同时拥有好的细节，并且对局部可以控制操作其形状（训练时未对局部进行标注）。在SP-GAN中，我">
 <meta property="og:locale">
+<meta property="og:image" content="https://yjsx.top/2022/05/27/20220527/1.png">
+<meta property="og:image" content="https://yjsx.top/2022/05/27/20220527/2.png">
+<meta property="og:image" content="https://yjsx.top/2022/05/27/20220527/3.png">
+<meta property="og:image" content="https://yjsx.top/2022/05/27/20220527/4.png">
+<meta property="og:image" content="https://yjsx.top/2022/05/27/20220527/5.png">
+<meta property="og:image" content="https://yjsx.top/2022/05/27/20220527/6.png">
+<meta property="og:image" content="https://yjsx.top/2022/05/27/20220527/7.png">
 <meta property="article:published_time" content="2022-05-27T02:06:30.000Z">
-<meta property="article:modified_time" content="2022-05-31T15:04:56.742Z">
+<meta property="article:modified_time" content="2022-06-06T06:31:19.917Z">
 <meta property="article:author" content="Duan Yifan">
-<meta property="article:tag" content="semantic">
 <meta property="article:tag" content="每日论文分享">
+<meta property="article:tag" content="Generation">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yjsx.top/2022/05/27/20220527/1.png">
 
 <link rel="canonical" href="https://yjsx.top/2022/05/27/20220527/">
 
@@ -47,7 +55,7 @@
   };
 </script>
 
-  <title>20220527 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things | YJSX</title>
+  <title>20220527 SP-GAN:Sphere-Guided 3D Shape Generation and Manipulation | YJSX</title>
   
 
 
@@ -209,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20220527 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things
+          20220527 SP-GAN:Sphere-Guided 3D Shape Generation and Manipulation
         </h1>
 
         <div class="post-meta">
@@ -226,7 +234,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-31 23:04:56" itemprop="dateModified" datetime="2022-05-31T23:04:56+08:00">2022-05-31</time>
+                <time title="Modified: 2022-06-06 14:31:19" itemprop="dateModified" datetime="2022-06-06T14:31:19+08:00">2022-06-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,19 +264,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><em>作者:Gaku Narita, Takashi Seno, Tomoya Ishikawa, Yohsuke Kaji</em><br><em>机构:sony</em><br><em>发表:IROS 2019</em></p>
-<p><strong>Abstract</strong></p>
+        <p><em>作者:RUIHUI LI, XIANZHI LI, KA-HEI HUI, and CHI-WING FU</em><br><em>机构:CUHK</em><br><em>发表:TOG 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出SP-GAN，一个新的无监督球体引导的生成模型，来直接合成用点云表示的3D形状。与已有的模型相比，SP-GAN可以合成不同的高质量的形状，同时拥有好的细节，并且对局部可以控制操作其形状（训练时未对局部进行标注）。在SP-GAN中，我们使用一个全局prior（一个均匀球体）来引导生成过程，并为每一个点绑定一个局部prior来形成局部细节。我们设计中的核心观点是将复杂的3D形状生成任务分解为全局形状建模和局部细节调整（local style），简化了学习过程并且提高了生成质量。同时，我们的构建了球体到任意形状的隐藏稠密对应关系，使得structure-aware shape操作，如部分编辑，部分插值和多形状拼接等，实验从定性定量两方面，证明了我们的算法。</p>
 <span id="more"></span>
+
 <p><strong>一些信息：</strong></p>
-<p><strong>主要贡献：</strong></p>
-<p><strong>论文地址：</strong><br><strong>开源代码：</strong></p>
-
-
-
-
-
-
-
+<ol>
+<li>相关工作：<ol>
+<li>StructureNet，PQ-NET，将完整个体分解为部分，然后学习如何组合成为新的形状。这种方式的缺点为需要零件级的标注。</li>
+<li>直接用深度生成模型，自回归：PointGrow；flowbased：SoftFlow，（Discrete point flow networks for efficient point cloud generation），PointFlow；GAN:Learning representations and generative models for 3D point clouds, Progressive point cloud deconvolution generation network,3D point cloud generative adversarial network based on tree structured graph convolutions</li>
+<li>Deformed Implicit Field: Modeling 3D Shapes with Learned Dense Correspondence</li>
+</ol>
+</li>
+<li>本文的主要特色为：细节好，可部分编辑，可插值<ol>
+<li>输入为两个：一个点云球（提供一个对形状的公平指导）；一组局部向量（random latent code），来提供局部细节。</li>
+<li>具体操作为，一个点带着一个latent code，每个点适应空间变化，移动到应该在的位置。</li>
+<li>球体相当于提供了一块画布，在画布的不同位置作画，相当于对操作了对应的部分。球体与生成的形状之间有着隐含的对应关系。</li>
+<li>由于部件之间是连接的，所以改变一个部件会导致别的部件的微小变化，以兼容。</li>
+<li>以球体作为代理，可以实现形状到形状或部件到部件的插值变形。</li>
+</ol>
+</li>
+<li>生成器，如图4所示：</li>
+<li>输入球S（N*3）</li>
+<li>graph attention module:用来提取一个point-wise特征$F_1^G$（N*64）。结构如图6所示，以DGCNN为基础，并进一步提取K近邻的关系。</li>
+<li>Feature Embedding: 于此同时，对S+z,使用MLP 提取feature$F^E$（N*128）.</li>
+<li>Style Embedding: 对第3步中的$F^E$变为，$Y_1 = (Y_1^s, Y_1^b) (N*64 *2)$, 分别负责scale和bias。</li>
+<li>Adaptive Instance Normalization: 受到风格迁移工作的启发，设计本模块来对第二步中提取的特征的平均和方差进行modulate。公式如图5所示。</li>
+<li>2345重复一遍，来enrich feature embedding。</li>
+<li>PointNet：对最后的特征$F_2^A$使用PointNet生成点云。</li>
+<li>判别器，如图7所示：<ol>
+<li>为了对细节进行更多的判断，输出了一个pointlevel的分数。</li>
+<li>使用pointnet为backbone。</li>
+</ol>
+</li>
+</ol>
+<p><strong>论文地址：<a target="_blank" rel="noopener" href="https://liruihui.github.io/publication/SP-GAN/">https://liruihui.github.io/publication/SP-GAN/</a></strong><br><strong>开源代码：<a target="_blank" rel="noopener" href="https://github.com/liruihui/SP-GAN">https://github.com/liruihui/SP-GAN</a></strong></p>
+<img src="/2022/05/27/20220527/1.png" class>
+<img src="/2022/05/27/20220527/2.png" class>
+<img src="/2022/05/27/20220527/3.png" class>
+<img src="/2022/05/27/20220527/4.png" class>
+<img src="/2022/05/27/20220527/5.png" class>
+<img src="/2022/05/27/20220527/6.png" class>
+<img src="/2022/05/27/20220527/7.png" class>
 
     </div>
 
@@ -284,7 +321,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://yjsx.top/2022/05/27/20220527/" title="20220527 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things">https://yjsx.top/2022/05/27/20220527/</a>
+    <a href="https://yjsx.top/2022/05/27/20220527/" title="20220527 SP-GAN:Sphere-Guided 3D Shape Generation and Manipulation">https://yjsx.top/2022/05/27/20220527/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -295,8 +332,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/semantic/" rel="tag"># semantic</a>
               <a href="/tags/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E5%88%86%E4%BA%AB/" rel="tag"># 每日论文分享</a>
+              <a href="/tags/Generation/" rel="tag"># Generation</a>
           </div>
 
         
@@ -385,7 +422,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -398,7 +435,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

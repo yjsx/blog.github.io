@@ -164,19 +164,24 @@
       </tags>
   </entry>
   <entry>
-    <title>0007 SoftGroup for 3D Instance Segmentation on Point Clouds</title>
-    <url>/2022/05/30/0007/</url>
-    <content><![CDATA[<p><em>作者:Thang Vu, Kookhoi Kim, Tung M. Luu, Xuan Thanh Nguyen, Chang D. Yoo</em><br><em>机构:KAIST</em><br><em>发表:CVPR 2022</em></p>
-<p><strong>Abstract</strong><br>现存的SOTA实例分割方法使用grouping。hard预测将每个点与每个单独的种类相关联。然而，来自硬决策的错误，导致了（1）预测的实例与GT的低重叠度（2）大量的假阳性。</p>
-<p>为了解决这些问题，本文提出了一个名为SoftGroup的3D实例分割算法，先自底向上的grouping，再自顶向下的refine。SoftGroup允许每个点被关联到不同的种类，来缓解语义预测的错误和FP，通过学习将其种类变为背景。实验展示了在不同数据集和多种评价指标下证明其效用。在ScanNetV2上超过最好6.2%，在S3DIS上超过最好6.8%.在Titan X上，每帧推算时间为345ms。开源： <a href="https://github.com/thangvubk/SoftGroup.git">https://github.com/thangvubk/SoftGroup.git</a></p>
+    <title>0010 ROCA:Robust CAD Model Retrieval and Alignment from a Single Image</title>
+    <url>/2022/05/30/0010/</url>
+    <content><![CDATA[<p><em>作者:Can Gümeli, Angela Dai, Matthias Nießner</em><br><em>机构:TUM</em><br><em>发表:CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>我们提出了ROCA，一个新的端到端方法从一个形状数据库中检索并对齐3D CAD 模型（来自单张图像中）。这使得可以从2D图像中获得3D感知信息。我们方法的核心是我们的2D-3D物体对应的可微对齐优化和Pro-crustes 对齐.ROCA可以提供一个鲁棒的CAD对齐，同时通过2D-3D的对应学习几何相似性来进行CAD检索。实验在ScanNet上，将SOTA从9.5%提升到了17.6%。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <ol>
-<li>目前实例分割的SOTA</li>
-<li>group流</li>
-<li>自底向上，逐点预测语义和offset。soft grouping 将其处理为 实例proposal。自顶向下，提取到的特征被用来预测类别，实例掩码，掩码分数来作为最后的结果。<img src="/2022/05/30/0007/1.png" class>
-<img src="/2022/05/30/0007/2.png" class>
-<img src="/2022/05/30/0007/3.png" class></li>
+<li>算法流程：<ol>
+<li>输入为RGB图片，相机内参和CAD数据库</li>
+<li>目标为输出CAD模型与图像的9DoF对齐参数</li>
+<li>首先使用Mask RCNN对其进行语义分割，同时使用multi-scale FPN估计物体深度</li>
+<li>随后使用深度，2D特征，instance mask来估计尺度和初始位姿</li>
+<li>此外我们建立了与物体规范空间之间的可学习，稠密的对应关系。我们进行了Procrustes优化，来求旋转和平移。</li>
+<li>retrieve流程：首先用语义信息来选择一个类别进行搜索，通过学习几何信息的embedding来评估几何相似性（主要利用canonical correspondences and 2D features）。为了更进一步学习形状feature，还训练了形状补全任务。检索和对齐被端到端进行训练，输出的CAD retrieval 被用于CAD数据库中的最近邻查询。</li>
+</ol>
+</li>
+<li>运行效率为19Hz<img src="/2022/05/30/0010/1.png" class>
+<img src="/2022/05/30/0010/2.png" class></li>
 </ol>
 ]]></content>
       <categories>
@@ -184,8 +189,7 @@
       </categories>
       <tags>
         <tag>一分钟</tag>
-        <tag>instance</tag>
-        <tag>point cloud</tag>
+        <tag>Retrieval</tag>
       </tags>
   </entry>
   <entry>
@@ -199,6 +203,31 @@
 <li>实例分割分两步走，首先将3D空间划分为单独的物体，第二部为为每个物体打上标签。</li>
 <li>与2D卷积不同的是，没有遮挡问题，且物体会自然地被空区域所分割<img src="/2022/05/30/0008/1.png" class>
 <img src="/2022/05/30/0008/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>instance</tag>
+        <tag>point cloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0007 SoftGroup for 3D Instance Segmentation on Point Clouds</title>
+    <url>/2022/05/30/0007/</url>
+    <content><![CDATA[<p><em>作者:Thang Vu, Kookhoi Kim, Tung M. Luu, Xuan Thanh Nguyen, Chang D. Yoo</em><br><em>机构:KAIST</em><br><em>发表:CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>现存的SOTA实例分割方法使用grouping。hard预测将每个点与每个单独的种类相关联。然而，来自硬决策的错误，导致了（1）预测的实例与GT的低重叠度（2）大量的假阳性。</p>
+<p>为了解决这些问题，本文提出了一个名为SoftGroup的3D实例分割算法，先自底向上的grouping，再自顶向下的refine。SoftGroup允许每个点被关联到不同的种类，来缓解语义预测的错误和FP，通过学习将其种类变为背景。实验展示了在不同数据集和多种评价指标下证明其效用。在ScanNetV2上超过最好6.2%，在S3DIS上超过最好6.8%.在Titan X上，每帧推算时间为345ms。开源： <a href="https://github.com/thangvubk/SoftGroup.git">https://github.com/thangvubk/SoftGroup.git</a></p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>目前实例分割的SOTA</li>
+<li>group流</li>
+<li>自底向上，逐点预测语义和offset。soft grouping 将其处理为 实例proposal。自顶向下，提取到的特征被用来预测类别，实例掩码，掩码分数来作为最后的结果。<img src="/2022/05/30/0007/1.png" class>
+<img src="/2022/05/30/0007/2.png" class>
+<img src="/2022/05/30/0007/3.png" class></li>
 </ol>
 ]]></content>
       <categories>
@@ -231,35 +260,6 @@
       <tags>
         <tag>一分钟</tag>
         <tag>dataset</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0010 ROCA:Robust CAD Model Retrieval and Alignment from a Single Image</title>
-    <url>/2022/05/30/0010/</url>
-    <content><![CDATA[<p><em>作者:Can Gümeli, Angela Dai, Matthias Nießner</em><br><em>机构:TUM</em><br><em>发表:CVPR 2022</em></p>
-<p><strong>Abstract</strong><br>我们提出了ROCA，一个新的端到端方法从一个形状数据库中检索并对齐3D CAD 模型（来自单张图像中）。这使得可以从2D图像中获得3D感知信息。我们方法的核心是我们的2D-3D物体对应的可微对齐优化和Pro-crustes 对齐.ROCA可以提供一个鲁棒的CAD对齐，同时通过2D-3D的对应学习几何相似性来进行CAD检索。实验在ScanNet上，将SOTA从9.5%提升到了17.6%。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>算法流程：<ol>
-<li>输入为RGB图片，相机内参和CAD数据库</li>
-<li>目标为输出CAD模型与图像的9DoF对齐参数</li>
-<li>首先使用Mask RCNN对其进行语义分割，同时使用multi-scale FPN估计物体深度</li>
-<li>随后使用深度，2D特征，instance mask来估计尺度和初始位姿</li>
-<li>此外我们建立了与物体规范空间之间的可学习，稠密的对应关系。我们进行了Procrustes优化，来求旋转和平移。</li>
-<li>retrieve流程：首先用语义信息来选择一个类别进行搜索，通过学习几何信息的embedding来评估几何相似性（主要利用canonical correspondences and 2D features）。为了更进一步学习形状feature，还训练了形状补全任务。检索和对齐被端到端进行训练，输出的CAD retrieval 被用于CAD数据库中的最近邻查询。</li>
-</ol>
-</li>
-<li>运行效率为19Hz<img src="/2022/05/30/0010/1.png" class>
-<img src="/2022/05/30/0010/2.png" class></li>
-</ol>
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
-        <tag>Retrieval</tag>
       </tags>
   </entry>
   <entry>
@@ -344,6 +344,28 @@
       </tags>
   </entry>
   <entry>
+    <title>0015 Occupancy Networks:Learning 3D Reconstruction in Function Space</title>
+    <url>/2022/06/01/0015/</url>
+    <content><![CDATA[<p><em>作者:Lars Mescheder, Michae, Oechsle,Michael Niemeyer, Sebastian Nowozin3, Andreas Geiger</em><br><em>机构:MPI for Intelligent Systems and University of Tübingen</em><br><em>发表:CVPR 2019</em></p>
+<p><strong>Abstract</strong><br>基于学习的三维重建方法越来越受到欢迎，但是与图像不同，3D场景没有一个可以在计算和存储方面高效的表示。许多SOTA的学习三维重建方法只能表示很粗糙的3D几何信息，或者限制在有限的领域中。在本文中，我们提出了OccNet。OccNet隐式地表现了3D表面为一个神经网络分类其的连续的决策边界。与现有方法对比，我们的表示编码了3D描述在一个无限分辨率，而不占用过多的内存。我们验证了我们的表示可以高效地编码3D结构，并且可以从不同形式的输入进行推断（单帧图像，有噪音的点云，粗糙的体素）。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>该网络主要描述了3D空间中每个点的占用情况，对一个输入的点，输出其占据概率。思路是，通过一个神经网络来近似这个函数，等价于二值分类网络，感兴趣的是这个决策边界。</li>
+<li>生成3D模型时，通过Multiresolution IsoSurface Extraction进行。<img src="/2022/06/01/0015/1.png" class>
+<img src="/2022/06/01/0015/2.png" class></li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>implicitly</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0014 CSG-Stump:A Learning Friendly CSG-Like Representation for Interpretable Shape Parsing</title>
     <url>/2022/06/01/0014/</url>
     <content><![CDATA[<p><em>作者:Daxuan Ren, Jianmin Zheng, Jianfei Cai, Jiatong Li, Haiyong Jiang, Zhongang Cai, Junzhe Zhang, Liang Pan, Mingyuan Zhang, Haiyu Zhao, Shuai Yi</em><br><em>机构:NTU</em><br><em>发表:ICCV 2021</em></p>
@@ -371,28 +393,6 @@
       </categories>
       <tags>
         <tag>一分钟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0015 Occupancy Networks:Learning 3D Reconstruction in Function Space</title>
-    <url>/2022/06/01/0015/</url>
-    <content><![CDATA[<p><em>作者:Lars Mescheder, Michae, Oechsle,Michael Niemeyer, Sebastian Nowozin3, Andreas Geiger</em><br><em>机构:MPI for Intelligent Systems and University of Tübingen</em><br><em>发表:CVPR 2019</em></p>
-<p><strong>Abstract</strong><br>基于学习的三维重建方法越来越受到欢迎，但是与图像不同，3D场景没有一个可以在计算和存储方面高效的表示。许多SOTA的学习三维重建方法只能表示很粗糙的3D几何信息，或者限制在有限的领域中。在本文中，我们提出了OccNet。OccNet隐式地表现了3D表面为一个神经网络分类其的连续的决策边界。与现有方法对比，我们的表示编码了3D描述在一个无限分辨率，而不占用过多的内存。我们验证了我们的表示可以高效地编码3D结构，并且可以从不同形式的输入进行推断（单帧图像，有噪音的点云，粗糙的体素）。</p>
-<span id="more"></span>
-
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>该网络主要描述了3D空间中每个点的占用情况，对一个输入的点，输出其占据概率。思路是，通过一个神经网络来近似这个函数，等价于二值分类网络，感兴趣的是这个决策边界。</li>
-<li>生成3D模型时，通过Multiresolution IsoSurface Extraction进行。<img src="/2022/06/01/0015/1.png" class>
-<img src="/2022/06/01/0015/2.png" class></li>
-</ol>
-]]></content>
-      <categories>
-        <category>一分钟</category>
-      </categories>
-      <tags>
-        <tag>一分钟</tag>
-        <tag>implicitly</tag>
       </tags>
   </entry>
   <entry>
@@ -469,8 +469,367 @@
       </tags>
   </entry>
   <entry>
-    <title>19 Kimera</title>
+    <title>0019 iNeRF:Inverting Neural Radiance Fields for Pose Estimation</title>
     <url>/2022/06/01/0019/</url>
+    <content><![CDATA[<p><em>作者:Lin Yen-Chen，Pete Florence，Jonathan T. Barron</em><br><em>机构:google MIT</em><br><em>发表:IROS 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了iNeRF， 一个不需要mesh的位姿推断，通过翻转NeRF。NeRF展示了视图合成的超强能力。在本工作中，我们研究是否可以通过NeRF，来进行无mesh仅RGB的6DoF位姿估计，即给定图像，推算其平移和旋转。我们的方法在训练和测试期间都没有使用mesh model。从初始位姿估计开始，我们使用梯度下降来减小最小化NeRF渲染生成的图像和观察图像中的像素残差。</p>
+<p>在实验中，我们首先研究了1 在位姿优化期间如何对光线进行采样以收集信息梯度，2 不同光线的不同batch size如何影响iNeRF。我们展示了在LLFF真实数据集中的，iNeRF可以通过估计相机位姿来提升NeRF的性能，并且使用这些图像作为NeRF的额外的训练数据。最终，我们展示了iNeRF可以展现category-level的object pose estimation，包括在训练过程中未看见的物体。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>输入为三个：图像，初始值和NeRF 模型。</li>
+<li>算法：通过analysis-by-synthesis 的方法，计算渲染与观察之间的差异。通过NeRF反向传播这些残差的梯度，以产生估计位姿的梯度。这个过程反复进行，直到渲染与观察对齐，产生准确的位姿估计。</li>
+<li><ol>
+<li>挑战：NeRF需要通过光线来渲染每个像素,这是昂贵的。我们利用可以NeRF可以通过一条光线来渲染一个像素的功能，提出了一种基于兴趣点的采样方法，使我们可以选择对哪些光线进行采样来最好的计算位姿。</li>
+<li>成果：少用了两个数量级的像素。</li>
+</ol>
+</li>
+<li>贡献：<ol>
+<li>使用NeRF做位姿估计</li>
+<li>优化了对光线的采样和梯度优化的批量大小</li>
+<li>iNeRF可以提高NeRF的性能</li>
+<li>可以进行物体位姿估计</li>
+</ol>
+</li>
+</ol>
+<img src="/2022/06/01/0019/1.png" class>
+<img src="/2022/06/01/0019/2.png" class>
+<img src="/2022/06/01/0019/3.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>nerf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0020 Block-NeRF:Scalable Large Scene Neural View Synthesis</title>
+    <url>/2022/06/01/0020/</url>
+    <content><![CDATA[<p><em>作者:Matthew Tancik, Vincent Casser, Xinchen Yan, Sabeek Pradhan, Ben P. Mildenhall, Pratul Srinivasan, Jonathan T. Barron, Henrik Kretzschmar</em><br><em>机构: UCB Waymo Google</em><br><em>发表: CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>我们提出了Block-NeRF， 一个NeRF的变体可以表示大规模场景。我们证明了当对城市规模的场景进行构建NeRF时，很重要的是将这个场景划分为独立训练的NeRF。这种分解将渲染时间和场景大小解耦，使得可以渲染任意大的场景，并且可以允许block级别的更新环境。我们应用了一些结构上的改变，来使NeRF对长时间（意味着环境变化）内捕获的数据鲁棒。我们添加了appearance embedding，学习到的位姿优化和对每个单独的NeRF可控的exposure，并且介绍了一种相邻NeRF对齐的方法，这样它们可以无缝对接。我们构建了2.8million的大Block-NeRFs，来构建一个迄今为止最大的自然场景，渲染了整个旧金山。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>nerf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0021 PrimitiveNet:Primitive Instance Segmentation with Local Primitive Embedding under Adversarial Metric</title>
+    <url>/2022/06/02/0021/</url>
+    <content><![CDATA[<p><em>作者:Jingwei Huang, Yanfeng Zhang, and Mingwei Sun</em><br><em>机构:Huawei WHU</em><br><em>发表:ICCV 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了PrimitiveNet, 一个高分辨率大规模点云元件实例分割的方法。核心观点是，将全局分割问题划分为简单的局部任务。我们训练了一个高分辨率primitive embedding 网络，来预测每个点的几何特征和隐式特征。embedding和一个primitive discriminator被联合训练，来决定每个点是否是来自同一个primitive instance。这种local的监督，鼓励学习到的embedding和判别器 描述局部表面属性并且稳健地区分不同实例。在推断时，网络预测在一个区域增长的方法之后，来最终决定分割。实验展示了我们的方法超过了SOTA在ABC数据集。我们可以处理超过100平米的大型场景。消融实验突出了我们核心设计的贡献。最后我们的方法可以提高几何处理算法，将数据变为轻量级模型。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>数据集为ABC数据集</li>
+<li>输入为：点集（可包含颜色或法线），边集（标注两个点为邻居）。</li>
+<li>输出为：去噪点云（包含法线和instance label），相同的instance label意味着其为同一个primitive instance。</li>
+<li>思路为，不直接输出label，而是把任务变成相邻的两个点有没有同一个label。同一个instance内部的点之连接成了一个primitive instance。</li>
+<li>结构为两个网络，一个embedding网络，一个判别器网络。embedding网络输入原始数据，输出反应局部属性的特征。判别器网络输出对每一对输出2D向量，来判断其是否是同一个instance。
+
+</li>
+</ol>
+<p>多层次label<br>label 之间的交集，可以展开的东西和电脑，家电</p>
+<p>形变：用生成模型来定义label</p>
+<p>CAD-》生成器<br>匹配-》生成器<br>先分割成primity</p>
+<p>遍历所有生成器-》生成器也搞出层次，粗糙的生成器，和细节的生成器</p>
+<p>权重是定的，优化输入，又有一个对比判别器，pointnet，优化输入，对比两个点云</p>
+<p>着重结构训练，pose</p>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Primitive</tag>
+        <tag>Instance</tag>
+        <tag>Segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0024 3D Shape Generation and Completion through Point-Voxel Diffusion</title>
+    <url>/2022/06/02/0024/</url>
+    <content><![CDATA[<p><em>作者:Linqi Zhou Yilun Du Jiajun Wu</em><br><em>机构:stanford + MIT</em><br><em>发表: ICCV 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一个3D形状的概率生成模型的新方法。不像大多数的现存方法去确定性地学习如何转变latent vector到一个形状，PVD是统一的概率公式，对无条件生成和有条件多模态形状补全。PVD将去噪扩散模型与3Dshape 的voxel表示进行融合。可以被视为一系列的去噪步骤，翻转扩散过程从观察到的形状到高斯噪声，并通过优化似然函数的变分下限进行训练。实验证明了PVD有能力合成高保真形状，补全点云，并通过对真实物体的单次拍摄生成其补全的结果。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0022 TSDF++</title>
+    <url>/2022/06/02/0022/</url>
+    <content><![CDATA[<p><em>作者:Margarita Grinvald, Federico Tombari, Roland Siegwart, and Juan Nieto</em><br><em>机构: ETHZ</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>现有的对动态物体进行处理的工作大多对独立的物体存储在分开的volume中，并对它们进行跟踪。这种方法在面对大量对象时，不易扩展，并且需要明确的遮挡处理策略。我们提出了一种地图表示，他允许场景和动态物体一起存储。为此我们引入了一种多对象TSDF公式，可以在给定位置对多个物体对象进行编码。在一个多动态物体跟踪和重建的场景中,我们的表示允许维持高精确度的表面重建，即使它们被其他物体短暂遮挡。这种方法被成为TSDF++。代码进行了开源<a href="https://github.com/ethz-asl/tsdf-plusplus%E3%80%82">https://github.com/ethz-asl/tsdf-plusplus。</a></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Dynamic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0023 LENS:Localization enhanced by NeRF synthesis</title>
+    <url>/2022/06/02/0023/</url>
+    <content><![CDATA[<p><em>作者:Arthur Moreau1,2 , Nathan Piasco1, Dzmitry Tsishkou1 , Bogdan Stanciulescu2 , Arnaud de La Fortelle2</em><br><em>机构: Paris Research Center, Huawei + PSL University</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>nerf</tag>
+        <tag>localization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0025 pixelNeRF:Neural Radiance Fields from One or Few Images</title>
+    <url>/2022/06/02/0025/</url>
+    <content><![CDATA[<p><em>作者:Alex Yu, Vickie Ye, Matthew Tancik, Angjoo Kanazawa</em><br><em>机构:UC Berkeley</em><br><em>发表:CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了pixelNeRF，一个可以通过一张或几张图片，合成新视角。NeRF需要很多标定好的视角和大量的计算时间。我们进一步解决了这些短处，通过引入一种结构，以完全卷积的形式在图像输入上修改了NeRF。这允许网络在multi senes提前训练，来学习一个scene prior，允许只输入很少的图片以前馈的方式合成新的视角。利用NeRF的volume rendering的方法，我们的模型可以在没有3D监督的情况下直接进行训练。我们在shapenet数据集上进行了实验，进行单图片新视角合成的任务。我们在ShapeNet上训练的模型，可以直接在DTU数据集上进行使用。本方法是NVS和单图像3D重建的SOTA。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>nerf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0026 Future Video Synthesis with Object Motion Prediction</title>
+    <url>/2022/06/02/0026/</url>
+    <content><![CDATA[<p><em>作者:Yue Wu, Rongrong Gao, Jaesik Park, Qifeng Chen</em><br><em>机构:HKUST</em><br><em>发表:CVPR 2020</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种方法来预测视频帧。与直接预测不同，我们的方法设计去理解复杂的场景动态，通过解耦背景和移动的物体。未来场景元素的表现被预测为背景的非刚性形变和移动物体的仿射变换。将这些表现组合起来，就创造除了未来的视频。通过此过程，我们的方法表现出来了更少的tearing，distortion artifact。实验在Cityscapes和KITTI上进行了实验，展现了我们SOTA级别的视频质量和准确性。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<img src="/2022/06/02/0026/1.png" class>
+<img src="/2022/06/02/0026/2.png" class>
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Video Prediction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0027 Learning Semantic-Aware Dynamics for Video Prediction</title>
+    <url>/2022/06/02/0027/</url>
+    <content><![CDATA[<p><em>作者:Xinzhu Bei, Yanchao Yang, Stefano Soatto</em><br><em>机构: UCLA + stanford</em><br><em>发表: CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一个架构，通过显式建模不遮挡和捕捉视频中的语义一致的动态区域的演变来预测视频帧。场景由layout(semantic map)和motion的optical flow构成，通过预测并融合二者context，来生成未来的layout和motion.scene的外表从过去帧和预测的运动在共视区域生成，被遮挡的地方使用content-aware inpainting技术，使用 预测的layout生成。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>Video Prediction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0028 AutoRF:Learning 3D Object Radiance Fields from Single View Observations</title>
+    <url>/2022/06/02/0028/</url>
+    <content><![CDATA[<p><em>作者:Norman Müller, Andrea Simonelli, Lorenzo Porzi, Samuel Rota Bulò, Matthias Nießner1 Peter Kontschieder</em><br><em>机构:TUM， Meta</em><br><em>发表:CVPR 2022</em></p>
+<p><strong>Abstract</strong><br>我们介绍了AutoRF，一个学习3D物体表示的新方法，特点是每个物体在training的时候只被观察一次。这种设定与现有的工作形成鲜明对比，它们往往需要使用显式先验或者需要完美的pixellevel的标注。为了解决这个有挑战的setting，我们提出学习正则化，object-centric代表，它们的embedding描述并且结构了shape， appearance， 和pose。每一个encoding提供了对象的compact的信息，这些可以被decode成一个新的视角。我们更进一步提升了test时的重建质量，通过优化shape和appearance，通过将representation和input的image紧密fit在一起。在一系列实验中，我们展示了我们的方法可以很好地生成未见过的物体，甚至可以across不同的dataset。实验在nuScenes，KITTI，和Mapillary Metropolis上。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li><p>关注的挑战问题是，如何推断3Dobject 信息，从单张图像。信息包括shape，pose等。</p>
+</li>
+<li><p>encoder将实际情况分解为shape和appearance的两个向量。decoder将这两个向量合成为RF。</p>
+</li>
+<li><p>融合了3Ddetection，和实例/全景分割算法，使用3D bbox和2D全景分割mask。训练时使用3Ddetection提供了pose信息，segmentation获取了前景像素，并且可以处理遮挡问题。测试时，我们使用photometric loss来对齐两种representation进行优化。可以使用这种不完美的标注进行学习。</p>
+</li>
+<li><p>这个框架可以学习强大的隐式先验，可以泛化到不同的数据集。</p>
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>nerf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0029 Neural Radiance Flow for 4D View Synthesis and Video Processing</title>
+    <url>/2022/06/02/0029/</url>
+    <content><![CDATA[<p><em>作者:Yilun Du, Yinan Zhang, Hong-Xing Yu, Joshua B. Tenenbaum, Jiajun Wu</em><br><em>机构:MIT stanford</em><br><em>发表:ICCV 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种方法，NeRFlow，来从一组RGB图像中学习4D时空动态场景表示。方法的关键是使用神经隐式表达来捕捉3D场景。为了保持不同模态中的一致性，我们的表示能够在不同的动态场景中进行多视图渲染，包含浇水,机器人交互和真实图像，超过了SOTA的时空视角合成。我们的方法甚至可以仅在单个图像中进行工作。我们更进一步证明了这种学习的表示可以作为隐式场景先验，实现video处理任务（超分辨率，去噪等），不需要别的监督。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>学习一种动态场景表示，制定了一个Radiance Fields， and Flow Fields， 维持外观，密度和运动的时间一致性。</li>
+<li>6D 外观（x,y,z,t,theta,phi）, 4D （xyzt）flow function。两个模块联合学习。</li>
+<li>挑战的场景：流体力学倾倒，机器人从远到近，具有透明物体的复杂真实场景，人体动作。实验表明，可以生成高质量4D视图合成。</li>
+<li>作为一种动态场景先验，可以直接进行视频去噪，和超分辨率等任务，不需要任何额外监督。</li>
+<li>只用一台相机。</li>
+<li>给定一组有限的图像观察和相机位姿
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>nerf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0030 Space-time Neural Irradiance Fields for Free-Viewpoint Video</title>
+    <url>/2022/06/02/0030/</url>
+    <content><![CDATA[<p><em>作者:Wenqi Xian, Jia-Bin Huang, Johannes Kopf, Changil Kim</em><br><em>机构:Cornell Tech, Virginia Tech, Facebook</em><br><em>发表:CVPR 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出了一个方法可以学习时空NeRF从video中学习动态场景。我们的学习表示可以从任意视角渲染输入的video。我们的方法构建在隐式表达的最新进展上。从单个视频中学习时空辐射场是困难的一件事，因为在一个时刻只有一帧。场景的3D几何信息可以通过多种方式表达，因为不同的几何（运动）可以用不同的appearance解释，反之亦然。我们通过从视频深度估计的方法估计场景深度，来限制动态场景表示的随时间变化的几何图形。将单个帧的内容聚合到单个全局表示中，从而解决了模糊性。我们提供广泛的定量评估并展示了自由视角渲染结果。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>NeRF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0031 Efficient and information-preserving future frame prediction and beyond</title>
+    <url>/2022/06/02/0031/</url>
+    <content><![CDATA[<p><em>作者:Wei Yu, Yichao Lu, Steve Easterbrook, Sanja Fidler</em><br><em>机构:University of Toronto + NVIDIA</em><br><em>发表:ICLR 2020</em></p>
+<p><strong>Abstract</strong><br>resolution-preserving块是视频预测中最大限度地保留信息的一种常见做法，但是它们的高内存消耗限制了它们的应用场景。我们提出了CrevNet，这是一个条件可逆网络，可以使用可逆架构来构建 bijective two-way 自动编码器及其互补的循环预测器。我们的模型在特征提取的过程中具有理论上的可保证性，即在特征提取中没有信息丢失，内存消耗和计算效率都大大降低。我们模型的轻量级特性使我们能够在不考虑内存瓶颈的情况下合并3D卷积，从而增强模型 捕获短期和长期的时间依赖性。我们提出的方法在moving MNIST，Traffic4cast和KITTI上最先进的结果。我们通过利用其学习特征在KITTI上进行目标检测，进一步证明了我们自监督学习方法的可迁移性。我们的竞争结果表明使用CrevNet作为pre-training策略来指导下游任务的潜力。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>video prediction</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0032 Weakly Supervised Learning of Rigid 3D Scene Flow</title>
+    <url>/2022/06/02/0032/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong><br>我们提出了一种data-driven的scene flow estimation算法，探索了3Dscene 观测可以被解释为一组agent作为刚体进行移动。我们算法的关键是与其他3D任务进行结合，设计了深度架构可以从object-level对3D scene flow 进行理解。这种物体级抽象使我们放松了对稠密场景流监督的需求，因为有了背景分割和egomotion标注。我们mild 的监督要求，可以使我们的方法非常适合最近发布的海量自动驾驶数据集，这些数据集不包含场景流注释。作为输出，我们的模型提供了低纬度的线索，比如pointwise flow，和高纬度的线索，比如刚性物体水平的整体场景理解。我们更进一步提出了测试时的优化，优化了预测的刚性scene flow。我们展示了我们模型的效率和泛化能力，在四个不同的自动驾驶数据集上。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>scene flow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0033 Is Pseudo-Lidar needed for Monocular 3D Object detection?</title>
+    <url>/2022/06/02/0033/</url>
+    <content><![CDATA[<p><em>作者:Dennis Park, Rares , Ambrus, Vitor Guizilini, Jie Li, Adrien Gaidon</em><br><em>机构:Toyota</em><br><em>发表:ICCV 2021</em></p>
+<p><strong>Abstract</strong><br>最近单目3D detection的进展利用单目深度估计来生成点云，将camera变成伪激光。这种两阶段的detector随中间深度估计的网络准确性的提高而提高，而这个深度估计的网络可以通过大规模自监督学习来提高。但是它们比端到端的方法更容易overfit，并且更复杂，与lidarbased的detector的gap仍然很大。在这项工作中，我们提出了一个端到端，单阶段，单目3D目标检测，DD3D，可以受益于depth pre-training，像pseudo-lidar的方法，但是没有它们的限制。我们的架构被设计的高效的information transfer，在深度估计和3D detection，允许我们使用大规模无标注的数据。我们的方法达到了SOTA，在两个benchmark上。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<img src="/2022/06/02/0033/1.png" class>
+<img src="/2022/06/02/0033/2.png" class>
+<img src="/2022/06/02/0033/3.png" class>
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+        <tag>detection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>34</title>
+    <url>/2022/06/02/0034/</url>
     <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
 <p><strong>Abstract</strong></p>
 <span id="more"></span>
@@ -489,8 +848,108 @@
       </tags>
   </entry>
   <entry>
-    <title>20 NICE-SLAM</title>
-    <url>/2022/06/01/0020/</url>
+    <title>35</title>
+    <url>/2022/06/02/0035/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>36</title>
+    <url>/2022/06/02/0036/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>37</title>
+    <url>/2022/06/02/0037/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>38</title>
+    <url>/2022/06/02/0038/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>39</title>
+    <url>/2022/06/02/0039/</url>
+    <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
+<p><strong>Abstract</strong></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+
+
+
+
+]]></content>
+      <categories>
+        <category>一分钟</category>
+      </categories>
+      <tags>
+        <tag>一分钟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>40</title>
+    <url>/2022/06/02/0040/</url>
     <content><![CDATA[<p><em>作者:</em><br><em>机构:</em><br><em>发表:</em></p>
 <p><strong>Abstract</strong></p>
 <span id="more"></span>
@@ -1061,6 +1520,33 @@
       </tags>
   </entry>
   <entry>
+    <title>0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</title>
+    <url>/2021/05/11/0511/</url>
+    <content><![CDATA[<p><em>作者:Yachen Zhu, Yanyang Ma, Long Chen, Cong Liu, Maosheng Ye, and Lingxi Li</em><br><em>机构:SYSU</em><br><em>发表:IROS 2020</em></p>
+<p><strong>Abstract</strong><br>针对闭环检测任务，point-level的方法一般不是很稳定。本文提出了一种semantic-level的方法：GOSMatch，来提供更可靠的重定位。我们利用一种新的从语义对象的空间关系中生成的描述子，来描述数据并进行数据匹配。我们还提出了一种由粗到细的策略，来高效的搜索闭环。除此之外，在检测到闭环之后GOSMatch可以输出一个准确的6自由度的初始位姿估计。最后，在KITTI上进行了实验。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>语义分割使用rangenet++；</li>
+<li>题目中graph of semantic的含义为，将物体作为节点，分为三类（树，车辆，电线杆）；边分为六类（车车，树树，杆杆，车树，树杆，杆车）；（见图1）</li>
+<li>全局描述子（graph descriptor）为上述六种边组成的直方图。比如A类边，长度范围是[l_min,l_max],将其分为b个区间，每个区间长度为（l_max - l_min）/b, 统计落在这个区间的边的个数。（见图1）</li>
+<li>局部描述子（vertex descriptors）也是直方图，不过是对一个点所连的边进行描述。（见图1）</li>
+</ol>
+<p><strong>主要贡献：</strong><br>1.一个物体级的方法来进行重定位；<br>2.一种基于物体空间位置的全局描述子和局部描述子，可以进行两步分层搜索.</p>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9341299/">https://ieeexplore.ieee.org/document/9341299/</a><br><strong>开源代码：</strong><a href="https://github.com/zhuyachen/GOSMatch%EF%BC%88matlab%E5%AE%9E%E7%8E%B0%EF%BC%89">https://github.com/zhuyachen/GOSMatch（matlab实现）</a></p>
+<img src="/2021/05/11/0511/1.png" class>
+<img src="/2021/05/11/0511/2.png" class>
+<img src="/2021/05/11/0511/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>semantic</tag>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0510 Distributed Client-Server Optimization for SLAM with Limited On-Device Resources</title>
     <url>/2021/05/10/0510/</url>
     <content><![CDATA[<p><em>作者:Yetong Zhang, Ming Hsiao, Yipu Zhao, Jing Dong, and Jakob J. Enge</em><br><em>机构:Facebook Reality Labs Research</em><br><em>发表:ICRA 2021</em></p>
@@ -1092,33 +1578,6 @@
         <tag>每日论文分享</tag>
         <tag>distribute</tag>
         <tag>graph</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0511 GOSMatch:Graph-of-Semantics Matching for Detecting Loop Closures in 3D LiDAR data</title>
-    <url>/2021/05/11/0511/</url>
-    <content><![CDATA[<p><em>作者:Yachen Zhu, Yanyang Ma, Long Chen, Cong Liu, Maosheng Ye, and Lingxi Li</em><br><em>机构:SYSU</em><br><em>发表:IROS 2020</em></p>
-<p><strong>Abstract</strong><br>针对闭环检测任务，point-level的方法一般不是很稳定。本文提出了一种semantic-level的方法：GOSMatch，来提供更可靠的重定位。我们利用一种新的从语义对象的空间关系中生成的描述子，来描述数据并进行数据匹配。我们还提出了一种由粗到细的策略，来高效的搜索闭环。除此之外，在检测到闭环之后GOSMatch可以输出一个准确的6自由度的初始位姿估计。最后，在KITTI上进行了实验。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>语义分割使用rangenet++；</li>
-<li>题目中graph of semantic的含义为，将物体作为节点，分为三类（树，车辆，电线杆）；边分为六类（车车，树树，杆杆，车树，树杆，杆车）；（见图1）</li>
-<li>全局描述子（graph descriptor）为上述六种边组成的直方图。比如A类边，长度范围是[l_min,l_max],将其分为b个区间，每个区间长度为（l_max - l_min）/b, 统计落在这个区间的边的个数。（见图1）</li>
-<li>局部描述子（vertex descriptors）也是直方图，不过是对一个点所连的边进行描述。（见图1）</li>
-</ol>
-<p><strong>主要贡献：</strong><br>1.一个物体级的方法来进行重定位；<br>2.一种基于物体空间位置的全局描述子和局部描述子，可以进行两步分层搜索.</p>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9341299/">https://ieeexplore.ieee.org/document/9341299/</a><br><strong>开源代码：</strong><a href="https://github.com/zhuyachen/GOSMatch%EF%BC%88matlab%E5%AE%9E%E7%8E%B0%EF%BC%89">https://github.com/zhuyachen/GOSMatch（matlab实现）</a></p>
-<img src="/2021/05/11/0511/1.png" class>
-<img src="/2021/05/11/0511/2.png" class>
-<img src="/2021/05/11/0511/3.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>semantic</tag>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
       </tags>
   </entry>
   <entry>
@@ -1188,6 +1647,38 @@
       </tags>
   </entry>
   <entry>
+    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
+    <url>/2021/05/17/0516/</url>
+    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
+<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
+<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
+<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
+<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
+<li>一个利用上述描述子进行重定位的框架。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
+<img src="/2021/05/17/0516/1.png" class>
+<img src="/2021/05/17/0516/2.png" class>
+<img src="/2021/05/17/0516/3.png" class>
+<img src="/2021/05/17/0516/4.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>localization</tag>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0518 RadarLoc:Learning to Relocalize in FMCW Radar</title>
     <url>/2021/05/18/0518/</url>
     <content><![CDATA[<p><em>作者:Wei Wang, Pedro P. B. de Gusmão, Bo Yang, Andrew Markham, and Niki Trigoni</em><br><em>机构:Oxford</em><br><em>发表:ICRA 2021</em></p>
@@ -1217,41 +1708,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>localization</tag>
         <tag>每日论文分享</tag>
         <tag>radar</tag>
-        <tag>localization</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0516 Place Recognition in Forests With Urquhart Tessellations</title>
-    <url>/2021/05/17/0516/</url>
-    <content><![CDATA[<p><em>作者:Guilherme V. Nardari, Avraham Cohen, Steven W. Chen, Xu Liu, Vaibhav Arcot, Roseli A. F. Romero, and Vijay Kumar</em><br><em>机构:University of São Paulo + University of Pennsylvania</em><br><em>发表:ICRA 2021 RA-L 2021</em></p>
-<p><strong>Abstract</strong><br>在本文中，我们提出了一个基于Urquhart 镶嵌的新的描述子，由森林中树的位置衍生出来的。我们提出一个框架使用这种描述子，在重叠和噪声影响下进行重定位。我们在仿真和真实场景中的松树林进行了无人机上的闭环检测实验，展现了我们的鲁棒性和准确度。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>森林中进行重定位的难点：GPS不可用，区域很广；场景很重复，landmark都是一样的，唯一的区别是其在地图中的位置不同；</li>
-<li>解决办法为用图的形式表示这种场景，图的节点为landmark，点之间的连线可以组成一个个的多边形；</li>
-<li>题目中tessellation的意思为：一组没有间隔且没有重叠，可以覆盖一个凸包的多边形；</li>
-<li>提取多层次的描述子：1.使用所有边 2.使用Delaunay triangulation划分后的三角形的边 3.Urquhart tessellation后的边。</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>提出一种新的描述子，能够处理大规模的重复环境，并且对噪声很鲁棒；</li>
-<li>一个利用上述描述子进行重定位的框架。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://ieeexplore.ieee.org/document/9264665/">https://ieeexplore.ieee.org/document/9264665/</a></p>
-<img src="/2021/05/17/0516/1.png" class>
-<img src="/2021/05/17/0516/2.png" class>
-<img src="/2021/05/17/0516/3.png" class>
-<img src="/2021/05/17/0516/4.png" class>]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -1334,10 +1793,10 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>localization</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
         <tag>visual</tag>
-        <tag>localization</tag>
       </tags>
   </entry>
   <entry>
@@ -1408,9 +1867,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>detection</tag>
         <tag>每日论文分享</tag>
         <tag>visual</tag>
-        <tag>detection</tag>
       </tags>
   </entry>
   <entry>
@@ -1442,6 +1901,43 @@
         <tag>每日论文分享</tag>
         <tag>RGB-D</tag>
         <tag>开源代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0527 MULLS:Versatile LiDAR SLAM via Multi-metric Linear Least Square</title>
+    <url>/2021/05/29/0527/</url>
+    <content><![CDATA[<p><em>作者: Yue Pan , Pengchuan Xiao, Yujie He, Zhenlei Shao  and Zesong Li</em><br><em>机构: ethz，HESAI</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>本文关注在自动驾驶场景的激光SLAM。我们提出了MULLS，一个高效，低漂移的通用激光SLAM系统。前端使用双阈值地面滤波和PCA，对点云进行了粗糙的分类（地面，立面，屋顶，立柱，横梁，顶点等）。随后利用提出的多度量线性最小二乘迭代最近点算法，进行scan-to-submap的配准。每一类中的点到点，点到线，点到面的误差被联合优化来估计位姿变化。静态特征点被添加到局部地图，来保持地图更新。在后端，使用历史submap进行分层位姿图优化，从而减小航位推算产生的漂移。我们采取了7种激光雷达，超过100k帧的数据集，进行了大量的实验。于此同时，在KITTI上，本文提出的方法目前排名第13.</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>7种激光雷达为不同线数的机械式雷达，具体见图9；</li>
+<li>题目中的通用指的是不依赖激光雷达的特性，不必把点云变成环或者深度图像的形式，这样可以保证不丢失信息；</li>
+<li>配准分为两种：local 和 global。区别为前者需要提供良好的初值，以避免陷入局部最优，本文使用本文提出的MULLS-ICP；后者没有初值，文中提到的方法有RANSEC，分支定界法（BnB），TEASER等，本文使用TEASER。</li>
+<li>特征提取见图2，误差度量见图3，4，前端后端框图见图5，图优化见图6，实验结果见图7，8。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>一个通用的激光SLAM系统；</li>
+<li>一种高效的局部配准算法MULLS-ICP，实现了粗分类几何特征点的多种误差度量的线性最小二乘优化。</li>
+</ol>
+<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03771.pdf">https://arxiv.org/pdf/2102.03771.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/YuePanEdward/MULLS">https://github.com/YuePanEdward/MULLS</a></p>
+<img src="/2021/05/29/0527/1.png" class>
+<img src="/2021/05/29/0527/2.png" class>
+<img src="/2021/05/29/0527/3.png" class>
+<img src="/2021/05/29/0527/4.png" class>
+<img src="/2021/05/29/0527/5.png" class>
+<img src="/2021/05/29/0527/6.png" class>
+<img src="/2021/05/29/0527/7.png" class>
+<img src="/2021/05/29/0527/8.png" class>
+<img src="/2021/05/29/0527/9.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
       </tags>
   </entry>
   <entry>
@@ -1538,43 +2034,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0527 MULLS:Versatile LiDAR SLAM via Multi-metric Linear Least Square</title>
-    <url>/2021/05/29/0527/</url>
-    <content><![CDATA[<p><em>作者: Yue Pan , Pengchuan Xiao, Yujie He, Zhenlei Shao  and Zesong Li</em><br><em>机构: ethz，HESAI</em><br><em>发表: ICRA 2021</em></p>
-<p><strong>Abstract</strong><br>本文关注在自动驾驶场景的激光SLAM。我们提出了MULLS，一个高效，低漂移的通用激光SLAM系统。前端使用双阈值地面滤波和PCA，对点云进行了粗糙的分类（地面，立面，屋顶，立柱，横梁，顶点等）。随后利用提出的多度量线性最小二乘迭代最近点算法，进行scan-to-submap的配准。每一类中的点到点，点到线，点到面的误差被联合优化来估计位姿变化。静态特征点被添加到局部地图，来保持地图更新。在后端，使用历史submap进行分层位姿图优化，从而减小航位推算产生的漂移。我们采取了7种激光雷达，超过100k帧的数据集，进行了大量的实验。于此同时，在KITTI上，本文提出的方法目前排名第13.</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>7种激光雷达为不同线数的机械式雷达，具体见图9；</li>
-<li>题目中的通用指的是不依赖激光雷达的特性，不必把点云变成环或者深度图像的形式，这样可以保证不丢失信息；</li>
-<li>配准分为两种：local 和 global。区别为前者需要提供良好的初值，以避免陷入局部最优，本文使用本文提出的MULLS-ICP；后者没有初值，文中提到的方法有RANSEC，分支定界法（BnB），TEASER等，本文使用TEASER。</li>
-<li>特征提取见图2，误差度量见图3，4，前端后端框图见图5，图优化见图6，实验结果见图7，8。</li>
-</ol>
-<p><strong>主要贡献：</strong></p>
-<ol>
-<li>一个通用的激光SLAM系统；</li>
-<li>一种高效的局部配准算法MULLS-ICP，实现了粗分类几何特征点的多种误差度量的线性最小二乘优化。</li>
-</ol>
-<p><strong>论文地址：</strong><a href="https://arxiv.org/pdf/2102.03771.pdf">https://arxiv.org/pdf/2102.03771.pdf</a><br><strong>开源代码：</strong><a href="https://github.com/YuePanEdward/MULLS">https://github.com/YuePanEdward/MULLS</a></p>
-<img src="/2021/05/29/0527/1.png" class>
-<img src="/2021/05/29/0527/2.png" class>
-<img src="/2021/05/29/0527/3.png" class>
-<img src="/2021/05/29/0527/4.png" class>
-<img src="/2021/05/29/0527/5.png" class>
-<img src="/2021/05/29/0527/6.png" class>
-<img src="/2021/05/29/0527/7.png" class>
-<img src="/2021/05/29/0527/8.png" class>
-<img src="/2021/05/29/0527/9.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>0607：Range Image-based LiDAR Localization for Autonomous Vehicles</title>
     <url>/2021/06/10/0607/</url>
     <content><![CDATA[<p>*作者:Xieyuanli Chen, Ignacio Vizzo, Thomas Läbe, Jens Behley, Cyrill *<br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
@@ -1598,41 +2057,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
-        <tag>每日论文分享</tag>
-        <tag>LiDAR</tag>
         <tag>localization</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
-    <url>/2021/11/04/0609/</url>
-    <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
-<p>注：本篇文章看起来像是昨日文章的前置工作。<br><strong>Abstract</strong><br>在本文中，我们提出了一种激光SLAM的新的方法，专注于提高建图的精度，并于此同时估计位姿。我们使用frame-to-mesh的ICP，并且通过泊松表面重建获得triangle mesh来表示地图。我们通过滑动窗口的方式进行表面重建，这样我们获得了准确的局部地图，很合适进行配准，并且可以组装进全局地图。这让我们可以比surfle或TSDF等形式的3D地图展示更多的几何细节。我们的实验定性并定量地展示了， 我们的地图有着比别的地图更高的几何准确性。我们还表明，我们的地图是紧凑的，并且可以通过一种新的方法用于雷达里程计。</p>
-<span id="more"></span>
-<p><strong>一些信息：</strong></p>
-<ol>
-<li>所提出的地图的好处：</li>
-<li>对环境几何信息更精确的表示；</li>
-<li>更高的储存效率；</li>
-<li>新的frame-mesh的配准算法。</li>
-<li>对于每次扫描进行3个步骤：计算每个点的法线；将scan配准到local map（见图2）；将配准好的scan融合进global map。</li>
-<li>文章还进行了mesh post-processing，见图3。具体的，去除了度数较少的顶点（意味着不是很可靠）。</li>
-</ol>
-<p><strong>论文地址：<a href="http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf">http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/puma">https://github.com/PRBonn/puma</a></strong><br><strong>视频资料：<a href="https://www.bilibili.com/video/BV1R5411M75t">https://www.bilibili.com/video/BV1R5411M75t</a></strong></p>
-<img src="/2021/11/04/0609/1.png" class>
-<img src="/2021/11/04/0609/2.png" class>
-<img src="/2021/11/04/0609/3.png" class>
-<img src="/2021/11/04/0609/4.png" class>
-<img src="/2021/11/04/0609/5.png" class>
-<img src="/2021/11/04/0609/6.png" class>
-]]></content>
-      <categories>
-        <category>每日论文分享</category>
-      </categories>
-      <tags>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>开源代码</tag>
       </tags>
   </entry>
   <entry>
@@ -1665,9 +2092,9 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>localization</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>localization</tag>
         <tag>开源代码</tag>
       </tags>
   </entry>
@@ -1696,9 +2123,41 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
+        <tag>localization</tag>
         <tag>每日论文分享</tag>
         <tag>LiDAR</tag>
-        <tag>localization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0609：Poisson Surface Reconstruction for LiDAR Odometry and Mapping</title>
+    <url>/2021/11/04/0609/</url>
+    <content><![CDATA[<p><em>作者:I. Vizzo， X. Chen， N. Chebrolu， J. Behley and C. Stachniss</em><br><em>机构:University of Bonn</em><br><em>发表:ICRA 2021</em></p>
+<p>注：本篇文章看起来像是昨日文章的前置工作。<br><strong>Abstract</strong><br>在本文中，我们提出了一种激光SLAM的新的方法，专注于提高建图的精度，并于此同时估计位姿。我们使用frame-to-mesh的ICP，并且通过泊松表面重建获得triangle mesh来表示地图。我们通过滑动窗口的方式进行表面重建，这样我们获得了准确的局部地图，很合适进行配准，并且可以组装进全局地图。这让我们可以比surfle或TSDF等形式的3D地图展示更多的几何细节。我们的实验定性并定量地展示了， 我们的地图有着比别的地图更高的几何准确性。我们还表明，我们的地图是紧凑的，并且可以通过一种新的方法用于雷达里程计。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>所提出的地图的好处：</li>
+<li>对环境几何信息更精确的表示；</li>
+<li>更高的储存效率；</li>
+<li>新的frame-mesh的配准算法。</li>
+<li>对于每次扫描进行3个步骤：计算每个点的法线；将scan配准到local map（见图2）；将配准好的scan融合进global map。</li>
+<li>文章还进行了mesh post-processing，见图3。具体的，去除了度数较少的顶点（意味着不是很可靠）。</li>
+</ol>
+<p><strong>论文地址：<a href="http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf">http://www.ipb.uni-bonn.de/wp-content/papercite-data/pdf/vizzo2021icra.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/PRBonn/puma">https://github.com/PRBonn/puma</a></strong><br><strong>视频资料：<a href="https://www.bilibili.com/video/BV1R5411M75t">https://www.bilibili.com/video/BV1R5411M75t</a></strong></p>
+<img src="/2021/11/04/0609/1.png" class>
+<img src="/2021/11/04/0609/2.png" class>
+<img src="/2021/11/04/0609/3.png" class>
+<img src="/2021/11/04/0609/4.png" class>
+<img src="/2021/11/04/0609/5.png" class>
+<img src="/2021/11/04/0609/6.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>LiDAR</tag>
+        <tag>开源代码</tag>
       </tags>
   </entry>
   <entry>
@@ -1906,10 +2365,101 @@
       </tags>
   </entry>
   <entry>
-    <title>20220527 PanopticFusion:Online Volumetric Semantic Mapping at the Level of Stuff and Things</title>
+    <title>20220527 SP-GAN:Sphere-Guided 3D Shape Generation and Manipulation</title>
     <url>/2022/05/27/20220527/</url>
-    <content><![CDATA[<p><em>作者:Gaku Narita, Takashi Seno, Tomoya Ishikawa, Yohsuke Kaji</em><br><em>机构:sony</em><br><em>发表:IROS 2019</em></p>
-<p><strong>Abstract</strong></p>
+    <content><![CDATA[<p><em>作者:RUIHUI LI, XIANZHI LI, KA-HEI HUI, and CHI-WING FU</em><br><em>机构:CUHK</em><br><em>发表:TOG 2021</em></p>
+<p><strong>Abstract</strong><br>我们提出SP-GAN，一个新的无监督球体引导的生成模型，来直接合成用点云表示的3D形状。与已有的模型相比，SP-GAN可以合成不同的高质量的形状，同时拥有好的细节，并且对局部可以控制操作其形状（训练时未对局部进行标注）。在SP-GAN中，我们使用一个全局prior（一个均匀球体）来引导生成过程，并为每一个点绑定一个局部prior来形成局部细节。我们设计中的核心观点是将复杂的3D形状生成任务分解为全局形状建模和局部细节调整（local style），简化了学习过程并且提高了生成质量。同时，我们的构建了球体到任意形状的隐藏稠密对应关系，使得structure-aware shape操作，如部分编辑，部分插值和多形状拼接等，实验从定性定量两方面，证明了我们的算法。</p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>相关工作：<ol>
+<li>StructureNet，PQ-NET，将完整个体分解为部分，然后学习如何组合成为新的形状。这种方式的缺点为需要零件级的标注。</li>
+<li>直接用深度生成模型，自回归：PointGrow；flowbased：SoftFlow，（Discrete point flow networks for efficient point cloud generation），PointFlow；GAN:Learning representations and generative models for 3D point clouds, Progressive point cloud deconvolution generation network,3D point cloud generative adversarial network based on tree structured graph convolutions</li>
+<li>Deformed Implicit Field: Modeling 3D Shapes with Learned Dense Correspondence</li>
+</ol>
+</li>
+<li>本文的主要特色为：细节好，可部分编辑，可插值<ol>
+<li>输入为两个：一个点云球（提供一个对形状的公平指导）；一组局部向量（random latent code），来提供局部细节。</li>
+<li>具体操作为，一个点带着一个latent code，每个点适应空间变化，移动到应该在的位置。</li>
+<li>球体相当于提供了一块画布，在画布的不同位置作画，相当于对操作了对应的部分。球体与生成的形状之间有着隐含的对应关系。</li>
+<li>由于部件之间是连接的，所以改变一个部件会导致别的部件的微小变化，以兼容。</li>
+<li>以球体作为代理，可以实现形状到形状或部件到部件的插值变形。</li>
+</ol>
+</li>
+<li>生成器，如图4所示：</li>
+<li>输入球S（N*3）</li>
+<li>graph attention module:用来提取一个point-wise特征$F_1^G$（N*64）。结构如图6所示，以DGCNN为基础，并进一步提取K近邻的关系。</li>
+<li>Feature Embedding: 于此同时，对S+z,使用MLP 提取feature$F^E$（N*128）.</li>
+<li>Style Embedding: 对第3步中的$F^E$变为，$Y_1 = (Y_1^s, Y_1^b) (N*64 *2)$, 分别负责scale和bias。</li>
+<li>Adaptive Instance Normalization: 受到风格迁移工作的启发，设计本模块来对第二步中提取的特征的平均和方差进行modulate。公式如图5所示。</li>
+<li>2345重复一遍，来enrich feature embedding。</li>
+<li>PointNet：对最后的特征$F_2^A$使用PointNet生成点云。</li>
+<li>判别器，如图7所示：<ol>
+<li>为了对细节进行更多的判断，输出了一个pointlevel的分数。</li>
+<li>使用pointnet为backbone。</li>
+</ol>
+</li>
+</ol>
+<p><strong>论文地址：<a href="https://liruihui.github.io/publication/SP-GAN/">https://liruihui.github.io/publication/SP-GAN/</a></strong><br><strong>开源代码：<a href="https://github.com/liruihui/SP-GAN">https://github.com/liruihui/SP-GAN</a></strong></p>
+<img src="/2022/05/27/20220527/1.png" class>
+<img src="/2022/05/27/20220527/2.png" class>
+<img src="/2022/05/27/20220527/3.png" class>
+<img src="/2022/05/27/20220527/4.png" class>
+<img src="/2022/05/27/20220527/5.png" class>
+<img src="/2022/05/27/20220527/6.png" class>
+<img src="/2022/05/27/20220527/7.png" class>
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>Generation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220613 TSDF++:A Multi-Object Formulation for Dynamic Object Tracking and Reconstruction</title>
+    <url>/2022/06/13/20220613/</url>
+    <content><![CDATA[<p><em>作者:Margarita Grinvald, Federico Tombari, Roland Siegwart, and Juan Nieto</em><br><em>机构: ETHZ</em><br><em>发表: ICRA 2021</em></p>
+<p><strong>Abstract</strong><br>现有的对动态物体进行处理的工作大多对独立的物体存储在分开的volume中，并对它们进行跟踪。这种方法在面对大量对象时，不易扩展，并且需要明确的遮挡处理策略。我们提出了一种地图表示，他允许场景和动态物体一起存储。为此我们引入了一种多对象TSDF公式，可以在给定位置对多个物体对象进行编码。在一个多动态物体跟踪和重建的场景中,我们的表示允许维持高精确度的表面重建，即使它们被其他物体短暂遮挡。这种方法被成为TSDF++。代码进行了开源<a href="https://github.com/ethz-asl/tsdf-plusplus%E3%80%82">https://github.com/ethz-asl/tsdf-plusplus。</a></p>
+<span id="more"></span>
+
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>使用已知位置的RGBD相机</li>
+<li>核心思想为，在每个voxel中分层存储tsdf值，保存一个目前的表面，保存一个被遮挡的表面。</li>
+<li>步骤为 对象分割；数据关联；姿态追踪；地图更新</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>一个支持多动态物体的TSDF形式</li>
+<li>一个CPU实时的多动态物体跟踪和重建</li>
+<li>一个新的地图更新策略</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/pdf/2105.07468.pdf">https://arxiv.org/pdf/2105.07468.pdf</a></strong><br><strong>开源代码：<a href="https://github.com/ethz-asl/tsdf-plusplus">https://github.com/ethz-asl/tsdf-plusplus</a></strong></p>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>Dynamic</tag>
+        <tag>每日论文分享</tag>
+        <tag>rgbd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220617 Voxblox:Incremental 3D Euclidean Signed Distance Fields for</title>
+    <url>/2022/06/17/20220617/</url>
+    <content><![CDATA[<p><em>作者:Helen Oleynikova, Zachary Taylor, Marius Fehr, Roland Siegwart, and Juan Nieto</em><br><em>机构:ETHZ</em><br><em>发表:IROS 2017</em></p>
+<p><strong>Abstract</strong><br>在非结构化、未经探索的环境中运行的微型飞行器 (MAV) 需要快速灵活的本地规划，当探索地图的新部分时可以重新规划。轨迹优化方法可以满足这些需求，但需要障碍物距离信息，这可以由欧几里得符号距离场 (ESDF) 给出。我们提出了一种从截断有符号距离场 (TSDF) 增量构建 ESDF 的方法，TSDF 是计算机图形和视觉中使用的一种常见的隐式表面表示。 TSDF 可以快速构建和消除许多观测中的传感器噪声，并且旨在生成表面网格。我们展示了我们可以比 Octomaps 更快地构建 TSDF，并且从 TSDF 构建 ESDF 比占用地图更准确。我们的完整系统称为 voxblox，可作为开源软件使用，并在单个 CPU 内核上实时运行。我们在 MAV 上验证我们的方法，通过使用我们的系统和轨迹优化本地规划器，完全在机上和实时。</p>
 <span id="more"></span>
 <p><strong>一些信息：</strong></p>
 <p><strong>主要贡献：</strong></p>
@@ -1926,8 +2476,37 @@
         <category>每日论文分享</category>
       </categories>
       <tags>
-        <tag>semantic</tag>
         <tag>每日论文分享</tag>
+        <tag>tsdf</tag>
+        <tag>mesh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220624 Video Extrapolation in Space and Time</title>
+    <url>/2022/06/24/20220624/</url>
+    <content><![CDATA[<p><em>作者:Yunzhi Zhang and Jiajun Wu</em><br><em>机构:stanford</em><br><em>发表:arxiv</em></p>
+<p><strong>Abstract</strong><br>新视角合成（NVS）和视频预测（VP）通常被认为是不相交的任务。但是，它们都可以看做是观察时空世界的方式。NVS目的为从一个新的视角合成场景，VP目的是在一个新的时间看到场景。这两个任务提供了互补的信号来获得场景表示，视角在空间中的移动意味着深度，时间观察意味着相机和其他物体的运动。受到这些观察的启发，我们提出研究VEST问题，即视频时空外推。现存的方法只可以解决其中一个问题，我们提出了一个模型，利用自监督和两个任务的补全线索。实验证明了我们的方法超越了SOTA的NVS和VP方法在室内和室外的真实数据集。</p>
+<span id="more"></span>
+<p><strong>一些信息：</strong></p>
+<ol>
+<li>也是MPI流派的NVS方法，区别是从video的时空信息中学习知识。再结合optical-flow-based的VP方法，我们的方法对MPI的每一个平面进行预测运动。</li>
+</ol>
+<p><strong>主要贡献：</strong></p>
+<ol>
+<li>将VEST任务建模为自监督任务，从视频数据中学习广义MPI</li>
+<li>我们实例化了一个模型，来学习时空特征</li>
+<li>在各种数据集上进行了实验</li>
+</ol>
+<p><strong>论文地址：<a href="https://arxiv.org/abs/2205.02084">https://arxiv.org/abs/2205.02084</a></strong></p>
+<img src="/2022/06/24/20220624/1.png" class>
+<img src="/2022/06/24/20220624/2.png" class>
+<img src="/2022/06/24/20220624/3.png" class>]]></content>
+      <categories>
+        <category>每日论文分享</category>
+      </categories>
+      <tags>
+        <tag>每日论文分享</tag>
+        <tag>video</tag>
       </tags>
   </entry>
 </search>
